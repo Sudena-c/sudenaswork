@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
       {/* Landing Text Overlay */}
       <div className="relative z-10 px-6 md:px-12 pb-24 md:pb-0 max-w-5xl">
         <h1 className="text-7xl md:text-[12rem] font-serif font-bold text-white leading-[0.85] tracking-tighter mb-4 opacity-90">
-          Sudena<br/>Chandnani
+          Hi, I am Sudena<br/>Chandnani
         </h1>
         <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
           <p className="text-white/60 text-lg md:text-2xl font-light uppercase tracking-widest max-w-xl">
