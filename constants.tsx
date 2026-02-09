@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
     id: 'p2',
     title: 'Vinyl- A timeless sound',
     category: 'Editorial Design',
-    coverImage: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=1200',
+    coverImage: 'https://i.ibb.co/kpV5gbD/cover-page.jpg',
     shortDescription: 'A minimalist print publication exploring modern typography trends.',
     fullDescription: 'This editorial project focused on the tension between classical serif typefaces and brutalist layout structures.',
     process: [
