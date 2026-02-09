@@ -56,7 +56,7 @@ export const PROJECTS: Project[] = [
     id: 'p3',
     title: 'Creating a Website from scratch',
     category: 'Web Development',
-    coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200',
+    coverImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop',
     shortDescription: 'A high-performance portfolio site for an architectural firm.',
     fullDescription: 'Nexus is a fast, responsive web platform built for high-end architects to showcase large-format photography without compromising on load speed.',
     process: [
@@ -72,7 +72,7 @@ export const PROJECTS: Project[] = [
     id: 'p4',
     title: 'Rayve- an electric car brand',
     category: 'Branding',
-    coverImage: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=1200',
+    coverImage: 'https://i.ibb.co/DHRYgS77/Free-Billboard-Mockup-2nd-draft-blue-copy.jpg',
     shortDescription: 'Brand identity for an organic, sustainable skincare line.',
     fullDescription: 'Bloom needed a visual language that communicated both laboratory precision and botanical origins.',
     process: [
@@ -88,7 +88,7 @@ export const PROJECTS: Project[] = [
     id: 'p5',
     title: 'Rebranding and marketing an existing brand',
     category: 'Digital Marketing',
-    coverImage: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=1200',
+    coverImage: 'https://i.ibb.co/v4hF73HL/Screenshot-2026-01-29-at-11-05-53-AM.png',
     shortDescription: 'Comprehensive social strategy for a global fashion label.',
     fullDescription: 'A data-driven approach to social media storytelling, resulting in a 40% increase in organic engagement.',
     process: [
@@ -104,7 +104,7 @@ export const PROJECTS: Project[] = [
     id: 'p6',
     title: 'Calendar design- based on Warli art',
     category: 'Illustration',
-    coverImage: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=1200',
+    coverImage: 'https://i.ibb.co/zVS4zwpV/Screenshot-2026-01-29-at-11-07-33-AM.png',
     shortDescription: 'A series of digital illustrations imagining futuristic urban landscapes.',
     fullDescription: 'Exploration of light and shadow in a fictional mega-city, blending cyberpunk elements with traditional ink styles.',
     process: [
