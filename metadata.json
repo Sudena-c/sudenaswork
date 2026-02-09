@@ -1,0 +1,7 @@
+{
+  "name": "Sudena Chandnani Portfolio",
+  "description": "A high-end design portfolio for communication design student Sudena Chandnani, featuring filterable projects, interactive case studies, and a unique 'After Hours' section.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
