@@ -4,9 +4,9 @@ import { Project, Interest } from './types';
 export const PROJECTS: Project[] = [
   {
     id: 'p1',
-    title: 'Aura Fitness App',
+    title: 'MealMate',
     category: 'UI/UX',
-    coverImage: 'https://images.unsplash.com/photo-1510070112810-d4e9a46d9e91?auto=format&fit=crop&q=80&w=1200',
+    coverImage: 'https://i.ibb.co/hJjC4PFV/Screenshot-2026-02-06-at-12-28-27-PM.png',
     shortDescription: 'A mindful fitness tracking application focused on holistic wellness.',
     fullDescription: 'Aura is a revolutionary fitness application designed to bridge the gap between physical health and mental well-being. The project involved extensive user research to understand the friction points in existing fitness trackers.',
     process: [
@@ -32,7 +32,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'p2',
-    title: 'Typographic Quarterly',
+    title: 'Vinyl- A timeless sound',
     category: 'Editorial Design',
     coverImage: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=1200',
     shortDescription: 'A minimalist print publication exploring modern typography trends.',
@@ -54,7 +54,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'p3',
-    title: 'Nexus Platform',
+    title: 'Creating a Website from scratch',
     category: 'Web Development',
     coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200',
     shortDescription: 'A high-performance portfolio site for an architectural firm.',
@@ -70,7 +70,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'p4',
-    title: 'Bloom Skincare',
+    title: 'Rayve- an electric car brand',
     category: 'Branding',
     coverImage: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=1200',
     shortDescription: 'Brand identity for an organic, sustainable skincare line.',
@@ -86,7 +86,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'p5',
-    title: 'Social Surge',
+    title: 'Rebranding and marketing an existing brand',
     category: 'Digital Marketing',
     coverImage: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=1200',
     shortDescription: 'Comprehensive social strategy for a global fashion label.',
@@ -102,7 +102,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'p6',
-    title: 'Celestial Cities',
+    title: 'Calendar design- based on Warli art',
     category: 'Illustration',
     coverImage: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=1200',
     shortDescription: 'A series of digital illustrations imagining futuristic urban landscapes.',
