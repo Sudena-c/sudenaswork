@@ -7,7 +7,7 @@ const AfterHours: React.FC = () => {
     <section id="after-hours" className="py-32 relative overflow-hidden bg-light dark:bg-dark">
       {/* Decorative Background Text */}
       <div className="absolute top-0 left-0 w-full opacity-[0.03] select-none pointer-events-none">
-        <h2 className="text-[20rem] font-serif font-bold italic -translate-x-20 -translate-y-20 whitespace-nowrap">EXTRACURRICULAR</h2>
+        <h2 className="text-[20rem] font-serif font-bold italic -translate-x-20 -translate-y-20 whitespace-nowrap">ME</h2>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 mb-24 relative z-10">

@@ -70,18 +70,20 @@ interface ProjectBallProps {
 
 const ProjectBall: React.FC<ProjectBallProps> = ({ project, index, motion }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isShot, setIsShot] = useState(false);
+  const [hasEntered, setHasEntered] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
+        // Once it enters, it stays shot. This prevents the "blinking" glitch.
         if (entry.isIntersecting) {
-          setIsShot(true);
-        } else if (entry.boundingClientRect.top > 0) {
-          setIsShot(false);
+          setHasEntered(true);
         }
       },
-      { threshold: 0.3 }
+      { 
+        threshold: 0.2,
+        rootMargin: "0px 0px -10% 0px" 
+      }
     );
 
     if (containerRef.current) observer.observe(containerRef.current);
@@ -99,7 +101,7 @@ const ProjectBall: React.FC<ProjectBallProps> = ({ project, index, motion }) => 
           relative w-[85vw] md:w-[65vw] lg:w-[50vw] aspect-square
           transition-all duration-[1200ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]
           cursor-pointer group pointer-events-auto overflow-visible
-          ${isShot ? 'translate-x-0 translate-y-0 rotate-0 scale-100 opacity-100' : `${motion.start} opacity-0`}
+          ${hasEntered ? 'translate-x-0 translate-y-0 rotate-0 scale-100 opacity-100' : `${motion.start} opacity-0`}
         `}
       >
         {/* The Liquid Object */}
@@ -107,21 +109,21 @@ const ProjectBall: React.FC<ProjectBallProps> = ({ project, index, motion }) => 
           absolute inset-0 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.4)]
           transition-all duration-1000 group-hover:scale-105 active:scale-95
           ${motion.shape} overflow-hidden bg-zinc-200 dark:bg-zinc-800
-          ${isShot ? 'animate-liquid' : ''}
+          ${hasEntered ? 'animate-liquid' : ''}
         `}>
           <img 
             src={project.coverImage} 
             alt={project.title}
             className={`
               w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110
-              ${isShot ? 'scale-100' : 'scale-150 blur-xl'}
+              ${hasEntered ? 'scale-100' : 'scale-150 blur-xl'}
             `}
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-dark/90 via-dark/20 to-transparent opacity-70 group-hover:opacity-40 transition-opacity"></div>
 
           {/* Liquid Content Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-12">
-            <div className={`transition-all duration-1000 delay-500 transform ${isShot ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
+            <div className={`transition-all duration-1000 delay-500 transform ${hasEntered ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
               <span className="inline-block px-4 py-1 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">
                 {project.category}
               </span>
@@ -140,7 +142,7 @@ const ProjectBall: React.FC<ProjectBallProps> = ({ project, index, motion }) => 
         <div className={`
           absolute -top-6 -left-6 w-24 h-24 rounded-full bg-white dark:bg-zinc-100 flex items-center justify-center 
           shadow-2xl z-20 transition-all duration-1000 delay-700 transform
-          ${isShot ? 'scale-100 rotate-[-15deg] opacity-100' : 'scale-0 rotate-45 opacity-0'}
+          ${hasEntered ? 'scale-100 rotate-[-15deg] opacity-100' : 'scale-0 rotate-45 opacity-0'}
         `}>
           <span className="text-dark font-serif italic font-bold text-3xl tracking-tighter">0{index + 1}</span>
         </div>

@@ -122,19 +122,19 @@ export const INTERESTS: Interest[] = [
   {
     id: 'i1',
     name: 'Aerial',
-    image: 'https://images.unsplash.com/photo-1518131394553-c3574189332e?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co/tTh3XwyJ/Whats-App-Image-2026-02-02-at-19-57-05.jpg',
     description: 'Defying gravity through silks and hoops. Aerial art is my moving meditation.'
   },
   {
     id: 'i2',
     name: 'Sketching',
-    image: 'https://images.unsplash.com/photo-1515405295579-ba7b45403062?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co/whzp4x8V/Chat-GPT-Image-Jan-29-2026-04-36-14-PM.png',
     description: 'The rawest form of communication. I carry a sketchbook everywhere.'
   },
   {
     id: 'i3',
     name: 'Cooking',
-    image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co/hJjC4PFV/Screenshot-2026-02-06-at-12-28-27-PM.pnghttps://i.ibb.co/4wKn8ZCW/Whats-App-Image-2026-02-12-at-16-48-23.jpg',
     description: 'Experimenting with flavors and textures. My kitchen is a laboratory.'
   },
   {
@@ -146,7 +146,7 @@ export const INTERESTS: Interest[] = [
   {
     id: 'i5',
     name: 'Photography',
-    image: 'https://images.unsplash.com/photo-1493863641943-9b68992a8d07?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co/75DDPZH/DSC08094.jpg',
     description: 'Capturing the fleeting moments between shadows and light.'
   }
 ];
