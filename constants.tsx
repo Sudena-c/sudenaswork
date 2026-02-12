@@ -32,7 +32,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'p2',
-    title: 'Vinyl- A timeless sound',
+    title: 'Vinyl- a timeless sound',
     category: 'Editorial Design',
     coverImage: 'https://i.ibb.co/kpV5gbD/cover-page.jpg',
     shortDescription: 'A minimalist print publication exploring modern typography trends.',
@@ -86,7 +86,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'p5',
-    title: 'Rebranding and marketing an existing brand',
+    title: 'Rebranding and Marketing an existing brand',
     category: 'Digital Marketing',
     coverImage: 'https://i.ibb.co/v4hF73HL/Screenshot-2026-01-29-at-11-05-53-AM.png',
     shortDescription: 'Comprehensive social strategy for a global fashion label.',
