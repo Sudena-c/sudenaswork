@@ -134,7 +134,7 @@ export const INTERESTS: Interest[] = [
   {
     id: 'i3',
     name: 'Cooking',
-    image: 'https://i.ibb.co/hJjC4PFV/Screenshot-2026-02-06-at-12-28-27-PM.pnghttps://i.ibb.co/4wKn8ZCW/Whats-App-Image-2026-02-12-at-16-48-23.jpg',
+    image: 'https://i.ibb.co/4wKn8ZCW/Whats-App-Image-2026-02-12-at-16-48-23.jpg',
     description: 'Experimenting with flavors and textures. My kitchen is a laboratory.'
   },
   {
