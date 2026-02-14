@@ -3,7 +3,7 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-end md:items-center justify-start">
+    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
       {/* Background Video - Full Screen Stretched */}
       <div className="absolute inset-0 z-0 bg-dark">
         <video 
@@ -11,34 +11,44 @@ const Hero: React.FC = () => {
           muted 
           loop 
           playsInline
-          className="w-full h-full object-cover brightness-75 transition-all duration-1000 grayscale hover:grayscale-0"
+          className="w-full h-full object-cover grayscale brightness-[0.35] contrast-125"
         >
           <source src="https://assets.mixkit.co/videos/preview/mixkit-fashion-model-posing-in-front-of-a-mirror-34138-large.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        {/* Soft Vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-dark/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-dark/40 via-transparent to-dark/80"></div>
       </div>
 
-      {/* Landing Text Overlay */}
-      <div className="relative z-10 px-6 md:px-12 pb-24 md:pb-0 max-w-5xl">
-        <h1 className="text-5xl md:text-[9rem] font-serif font-bold text-white leading-[0.85] tracking-tighter mb-6 opacity-90">
-          Hi, I am Sudena<br/>Chandnani
-        </h1>
-        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
-          <p className="text-white/60 text-base md:text-xl font-light uppercase tracking-widest max-w-xl">
-            Communication Designer & Digital Artist
+      {/* "SC" Background Watermark - The "Side/Style" element */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-[0.06] pointer-events-none select-none z-[5]">
+        <span className="text-[40vw] font-serif font-bold italic tracking-tighter text-white leading-none">SC</span>
+      </div>
+
+      {/* Content Overlay */}
+      <div className="relative z-10 text-center px-6 max-w-5xl">
+        <div className="space-y-1 animate-in fade-in zoom-in duration-1000">
+          <p className="text-lg md:text-2xl font-sans font-light text-white/70 uppercase tracking-[0.25em] mb-4">
+            Hi, I am
           </p>
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-[1px] bg-white/40"></div>
-            <span className="text-white/40 text-[10px] uppercase tracking-[0.4em] animate-pulse">Scroll to explore works</span>
-          </div>
+          <h1 className="text-5xl md:text-[8rem] font-serif font-bold text-white leading-[0.9] tracking-tighter mb-8">
+            Sudena<br/>
+            <span className="italic">Chandnani</span>
+          </h1>
+        </div>
+        
+        <div className="flex items-center justify-center space-x-6 opacity-50 mt-8">
+          <div className="w-10 h-[1px] bg-white"></div>
+          <p className="text-white text-[9px] md:text-xs uppercase tracking-[0.5em] font-bold">
+            Communication Designer
+          </p>
+          <div className="w-10 h-[1px] bg-white"></div>
         </div>
       </div>
 
-      {/* Bottom Right Brand Tag */}
-      <div className="absolute bottom-12 right-12 hidden md:block text-right">
-        <span className="text-white/20 text-[6rem] font-serif font-bold italic leading-none pointer-events-none">S.C</span>
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-12 flex flex-col items-center gap-4 opacity-30">
+        <div className="w-[1px] h-12 bg-white animate-bounce"></div>
+        <span className="text-[7px] uppercase tracking-[0.4em] text-white">Scroll Down</span>
       </div>
     </section>
   );

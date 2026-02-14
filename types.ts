@@ -1,11 +1,19 @@
 
 export type Category = 'All' | 'UI/UX' | 'Editorial Design' | 'Web Development' | 'Branding' | 'Digital Marketing' | 'Illustration';
 
+export interface ResearchData {
+  primary?: string;
+  secondary?: string;
+  insights?: string[];
+}
+
 export interface ProcessStep {
   id: string;
   title: string;
-  image: string;
-  description: string;
+  images?: string[];
+  description?: string;
+  research?: ResearchData;
+  layout?: 'default' | 'featured';
 }
 
 export interface Project {
@@ -15,6 +23,8 @@ export interface Project {
   coverImage: string;
   shortDescription: string;
   fullDescription: string;
+  problemHeadline: string;
+  problemBody: string;
   process: ProcessStep[];
 }
 
