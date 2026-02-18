@@ -6,7 +6,7 @@ export const PROJECTS: Project[] = [
     id: 'p1',
     title: 'MealMate',
     category: 'UI/UX',
-    coverImage: 'https://i.ibb.co/5h2wDwdM/Screenshot-2026-02-14-at-11-01-14-AM.png',
+    coverImage: 'https://i.ibb.co/MkDmBbxP/Screenshot-2026-02-12-at-5-10-17-PM.png',
     shortDescription: 'A collaborative meal-planning platform for shared households.',
     fullDescription: 'MealMate is a collaborative meal-planning platform designed for people sharing a household. Users create individual profiles by adding food preferences, dietary choices, and commonly available groceries at home.',
     problemHeadline: 'Every day, millions of people ask one small question: "What should I cook today?" That question sounds simple - but it creates stress, wasted food, and unhealthy choices.',
@@ -19,7 +19,7 @@ export const PROJECTS: Project[] = [
           'https://i.ibb.co/gMZx1rGT/UX-Research-1.png',
           'https://i.ibb.co/mKBp4MN/UX-Research.png'
         ],
-        description: 'Diving deep into the the daily routines, the habits and the user journeys of the users.',
+        description: 'Diving deep into the daily routines, the habits and the user journeys of the users.',
         research: {
           primary: 'Conducted surveys and sent out a questionnaire to understand the users and their daily problems.',
           secondary: 'Analyzed the causes of problems faced by users, also what existing applications/websites are doing about this, did competitor analysis and understood the users and market better.',
@@ -45,44 +45,53 @@ export const PROJECTS: Project[] = [
         title: 'Final UI Design',
         layout: 'featured',
         images: ['https://i.ibb.co/vx9dxxy5/Screenshot-2026-01-29-at-10-40-52-AM.png'],
-        description: 'Based on the research and the learnings, the design focused on reducing choice overload, supporting shared decision-making, and increasing visibility into available groceries. The prototype features a shared household pantry sync and a "Quick Pick" recommendation engine that suggests recipes based on what all is available, keeping in mind nutrition and preferences.'
+        description: 'Based on the research and the learnings, the design focused on reducing choice overload, supporting shared decision-making, and increasing visibility into available groceries. The prototype features a shared household pantry sync and a "Quick Pick" recommendation engine.'
       }
     ]
   },
   {
-id: 'p2',
-title: 'Vinyl- a timeless sound',
-category: 'Editorial Design',
-coverImage: 'https://i.ibb.co/kpV5gbD/cover-page.jpg',
-shortDescription: 'A minimalist print publication talking about the Vinyl, the importance, the history, the making and some famous records.',
-fullDescription: 'This coffee table book explores the cultural legacy of vinyl records as both a medium of sound and a symbol of timeless music. The project focuses on visual storytelling through print, combining archival imagery, editorial layouts, and narrative pacing to create a tactile reading experience.',
-problemHeadline: 'In a world dominated by digital compression and transient playlists, we have lost the tactile intimacy of music.',
-process: [
-{
-id: 'ps2-1',
-title: 'Visual Research',
-images: ['https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&q=80&w=800'],
-description: 'Analyzing the visual language of 70s and 80s music magazines.',
-research: {
-primary: 'Talked to people about their understanding of vinyl, how much knowledge they have about the vinyl, and if they have used it or not.',
-secondary: 'Read about the history of vinyl, what makes them so unique and allows them to give the experience they give, how they are made and what are some records famous from all time.',
-insights: [
-'People do know the evolution of music however do not have much knowledge of the making and history of vinyl.',
-'The making process of vinyl is very unique and fun.',
-'Some of this generation does still like using the vinyl or facinate having a player or going to listen and have this experience.'
-]
-}
-},
-{
-id: 'ps2-2',
-title: 'Final Outcome',
-layout: 'featured',
-images: ['https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=800'],
-description: 'A tactile, large-format editorial piece that celebrates the physical ritual of music.'
-}
-],
-problemBody: ''
-},
+    id: 'p2',
+    title: 'Vinyl- a timeless sound',
+    category: 'Editorial Design',
+    coverImage: 'https://i.ibb.co/kpV5gbD/cover-page.jpg',
+    shortDescription: 'A minimalist print publication talking about the Vinyl, the importance, history, making and some famous records.',
+    fullDescription: 'This coffee table book explores the cultural legacy of vinyl records as both a medium of sound and a symbol of timeless music.',
+    problemHeadline: 'In a world dominated by digital compression and transient playlists, we have lost the tactile intimacy of music.',
+    problemBody: 'The physical ritual of music consumption has been replaced by algorithm-driven convenience. This project aims to bridge the gap by documenting the tangible beauty of vinyl—from the groove in the wax to the art on the sleeve—reminding us why we fell in love with sound in the first place.',
+    process: [
+      {
+        id: 'ps2-1',
+        title: 'Visual Research',
+        images: ['https://i.ibb.co/yFTV158d/Screenshot-2026-02-18-at-12-22-18-PM.png'],
+        description: 'Analyzing the visual language of 70s and 80s music magazines.',
+        research: {
+          primary: 'Talked to people about their understanding of vinyl, how much knowledge they have about the vinyl, and if they have used it or not.',
+          secondary: 'Read about the history of vinyl, what makes them so unique and allows them to give the experience they give, how they are made and what are some records famous from all time.',
+          insights: [
+            'People do know the evolution of music however do not have much knowledge of the making and history of vinyl.',
+            'The making process of vinyl is very unique and fun.',
+            'The current generation is fascinated by the physical ritual of analog sound.'
+          ]
+        }
+      },
+      {
+        id: 'ps2-2',
+        title: 'Layout & Imagery',
+        images: [
+          'https://i.ibb.co/VptnNDHy/Screenshot-2026-02-18-at-12-19-32-PM.png', 
+          'https://i.ibb.co/21g6zP2M/Screenshot-2026-02-18-at-12-19-54-PM.png'
+        ],
+        description: 'Developing a visual language that mirrors the analog nature of vinyl—bold, textured, and slightly nostalgic yet modern.'
+      },
+      {
+        id: 'ps2-3',
+        title: 'Final Outcome & Cinematic Showcase',
+        layout: 'featured',
+        video: 'https://res.cloudinary.com/dmtbtydp5/video/upload/v1771396647/famous_records_yukgbu.mp4',
+        description: 'A cinematic look at the tactile experience of Vinyl. The motion reflects the rhythmic nature of the record spinning, bridging the gap between print design and the sound it represents.'
+      }
+    ]
+  },
   {
     id: 'p3',
     title: 'Creating a Website from scratch',

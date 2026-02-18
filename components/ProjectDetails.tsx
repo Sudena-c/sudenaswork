@@ -75,6 +75,25 @@ const FeaturedSection: React.FC<{ step: ProcessStep; onImageClick: (url: string)
       </div>
 
       <div className="grid grid-cols-1 gap-12">
+        {step.video && (
+          <div className="w-full relative rounded-3xl overflow-hidden shadow-[0_40px_100px_-30px_rgba(0,0,0,0.8)] bg-black aspect-video group">
+             <video 
+              autoPlay 
+              muted 
+              loop 
+              playsInline 
+              controls
+              className="w-full h-full object-contain"
+            >
+              <source src={step.video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute top-4 right-4 bg-dark/50 backdrop-blur-md px-3 py-1 rounded-full text-[8px] uppercase tracking-widest font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity">
+              Showcase Clip
+            </div>
+          </div>
+        )}
+        
         {step.images?.map((img, idx) => (
           <div 
             key={idx}
@@ -195,7 +214,20 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                    </div>
                    
                    <div className="space-y-8">
-                     {step.images && step.images.length > 0 ? (
+                     {step.video ? (
+                        <div className="w-full aspect-video rounded-3xl overflow-hidden shadow-xl bg-black">
+                          <video 
+                            autoPlay 
+                            muted 
+                            loop 
+                            playsInline 
+                            controls
+                            className="w-full h-full object-cover"
+                          >
+                            <source src={step.video} type="video/mp4" />
+                          </video>
+                        </div>
+                     ) : step.images && step.images.length > 0 ? (
                        <div className={`grid gap-6 ${step.images.length > 1 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
                          {step.images.map((img, imgIdx) => (
                            <div 

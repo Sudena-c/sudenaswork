@@ -11,6 +11,7 @@ export interface ProcessStep {
   id: string;
   title: string;
   images?: string[];
+  video?: string;
   description?: string;
   research?: ResearchData;
   layout?: 'default' | 'featured';
