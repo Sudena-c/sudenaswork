@@ -16,8 +16,8 @@ export const PROJECTS: Project[] = [
         id: 'ps1-1',
         title: 'User Research',
         images: [
-          'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800',
-          'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800'
+          'https://i.ibb.co/gMZx1rGT/UX-Research-1.png',
+          'https://i.ibb.co/mKBp4MN/UX-Research.png'
         ],
         description: 'Diving deep into the the daily routines, the habits and the user journeys of the users.',
         research: {
@@ -50,39 +50,39 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
-    id: 'p2',
-    title: 'Vinyl- a timeless sound',
-    category: 'Editorial Design',
-    coverImage: 'https://i.ibb.co/kpV5gbD/cover-page.jpg',
-    shortDescription: 'A minimalist print publication talking about the Vinyl, the importance, history, making and some famous records.',
-    fullDescription: 'This coffee table book explores the cultural legacy of vinyl records as both a medium of sound and a symbol of timeless music.',
-    problemHeadline: 'In a world dominated by digital compression and transient playlists, we have lost the tactile intimacy of music.',
-    problemBody: 'The physical ritual of music consumption has been replaced by algorithm-driven convenience. This project aims to bridge the gap by documenting the tangible beauty of vinyl—from the groove in the wax to the art on the sleeve—reminding us why we fell in love with sound in the first place.',
-    process: [
-      {
-        id: 'ps2-1',
-        title: 'Visual Research',
-        images: ['https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&q=80&w=800'],
-        description: 'Analyzing the visual language of 70s and 80s music magazines.',
-        research: {
-          primary: 'Interviewed local record store owners about customer behavior and tactile preferences.',
-          secondary: 'Studied archival typography from Blue Note Records and historical layout systems of Swiss Design.',
-          insights: [
-            'The sleeve is as important as the sound for collectors.',
-            'Monochrome imagery enhances the nostalgic feel without feeling dated.',
-            'Large-format typography mimics the scale of LP covers.'
-          ]
-        }
-      },
-      {
-        id: 'ps2-2',
-        title: 'Final Outcome',
-        layout: 'featured',
-        images: ['https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=800'],
-        description: 'A tactile, large-format editorial piece that celebrates the physical ritual of music.'
-      }
-    ]
-  },
+id: 'p2',
+title: 'Vinyl- a timeless sound',
+category: 'Editorial Design',
+coverImage: 'https://i.ibb.co/kpV5gbD/cover-page.jpg',
+shortDescription: 'A minimalist print publication talking about the Vinyl, the importance, the history, the making and some famous records.',
+fullDescription: 'This coffee table book explores the cultural legacy of vinyl records as both a medium of sound and a symbol of timeless music. The project focuses on visual storytelling through print, combining archival imagery, editorial layouts, and narrative pacing to create a tactile reading experience.',
+problemHeadline: 'In a world dominated by digital compression and transient playlists, we have lost the tactile intimacy of music.',
+process: [
+{
+id: 'ps2-1',
+title: 'Visual Research',
+images: ['https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&q=80&w=800'],
+description: 'Analyzing the visual language of 70s and 80s music magazines.',
+research: {
+primary: 'Talked to people about their understanding of vinyl, how much knowledge they have about the vinyl, and if they have used it or not.',
+secondary: 'Read about the history of vinyl, what makes them so unique and allows them to give the experience they give, how they are made and what are some records famous from all time.',
+insights: [
+'People do know the evolution of music however do not have much knowledge of the making and history of vinyl.',
+'The making process of vinyl is very unique and fun.',
+'Some of this generation does still like using the vinyl or facinate having a player or going to listen and have this experience.'
+]
+}
+},
+{
+id: 'ps2-2',
+title: 'Final Outcome',
+layout: 'featured',
+images: ['https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=800'],
+description: 'A tactile, large-format editorial piece that celebrates the physical ritual of music.'
+}
+],
+problemBody: ''
+},
   {
     id: 'p3',
     title: 'Creating a Website from scratch',
