@@ -97,31 +97,25 @@ export const PROJECTS: Project[] = [
     title: 'Creating a Website from scratch',
     category: 'Web Development',
     coverImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop',
-    shortDescription: 'A custom portfolio experience built with React and Tailwind',
-    fullDescription: 'A high-performance web platform designed to handle large media assets while maintaining a minimalist aesthetic.',
-    problemHeadline: 'Standard templates often suffocate unique creative identities, leading to a "same-ness" in digital storytelling.',
-    problemBody: 'Most designers rely on rigid platform builders that limit their ability to express specific motion and layout concepts. By building from scratch, I tackled the challenge of balancing complex animation with high-speed performance, ensuring the tech serves the vision, not the other way around.',
+    shortDescription: 'A custom portfolio experience built with React and node.js',
+    fullDescription: 'A web platform designed to showcase myself and my work.',
+    problemHeadline: 'Standard and basic coding helps a lot with developing something completely new using AI.',
+    problemBody: 'Initially I depended on a basic layout and simple structure on other platforms. By building from scratch, I tackled the challenge of balancing complex layouting with high-speed performance, ensuring the tech serves the vision, not the other way around.',
     process: [
       {
         id: 'ps3-0',
-        title: 'Discovery & Audit',
-        images: ['https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800'],
-        description: 'Auditing existing design portfolios to identify patterns and points of innovation.',
-        research: {
-          primary: 'Surveyed 30 recruiters on what they look for in a design portfolio within the first 30 seconds.',
-          secondary: 'Benchmark research on GSAP animations, performance optimization for image-heavy sites, and accessibility standards.',
-          insights: [
-            'Navigation must be invisible until needed.',
-            'Case studies are read for the "How", not just the "Result".',
-            'Mobile responsiveness is the biggest filter for professional quality.'
-          ]
-        }
+        title: 'Redesigned an existing website to understand the system better',
+        images: ['https://i.ibb.co/Zpbzcyfq/Screenshot-2026-01-30-at-6-28-27-PM.png'],
+        description: 'Learning how to make a website- the basics of uploading images, connecting them to the code and the website.',
       },
       {
         id: 'ps3-1',
-        title: 'Final Implementation',
+        title: 'Final Implementation- making my own Website',
         layout: 'featured',
-        images: ['https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop'],
+        images: [
+          'https://i.ibb.co/573YHr9/Screenshot-2026-02-18-at-12-49-36-PM.png', 
+          'https://i.ibb.co/svL34Cm3/Screenshot-2026-02-18-at-1-16-51-PM.png'
+        ],
         description: 'A fully responsive, custom-built digital home for creative expression.'
       }
     ]
