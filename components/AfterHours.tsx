@@ -1,8 +1,16 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { INTERESTS } from '../constants';
+import { Interest } from '../types';
+import InterestGallery from './InterestGallery';
 
-const AfterHours: React.FC = () => {
+interface AfterHoursProps {
+  onImageClick: (url: string) => void;
+}
+
+const AfterHours: React.FC<AfterHoursProps> = ({ onImageClick }) => {
+  const [selectedInterest, setSelectedInterest] = useState<Interest | null>(null);
+
   return (
     <section id="after-hours" className="py-32 relative overflow-hidden bg-light dark:bg-dark">
       {/* Decorative Background Text */}
@@ -33,6 +41,7 @@ const AfterHours: React.FC = () => {
           return (
             <div 
               key={interest.id}
+              onClick={() => setSelectedInterest(interest)}
               className={`absolute ${pos.size} group cursor-pointer transition-all duration-700 hover:z-50`}
               style={{ top: pos.top, left: pos.left }}
             >
@@ -51,7 +60,11 @@ const AfterHours: React.FC = () => {
       {/* Mobile Scroll Layout */}
       <div className="md:hidden flex space-x-6 overflow-x-auto px-6 pb-12 no-scrollbar snap-x">
         {INTERESTS.map((interest) => (
-          <div key={interest.id} className="flex-shrink-0 w-72 snap-center">
+          <div 
+            key={interest.id} 
+            className="flex-shrink-0 w-72 snap-center cursor-pointer"
+            onClick={() => setSelectedInterest(interest)}
+          >
              <div className="aspect-square rounded-full overflow-hidden mb-4 shadow-xl">
                 <img src={interest.image} alt={interest.name} className="w-full h-full object-cover" />
              </div>
@@ -62,6 +75,15 @@ const AfterHours: React.FC = () => {
           </div>
         ))}
       </div>
+
+      {/* Overlay Slider */}
+      {selectedInterest && (
+        <InterestGallery 
+          interest={selectedInterest} 
+          onClose={() => setSelectedInterest(null)} 
+          onImageClick={onImageClick}
+        />
+      )}
     </section>
   );
 };

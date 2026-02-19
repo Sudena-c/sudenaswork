@@ -1,4 +1,3 @@
-
 import { Project, Interest } from './types';
 
 export const PROJECTS: Project[] = [
@@ -161,30 +160,45 @@ export const PROJECTS: Project[] = [
     coverImage: 'https://i.ibb.co/v4hF73HL/Screenshot-2026-01-29-at-11-05-53-AM.png',
     shortDescription: 'Campaign design and market positioning for an existing business.',
     fullDescription: 'Built a social media campaign for an existing brand- Tea Better after doing some in depth research on the brand.',
-    problemHeadline: 'A brand with a great product but a disconnected story is invisible in the modern attention economy.',
-    problemBody: 'Tea Better had high quality, but low cultural resonance. The problem was an outdated digital presence that didn\'t reflect the wellness and energy values of its younger target audience. I had to redefine their narrative to move from "just tea" to "a ritual for the focused mind."',
+    problemHeadline: 'A brand with a great product but a disconnected story is invisible in the modern attention economy. They had a great product but they had no social media reach, no followers and no story.',
+    problemBody: 'Tea Better had high quality, but low cultural resonance. The problem was an outdated digital presence that didnt reflect the wellness and energy values of its younger target audience. I redefined their narrative to move from "just tea" to "a ritual for the focused mind", "a ritual for a party/get together".',
     process: [
       {
         id: 'ps5-1',
         title: 'Market Research',
-        images: ['https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&q=80&w=800'],
-        description: 'Analyzing the competitive landscape of the wellness beverage industry.',
+        images: ['https://i.ibb.co/gZFxTsY1/Screenshot-2026-01-30-at-7-09-12-PM.png'],
+        description: 'Analyzing the competitive landscape of the wellness beverage industry. Understanding what they are not touching upon and missing out.',
         research: {
-          primary: 'Consumer sentiment analysis via social listening on Instagram and Twitter.',
-          secondary: 'Competitive audit of 5 major tea brands and 3 wellness startups.',
+          primary: 'Understanding the brands stand in the market and the brand itself. Understanding the brands customers, products, the philosophy and relevance.',
+          secondary: 'Refreshing the visual language to better align with the brands updated values, their customers and how the brand is potrayed. ',
           insights: [
-            'Gen Z views tea as a "focus tool", not just a relaxant.',
-            'Transparency about source is a mandatory brand pillar.',
-            'Minimalist packaging performs 40% better on social media platforms.'
+            'Their product might be good, but the way its been put out isnt the best.',
+            'Allowing the consumers and the right consumers knowledge about the product in the right manner and correct platform could help increase their reach.'
           ]
         }
       },
       {
         id: 'ps5-2',
-        title: 'Campaign Launch',
+        title: 'Marketing Campaign',
         layout: 'featured',
-        images: ['https://i.ibb.co/v4hF73HL/Screenshot-2026-01-29-at-11-05-53-AM.png'],
-        description: 'A multi-platform digital campaign that repositioned Tea Better as a premium lifestyle choice.'
+        description: 'A multi-platform digital campaign that repositioned Tea Better as a premium lifestyle choice. We developed three core narratives to target different consumer mindsets.',
+        campaignIdeas: [
+          {
+            title: 'Campaign Pillar: Kitty Talk Tea Better',
+            description: 'Core Message: Make your next kitty party memorable and mindful. Swap the traditional chai for a cup of TEA BETTER—the healthier, tastier, and more Instagrammable choice that will get everyone talking.',
+            image: 'https://i.ibb.co/xqNdKYPN/Screenshot-2026-01-30-at-6-58-54-PM.png'
+          },
+          {
+            title: 'Campaign Pillar: Tea For Thought',
+            description: 'Core Message: Position TEA BETTER not just as a beverage, but as a catalyst for creativity, deep thinking, and mindfulness.',
+            image: 'https://i.ibb.co/35TFz5h7/Screenshot-2026-01-30-at-7-00-33-PM.png'
+          },
+          {
+            title: 'Campaign Pillar: Your Daily Dose of Better',
+            description: 'Core Message: TEA BETTER isnt just a drink; its a simple, delicious, and natural ritual for your daily well-being.',
+            image: 'https://i.ibb.co/6JYBDFc9/Screenshot-2026-01-30-at-7-00-50-PM.png'
+          }
+        ]
       }
     ]
   },
@@ -193,7 +207,7 @@ export const PROJECTS: Project[] = [
     title: 'Calendar design- based on Warli art',
     category: 'Illustration',
     coverImage: 'https://i.ibb.co/zVS4zwpV/Screenshot-2026-01-29-at-11-07-33-AM.png',
-    shortDescription: 'A series of vector illustrations inspired by traditional folk art',
+    shortDescription: 'A series of vector illustrations inspired by traditional Warli art',
     fullDescription: 'This series explores the intricate patterns found in Warli tribal art and translates them into a modern calendar format.',
     problemHeadline: 'Indigenous art forms are often relegated to museums, losing their vibrancy and relevance in our daily lives.',
     problemBody: 'The challenge was to take the rigid geometric language of Warli art and adapt it for a functional, modern object without stripping it of its cultural soul. This calendar acts as a daily reminder of traditional storytelling in a high-speed digital world.',
@@ -201,13 +215,16 @@ export const PROJECTS: Project[] = [
       {
         id: 'ps6-1',
         title: 'Ethnographic Research',
-        images: ['https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800'],
-        description: 'Studying the history and visual syntax of the Warli community.',
+        images: [
+          'https://i.ibb.co/kgqbcqmL/Whats-App-Image-2026-02-19-at-12-50-46.jpg', 
+          'https://i.ibb.co/5pFz6r0/Whats-App-Image-2026-02-19-at-12-51-03.jpg'
+        ],
+        description: 'Studying the history and visual syntax of the Warli community. Making sketches and patterns of the art.',
         research: {
-          primary: 'Interaction with tribal art curators to understand the meaning behind specific geometric motifs.',
-          secondary: 'Analysis of contemporary applications of traditional Indian folk art in industrial design.',
+          primary: 'Learning where all people see and watch this art.',
+          secondary: 'Seeing the different uses it already has and also the different patterns it uses to present its culture.',
           insights: [
-            'The circle represents sun and moon, the triangle mountains/trees.',
+            'There could be a new use of it, instead of just walls and cloth.',
             'Rhythm is more important than anatomical accuracy.',
             'Earthly tones can be modernized using high-contrast digital vectors.'
           ]
@@ -217,8 +234,25 @@ export const PROJECTS: Project[] = [
         id: 'ps6-2',
         title: 'The Final Calendar',
         layout: 'featured',
-        images: ['https://i.ibb.co/zVS4zwpV/Screenshot-2026-01-29-at-11-07-33-AM.png'],
         description: 'Bridging tribal history with modern utility through vector precision.'
+      },
+      {
+        id: 'p6-gallery',
+        title: '',
+        images: [
+          'https://i.ibb.co/DPg8yPnd/jan.jpg',
+          'https://i.ibb.co/d0DykQgX/feb.jpg',
+          'https://i.ibb.co/mFhJLz6F/march.jpg',
+          'https://i.ibb.co/XrP8Yr9c/april.jpg',
+          'https://i.ibb.co/PdK5s4V/may.jpg',
+          'https://i.ibb.co/8nJnhQFn/june.jpg',
+          'https://i.ibb.co/d4xjfP4X/july.jpg',
+          'https://i.ibb.co/PGRGZw86/august.jpg',
+          'https://i.ibb.co/twM5FHvY/sep.jpg',
+          'https://i.ibb.co/0RBn5LS7/oct.jpg',
+          'https://i.ibb.co/zhj1NHSB/nov.jpg',
+          'https://i.ibb.co/mrmgk1jG/dec.jpg'
+        ]
       }
     ]
   }
@@ -229,30 +263,58 @@ export const INTERESTS: Interest[] = [
     id: 'i1',
     name: 'Aerial',
     image: 'https://i.ibb.co/tTh3XwyJ/Whats-App-Image-2026-02-02-at-19-57-05.jpg',
-    description: 'Defying gravity through silks and hoops. Aerial art is my moving meditation.'
+    description: 'Aerial has always been something I was keen on doing, and once I started I havent been able to let go.',
+    gallery: [
+      'https://i.ibb.co/5hTMLvNB/Whats-App-Image-2026-02-02-at-19-57-51.jpg',
+      'https://i.ibb.co/gb29XJJP/Whats-App-Image-2026-02-02-at-19-59-36-2.jpg',
+      'https://i.ibb.co/Gf0cCpc2/Whats-App-Image-2026-02-02-at-19-59-36-1.jpg',
+    ]
   },
   {
     id: 'i2',
     name: 'Sketching',
     image: 'https://i.ibb.co/whzp4x8V/Chat-GPT-Image-Jan-29-2026-04-36-14-PM.png',
-    description: 'The rawest form of communication. I carry a sketchbook everywhere.'
+    description: 'I had started sketching- just drawing since I was a little kid, the number of sketchbooks of different sizes I have cealrly shows how much I still love sketching and drawing on paper more than anything..',
+    gallery: [
+      'https://i.ibb.co/gLMp4N8P/vertical-building-white-background-soft-MATCHED.png',
+      'https://i.ibb.co/kg0ZSxNL/street-sketch-white-background.png',
+      'https://i.ibb.co/qFX99r5V/building-white-background-soft-MATCHED.png',
+    ]
   },
   {
     id: 'i3',
     name: 'Cooking',
     image: 'https://i.ibb.co/4wKn8ZCW/Whats-App-Image-2026-02-12-at-16-48-23.jpg',
-    description: 'Experimenting with flavors and textures. My kitchen is a laboratory.'
+    description: 'I have always LOVED EATING and now I have started loved cooking as well, only when I feel like;) just kidding always like making something for people that I love.',
+    gallery: [
+      'https://i.ibb.co/4wKn8ZCW/Whats-App-Image-2026-02-12-at-16-48-23.jpg',
+      'https://i.ibb.co/nNtDFVgd/Whats-App-Image-2026-02-19-at-13-44-44.jpg',
+      'https://i.ibb.co/NgVZjB80/Whats-App-Image-2026-02-19-at-13-44-45-1.jpg',
+      'https://i.ibb.co/svP67n6H/Whats-App-Image-2026-02-19-at-13-44-44-1.jpg',
+      'https://i.ibb.co/1Jzzy8cJ/Whats-App-Image-2026-02-19-at-13-44-45.jpg'
+    ]
   },
   {
     id: 'i4',
     name: 'Fine Arts',
     image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=800',
-    description: 'Oil paintings and charcoal studies. Where traditional techniques meet modern concepts.'
+    description: 'Oil paintings and charcoal studies. Where traditional techniques meet modern concepts.',
+    gallery: [
+      'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=800',
+      'https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?q=80&w=800&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=800&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?q=80&w=800&auto=format&fit=crop'
+    ]
   },
   {
     id: 'i5',
     name: 'Photography',
     image: 'https://i.ibb.co/75DDPZH/DSC08094.jpg',
-    description: 'Capturing the fleeting moments between shadows and light.'
+    description: 'Capturing the fleeting moments between shadows and light.',
+    gallery: [
+      'https://i.ibb.co/jvd0mF4B/Whats-App-Image-2026-02-03-at-20-22-57-1.jpg',
+      'https://i.ibb.co/tpwpSK69/Whats-App-Image-2026-02-03-at-20-22-57.jpg',
+      'https://i.ibb.co/rGvgqTTx/Whats-App-Image-2026-02-03-at-20-22-56.jpg'
+    ]
   }
 ];

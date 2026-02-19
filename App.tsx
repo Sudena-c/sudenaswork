@@ -10,6 +10,7 @@ import ContactForm from './components/ContactForm';
 import AboutFooter from './components/AboutFooter';
 import ProjectDetails from './components/ProjectDetails';
 import Lightbox from './components/Lightbox';
+import CustomCursor from './components/CustomCursor';
 
 const App: React.FC = () => {
   const [theme, setTheme] = useState<Theme>(Theme.DARK);
@@ -57,6 +58,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen font-sans selection:bg-zinc-500 selection:text-white transition-colors duration-500 bg-light dark:bg-dark">
+      <CustomCursor />
       <Navbar theme={theme} onToggleTheme={toggleTheme} isProjectActive={!!activeProject} />
       
       {!activeProject ? (
@@ -76,7 +78,7 @@ const App: React.FC = () => {
           </div>
           
           <div className="relative z-20 bg-light dark:bg-dark">
-            <AfterHours />
+            <AfterHours onImageClick={setLightboxImage} />
             
             <div id="contact" className="py-24 bg-zinc-100 dark:bg-zinc-900/50">
               <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-24">

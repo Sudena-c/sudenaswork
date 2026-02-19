@@ -1,12 +1,37 @@
-
 import React from 'react';
-import { Project, ResearchData, ProcessStep } from '../types';
+import { Project, ResearchData, ProcessStep, CampaignIdea } from '../types';
 
 interface ProjectDetailsProps {
   project: Project;
   onClose: () => void;
   onImageClick: (url: string) => void;
 }
+
+const CampaignIdeasGrid: React.FC<{ ideas: CampaignIdea[]; onImageClick: (url: string) => void }> = ({ ideas, onImageClick }) => (
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+    {ideas.map((idea, idx) => (
+      <div key={idx} className="group space-y-6">
+        <div 
+          className="aspect-[3/4] overflow-hidden rounded-3xl bg-zinc-900 shadow-xl cursor-zoom-in relative"
+          onClick={() => onImageClick(idea.image)}
+        >
+          <img 
+            src={idea.image} 
+            alt={idea.title} 
+            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors" />
+        </div>
+        <div className="space-y-3">
+          <h4 className="text-xl font-serif font-bold italic tracking-tight">{idea.title}</h4>
+          <p className="text-sm text-zinc-500 dark:text-zinc-400 font-light leading-relaxed">
+            {idea.description}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+);
 
 const ResearchSection: React.FC<{ data: ResearchData }> = ({ data }) => (
   <div className="mt-12 space-y-12">
@@ -61,7 +86,7 @@ const FeaturedSection: React.FC<{ step: ProcessStep; onImageClick: (url: string)
     <div className="max-w-7xl mx-auto px-6 relative z-10">
       <div className="max-w-3xl mb-16 space-y-6">
         <div className="inline-flex items-center space-x-4">
-          <span className="text-[10px] uppercase tracking-[0.6em] font-bold text-white/40">The Final Reveal</span>
+          <span className="text-[10px] uppercase tracking-[0.6em] font-bold text-white/40">Step Breakdown</span>
           <div className="w-12 h-[1px] bg-white/20"></div>
         </div>
         <h2 className="text-5xl md:text-8xl font-serif font-bold tracking-tighter leading-[0.9]">
@@ -110,6 +135,10 @@ const FeaturedSection: React.FC<{ step: ProcessStep; onImageClick: (url: string)
             </div>
           </div>
         ))}
+
+        {step.campaignIdeas && step.campaignIdeas.length > 0 && (
+          <CampaignIdeasGrid ideas={step.campaignIdeas} onImageClick={onImageClick} />
+        )}
       </div>
     </div>
   </div>
@@ -244,6 +273,8 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                            </div>
                          ))}
                        </div>
+                     ) : step.campaignIdeas && step.campaignIdeas.length > 0 ? (
+                       null // Will be rendered below research
                      ) : (
                        <div className="aspect-video flex items-center justify-center border border-zinc-200 dark:border-zinc-800 rounded-[40%_60%_70%_30%_/_50%_40%_60%_50%] p-12 text-center opacity-40 italic font-serif">
                          Visual development in progress...
@@ -251,6 +282,13 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                      )}
                    </div>
                 </div>
+
+                {step.campaignIdeas && step.campaignIdeas.length > 0 && (
+                   <div className="pt-16 border-t border-zinc-100 dark:border-zinc-800">
+                     <h4 className="text-[10px] uppercase tracking-[0.5em] font-bold text-zinc-400 mb-8 text-center">Campaign Strategies</h4>
+                     <CampaignIdeasGrid ideas={step.campaignIdeas} onImageClick={onImageClick} />
+                   </div>
+                )}
 
                 {/* Structured Research Breakdown */}
                 {step.research && (

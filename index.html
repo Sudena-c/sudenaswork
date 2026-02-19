@@ -21,6 +21,7 @@
             colors: {
               dark: '#0a0a0a',
               light: '#f9f9f9',
+              olive: '#3b4621',
             },
           },
         },
@@ -29,6 +30,12 @@
     <style>
       body {
         scroll-behavior: smooth;
+      }
+      /* Hide default cursor on desktop */
+      @media (min-width: 769px) {
+        * {
+          cursor: none !important;
+        }
       }
       .custom-scrollbar::-webkit-scrollbar {
         width: 6px;
