@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
       <div className="relative z-10 text-center px-6 max-w-5xl">
         <div className="space-y-1 animate-in fade-in zoom-in duration-1000">
           <p className="text-lg md:text-2xl font-sans font-light text-white/70 uppercase tracking-[0.25em] mb-4">
-            Hi, I am
+            Hi, I'm
           </p>
           <h1 className="text-5xl md:text-[8rem] font-serif font-bold text-white leading-[0.9] tracking-tighter mb-8">
             Sudena<br/>
