@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
           >
             <div className="inline-flex items-center space-x-2 text-xs font-mono tracking-widest uppercase text-zinc-400 dark:text-zinc-500">
               <span>✦</span>
-              <span>HELLO, WORLD — NICE TO MEET YOU</span>
+              <span>GLAD YOU LANDED HERE!</span>
             </div>
             
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-serif font-bold tracking-tight leading-[0.95] text-zinc-900 dark:text-zinc-100">
@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
               href="#work" 
               className="group inline-flex items-center space-x-3 px-6 py-3.5 bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 rounded-full font-medium text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg hover:shadow-xl"
             >
-              <span>Explore Postcards</span>
+              <span>Work Work Work</span>
               <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
@@ -165,7 +165,7 @@ const Hero: React.FC = () => {
                       Sudena — in the studio ✦
                     </p>
                     <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-zinc-400 mt-1">
-                      Designer · Aerialist · Thinker
+                      Designer · Artist · Thinker
                     </p>
                   </div>
                 </>

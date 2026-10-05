@@ -41,7 +41,7 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({
               <span>02 / 04 — SELECTED WORKS</span>
             </div>
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-              The Postcard <span className="italic font-normal font-serif text-zinc-600 dark:text-zinc-400">Stack</span>
+              The Work <span className="italic font-normal font-serif text-zinc-600 dark:text-zinc-400">My Work</span>
             </h2>
           </div>
 
