@@ -1,244 +1,232 @@
 import { Project, Interest } from './types';
 
+// The 5 curated projects featured in the Postcard Stack:
+// 3 core projects + 2 internship projects
 export const PROJECTS: Project[] = [
   {
     id: 'p1',
     title: 'MealMate',
     category: 'UI/UX',
+    year: '2026',
+    role: 'Product & UX Designer',
+    duration: '6 Weeks',
+    tools: ['Figma', 'Protopie', 'User Interviews', 'Systems Mapping'],
     coverImage: 'https://i.ibb.co/MkDmBbxP/Screenshot-2026-02-12-at-5-10-17-PM.png',
-    shortDescription: 'A collaborative meal-planning platform for shared households.',
+    heroVideo: 'https://res.cloudinary.com/dmtbtydp5/video/upload/v1775484102/mealmate_app_recording_vhx2tt.mp4',
+    postcardNote: 'To anyone who has stood in front of an open fridge at 6 PM feeling that familiar dread: this one is for you.',
+    postcardRotation: -1.8,
+    shortDescription: 'A collaborative meal-planning platform that turns shared pantry anxiety into a playful collective ritual.',
     fullDescription: 'MealMate is a collaborative meal-planning platform designed for people sharing a household. Users create individual profiles by adding food preferences, dietary choices, and commonly available groceries at home.',
-    problemHeadline: 'Every day, millions of people ask one small question: "What should I cook today?" That question sounds simple - but it creates stress, wasted food, and unhealthy choices.',
+    problemHeadline: 'Every day, millions of people ask one small question: "What should I cook today?" That question sounds simple — but it creates stress, wasted food, and unhealthy choices.',
     problemBody: 'People living alone or in shared households often struggle to decide what to cook each day. Limited awareness of available groceries, differing food preferences, and lack of coordination between household members make daily meal decisions mentally exhausting and inefficient.',
     process: [
       {
         id: 'ps1-1',
-        title: 'User Research',
+        phase: 'The Spark',
+        title: 'Empathy & The 5 PM Panic',
         images: [
           'https://i.ibb.co/gMZx1rGT/UX-Research-1.png',
           'https://i.ibb.co/mKBp4MN/UX-Research.png'
         ],
-        description: 'Diving deep into the daily routines, the habits and the user journeys of the users.',
+        description: 'Diving deep into daily kitchen routines and household dynamics. I wanted to understand not just what people cook, but why the simple act of choosing becomes a source of social friction.',
+        reflection: 'I spent three days quietly observing how my own roommates interacted with the kitchen fridge. The problem was never "cooking skill" — it was the mental burden of unshared visibility and silent decision negotiations.',
+        decisionNote: 'Decided to focus on collective household synchronization rather than solo recipe discovery.',
         research: {
-          primary: 'Conducted surveys and sent out a questionnaire to understand the users and their daily problems.',
-          secondary: 'Analyzed the causes of problems faced by users, also what existing applications/websites are doing about this, did competitor analysis and understood the users and market better.',
+          primary: 'Conducted in-depth surveys and diary studies with 24 young adults sharing apartments across urban hubs.',
+          secondary: 'Evaluated 12 competitor apps (recipe aggregators, grocery trackers) finding that 90% treat meal planning as an isolated individual chore.',
           insights: [
-            'Decision fatigue is not occasional — it is a daily burden.',
-            'Lack of visibility into available groceries intensifies decision fatigue.',
-            'More choices do not reduce confusion — they increase it.',
-            'Shared households add a social layer to meal decisions.',
-            'Users want guidance, not control.',
-            'Health intentions often break down under decision pressure.',
-            'Transparency and inclusion reduce friction in shared decisions.',
+            'Decision fatigue is daily and compounding: by 5 PM, decision tolerance drops by 60%.',
+            'Lack of real-time visibility into shared ingredients leads directly to duplicate grocery purchases.',
+            'The "Paradox of Choice": presenting 50 recipes paralyzes users; presenting 3 contextual choices liberates them.',
+            'Nobody wants to be the household dictator who decides every night, creating an awkward standoff.'
           ]
         }
       },
       {
+        id: 'ps1-mapping',
+        phase: 'Exploration',
+        title: 'Mapping the Friction Points',
+        images: [
+          'https://i.ibb.co/mKBp4MN/UX-Research.png',
+          'https://i.ibb.co/gMZx1rGT/UX-Research-1.png'
+        ],
+        description: 'Mapping the end-to-end emotional trajectory: from the first pang of midday hunger through opening the pantry, coordinating with flatmates, to the final hot meal.',
+        reflection: 'The biggest design pivot occurred during flow testing: users resented filling out elaborate ingredient forms. If logging groceries takes more than 10 seconds, the whole system collapses.',
+        decisionNote: 'Introduced quick-swipe pantry toggles (In Stock / Expiring Soon / Out) with zero typing required.',
+        layout: 'split'
+      },
+      {
         id: 'ps1-2',
-        title: 'Wireframing',
+        phase: 'The Pivot',
+        title: 'From Recipe Catalog to "Quick Pick"',
         images: ['https://i.ibb.co/Q3WLdt4S/Chat-GPT-Image-Jan-30-2026-12-18-21-PM.png'],
-        description: 'Iterative low-fidelity wireframes focusing on the user journey from starting to think to making the meal.'
+        description: 'Testing low-fidelity prototypes against our core hypothesis: what if the app made the decision easy by narrowing the universe to 3 hyper-personalized suggestions?',
+        reflection: 'My first iteration looked like a standard grocery spreadsheet. It felt clinical and chore-like. I tore it down and rebuilt it with tactile card gestures that felt more like a social game.',
+        decisionNote: 'Scrapped infinite scrolling recipe feeds in favor of a 3-card daily roulette deck based on ingredients expiring soon.',
+        iterations: [
+          {
+            label: 'Iteration 01 (Spreadsheet Style)',
+            description: 'Too quantitative. Users felt overwhelmed by lists of weights and calorie counters.',
+            image: 'https://i.ibb.co/Q3WLdt4S/Chat-GPT-Image-Jan-30-2026-12-18-21-PM.png'
+          },
+          {
+            label: 'Iteration 02 (Gamified Roulette)',
+            description: 'Card-based rapid vote where housemates swipe right on 2 daily ideas.',
+            image: 'https://i.ibb.co/MkDmBbxP/Screenshot-2026-02-12-at-5-10-17-PM.png'
+          }
+        ]
+      },
+      {
+        id: 'ps1-style',
+        phase: 'Craft',
+        title: 'Warmth, Kitchen Hues & Tactile Micro-Interactions',
+        images: [
+          'https://i.ibb.co/MkDmBbxP/Screenshot-2026-02-12-at-5-10-17-PM.png'
+        ],
+        description: 'Crafting a visual language steeped in home warmth: soft sage herbals, terracotta pots, rounded typography, and buttery micro-animations that make kitchen coordination joyful.',
+        reflection: 'I deliberately rejected sterile "tech blues" and aggressive reds. Meal prep should feel like comfort, not an administrative task.',
+        layout: 'gallery'
       },
       {
         id: 'ps1-3',
-        title: 'Final UI Design',
+        phase: 'Outcome',
+        title: 'Final UI Prototype in Motion',
         layout: 'featured',
-        images: ['https://i.ibb.co/vx9dxxy5/Screenshot-2026-01-29-at-10-40-52-AM.png'],
-        description: 'Based on the research and the learnings, the design focused on reducing choice overload, supporting shared decision-making, and increasing visibility into available groceries. The prototype features a shared household pantry sync and a "Quick Pick" recommendation engine.'
+        video: 'https://res.cloudinary.com/dmtbtydp5/video/upload/v1775484102/mealmate_app_recording_vhx2tt.mp4',
+        posterImage: 'https://i.ibb.co/MkDmBbxP/Screenshot-2026-02-12-at-5-10-17-PM.png',
+        description: 'An interactive high-fidelity prototype demonstrating seamless pantry synchronization, collaborative housemate voting, and smart ingredient depletion notices.',
+        reflection: 'Seeing users test the final prototype in their real kitchens confirmed our hunch: when choice overload is removed, people actually enjoy cooking together.'
+      },
+      {
+        id: 'ps1-reflection',
+        phase: 'Reflection',
+        title: 'What I Learned & What Comes Next',
+        description: 'Designing for interpersonal relationships is vastly different from designing for a solitary user. Every interface decision either creates friction between housemates or dissolves it. Next steps: exploring voice-assisted hands-free kitchen check-ins.',
+        reflection: 'Good UX in domestic spaces must respect human imperfection. People will forget to log an onion; the software must remain helpful even when data is incomplete.'
       }
     ]
   },
   {
     id: 'p2',
-    title: 'Vinyl- a timeless sound',
+    title: 'Vinyl — A Timeless Sound',
     category: 'Editorial Design',
+    year: '2026',
+    role: 'Editorial Designer & Art Director',
+    duration: '4 Weeks',
+    tools: ['Adobe InDesign', 'Print Production', 'Typography', 'Book Binding'],
     coverImage: 'https://i.ibb.co/kpV5gbD/cover-page.jpg',
-    shortDescription: 'A minimalist print publication talking about the Vinyl, the importance, history, making and some famous records.',
-    fullDescription: 'This coffee table book explores the cultural legacy of vinyl records as both a medium of sound and a symbol of timeless music.',
-    problemHeadline: 'In a world dominated by digital compression and transient playlists, we have lost the tactile intimacy of music.',
-    problemBody: 'The physical ritual of music consumption has been replaced by algorithm-driven convenience. This project aims to bridge the gap by documenting the tangible beauty of vinyl—from the groove in the wax to the art on the sleeve—reminding us why we fell in love with sound in the first place.',
+    postcardNote: 'Dispatched from the world of 33 RPM grooves, sleeve dust, and the sensory ritual of slowing down.',
+    postcardRotation: 1.5,
+    shortDescription: 'A tactile minimalist coffee table publication exploring the cultural gravity and sensory intimacy of vinyl.',
+    fullDescription: 'This publication explores the cultural legacy of vinyl records as both a physical medium of sound and a cultural counter-weight to transient streaming playlists.',
+    problemHeadline: 'In a world dominated by compressed audio files and algorithmic playlists, we have traded the physical, tactile intimacy of sound for frictionless disposable convenience.',
+    problemBody: 'The physical ritual of music consumption has been replaced by algorithmic speed. This project bridges that chasm by celebrating the tactile craftsmanship of vinyl—from the physical lacquer cut to gatefold typographic hierarchy—reminding us why we fall in love with physical sound.',
     process: [
       {
         id: 'ps2-1',
-        title: 'Visual Research',
+        phase: 'The Spark',
+        title: 'Visual Research & The Analog Ritual',
         images: ['https://i.ibb.co/yFTV158d/Screenshot-2026-02-18-at-12-22-18-PM.png'],
-        description: 'Analyzing the visual language of 70s and 80s music magazines.',
+        description: 'Analyzing the visual language of 70s and 80s underground print publications, Japanese jazz kissa culture, and record pressing plant archives.',
+        reflection: 'I spent weeks flipping through vintage Rolling Stone and Blue Note jackets. There is an unmistakable warmth and texture in physical ink and paper grain that screens simply flatten.',
+        decisionNote: 'Committed to uncoated heavy stock and an asymmetrical layout rhythm that echoes the needle tracking across a vinyl groove.',
         research: {
-          primary: 'Talked to people about their understanding of vinyl, how much knowledge they have about the vinyl, and if they have used it or not.',
-          secondary: 'Read about the history of vinyl, what makes them so unique and allows them to give the experience they give, how they are made and what are some records famous from all time.',
+          primary: 'Surveyed vinyl collectors, audio engineers, and first-time analog listeners spanning Gen Z and veteran audiophiles.',
+          secondary: 'Documented the industrial pressing process: lacquer master, metal stamper, and hydraulic steam press.',
           insights: [
-            'People do know the evolution of music however do not have much knowledge of the making and history of vinyl.',
-            'The making process of vinyl is very unique and fun.',
-            'The current generation is fascinated by the physical ritual of analog sound.'
+            'Younger listeners do not buy vinyl for sound quality alone; they buy it for the mindfulness of intentional listening.',
+            'Gatefold artwork and liner notes turn an album into a tangible world you can hold in your hands.',
+            'The tactile imperfections (subtle surface crackle, sleeve seam wear) are perceived as character, not flaws.'
           ]
         }
       },
       {
         id: 'ps2-2',
-        title: 'Layout & Imagery',
+        phase: 'Craft',
+        title: 'Typographic Grid & Tactile Contrast',
         images: [
           'https://i.ibb.co/VptnNDHy/Screenshot-2026-02-18-at-12-19-32-PM.png', 
           'https://i.ibb.co/21g6zP2M/Screenshot-2026-02-18-at-12-19-54-PM.png'
         ],
-        description: 'Developing a visual language that mirrors the analog nature of vinyl—bold, textured, and slightly nostalgic yet modern.'
+        description: 'Developing a dual-layer grid: rigorous modernist baseline grids for body text juxtaposed against expressive, oversized serif titling that wraps around archival photography.',
+        reflection: 'Pairing high-contrast display serif typography with ample negative space mirrors the dynamic range of an uncompressed master tape.',
+        layout: 'split'
       },
       {
         id: 'ps2-3',
-        title: 'Final Outcome & Cinematic Showcase',
+        phase: 'Outcome',
+        title: 'The Printed Publication & Cinematic Showcase',
         layout: 'featured',
         video: 'https://res.cloudinary.com/dmtbtydp5/video/upload/v1771396647/famous_records_yukgbu.mp4',
-        description: 'A cinematic look at the tactile experience of Vinyl. The motion reflects the rhythmic nature of the record spinning, bridging the gap between print design and the sound it represents.'
+        posterImage: 'https://i.ibb.co/kpV5gbD/cover-page.jpg',
+        description: 'A cinematic walkthrough of the finished publication: physical paper weight, gatefold spreads, and typography designed to be experienced at 33 RPM.',
+        reflection: 'Print has a permanence that digital cannot match. When you design for paper, every millimeter of margin and ink density must be intentional.'
+      },
+      {
+        id: 'ps2-4',
+        phase: 'Reflection',
+        title: 'Echoes & Editorial Takeaways',
+        description: 'This project deepened my obsession with editorial rhythm. The pacing between dense analytical essays and silent, full-bleed photographic spreads taught me that white space is the visual equivalent of musical rest notes.',
+        reflection: 'Tactility is not nostalgia; it is an active human necessity in an increasingly disembodied digital landscape.'
       }
     ]
   },
   {
     id: 'p3',
-    title: 'Creating a Website from scratch',
-    category: 'Web Development',
-    coverImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop',
-    shortDescription: 'A custom portfolio experience built with React and node.js',
-    fullDescription: 'A web platform designed to showcase myself and my work.',
-    problemHeadline: 'Standard and basic coding helps a lot with developing something completely new using AI.',
-    problemBody: 'Initially I depended on a basic layout and simple structure on other platforms. By building from scratch, I tackled the challenge of balancing complex layouting with high-speed performance, ensuring the tech serves the vision, not the other way around.',
+    title: 'Calendar Design — Warli Art',
+    category: 'Illustration',
+    year: '2026',
+    role: 'Illustrator & Cultural Researcher',
+    duration: '4 Weeks',
+    tools: ['Adobe Illustrator', 'Vector Geometry', 'Ethnographic Studies', 'Print Production'],
+    coverImage: 'https://i.ibb.co/zVS4zwpV/Screenshot-2026-01-29-at-11-07-33-AM.png',
+    postcardNote: 'Sent with love from Maharashtra’s tribal lands: sacred geometric circles, harvest dances, and living folklore.',
+    postcardRotation: -1.2,
+    shortDescription: 'A functional 12-month calendar system translating indigenous Warli tribal geometry into contemporary vector art.',
+    fullDescription: 'This series explores the profound geometric syntax of Warli tribal art, translating ancient wall narratives into a functional, year-long daily art calendar.',
+    problemHeadline: 'Ancient indigenous art forms are too frequently treated as static museum relics, isolated from modern functional daily objects.',
+    problemBody: 'The challenge was to honor the sacred geometric vocabulary of Warli art (the circle of the sun, the triangle of mountains and bodies) without reducing it to decorative caricature. This calendar acts as a daily living narrative celebrating indigenous ecology.',
     process: [
-      {
-        id: 'ps3-0',
-        title: 'Redesigned an existing website to understand the system better',
-        images: ['https://i.ibb.co/Zpbzcyfq/Screenshot-2026-01-30-at-6-28-27-PM.png'],
-        description: 'Learning how to make a website- the basics of uploading images, connecting them to the code and the website.',
-      },
       {
         id: 'ps3-1',
-        title: 'Final Implementation- making my own Website',
-        layout: 'featured',
-        images: [
-          'https://i.ibb.co/573YHr9/Screenshot-2026-02-18-at-12-49-36-PM.png', 
-          'https://i.ibb.co/svL34Cm3/Screenshot-2026-02-18-at-1-16-51-PM.png'
-        ],
-        description: 'A fully responsive, custom-built digital home for creative expression.'
-      }
-    ]
-  },
-  {
-    id: 'p4',
-    title: 'Rayve- an electric car brand',
-    category: 'Branding',
-    coverImage: 'https://i.ibb.co/DHRYgS77/Free-Billboard-Mockup-2nd-draft-blue-copy.jpg',
-    shortDescription: 'Visual identity for a forward-thinking EV startup.',
-    fullDescription: 'RAYVE is a solar-powered electric vehicle brand designed for modern urban commuters who value sustainability without compromising on style.',
-    problemHeadline: 'The current perception of electric vehicles is either too clinical and cold or aggressively futuristic, alienating the everyday driver.',
-    problemBody: 'Rayve needed to find a "human" angle for sustainable technology. The challenge was to create a visual identity that felt as warm as sunlight but as precise as a high-performance engine, making the transition to green energy feel like a natural evolution rather than a lifestyle sacrifice.',
-    process: [
-      {
-        id: 'ps4-1',
-        title: 'Brand Research',
-        images: ['https://images.unsplash.com/photo-1572044162444-ad60f128bde2?auto=format&fit=crop&q=80&w=800'],
-        description: 'Exploring the intersection of automotive precision and organic solar energy.',
-        research: {
-          primary: 'Focused groups with young urban professionals about their hesitations regarding EV adoption.',
-          secondary: 'Trend analysis of solar-tech visual language and luxury sustainable branding.',
-          insights: [
-            'Sustainability needs to look "premium" not "recycled".',
-            'Blue is overused in tech; yellow/amber represents warmth and power.',
-            'Typography needs to feel solid and reliable.'
-          ]
-        }
-      },
-      {
-        id: 'ps4-2',
-        title: 'The Visual Identity',
-        layout: 'featured',
-        images: ['https://i.ibb.co/DHRYgS77/Free-Billboard-Mockup-2nd-draft-blue-copy.jpg'],
-        description: 'A brand that balances precision with the warmth of natural energy.'
-      }
-    ]
-  },
-  {
-    id: 'p5',
-    title: 'Rebranding and Marketing an existing brand',
-    category: 'Digital Marketing',
-    coverImage: 'https://i.ibb.co/v4hF73HL/Screenshot-2026-01-29-at-11-05-53-AM.png',
-    shortDescription: 'Campaign design and market positioning for an existing business.',
-    fullDescription: 'Built a social media campaign for an existing brand- Tea Better after doing some in depth research on the brand.',
-    problemHeadline: 'A brand with a great product but a disconnected story is invisible in the modern attention economy. They had a great product but they had no social media reach, no followers and no story.',
-    problemBody: 'Tea Better had high quality, but low cultural resonance. The problem was an outdated digital presence that didnt reflect the wellness and energy values of its younger target audience. I redefined their narrative to move from "just tea" to "a ritual for the focused mind", "a ritual for a party/get together".',
-    process: [
-      {
-        id: 'ps5-1',
-        title: 'Market Research',
-        images: ['https://i.ibb.co/gZFxTsY1/Screenshot-2026-01-30-at-7-09-12-PM.png'],
-        description: 'Analyzing the competitive landscape of the wellness beverage industry. Understanding what they are not touching upon and missing out.',
-        research: {
-          primary: 'Understanding the brands stand in the market and the brand itself. Understanding the brands customers, products, the philosophy and relevance.',
-          secondary: 'Refreshing the visual language to better align with the brands updated values, their customers and how the brand is potrayed. ',
-          insights: [
-            'Their product might be good, but the way its been put out isnt the best.',
-            'Allowing the consumers and the right consumers knowledge about the product in the right manner and correct platform could help increase their reach.'
-          ]
-        }
-      },
-      {
-        id: 'ps5-2',
-        title: 'Marketing Campaign',
-        layout: 'featured',
-        description: 'A multi-platform digital campaign that repositioned Tea Better as a premium lifestyle choice. We developed three core narratives to target different consumer mindsets.',
-        campaignIdeas: [
-          {
-            title: 'Campaign Pillar: Kitty Talk Tea Better',
-            description: 'Core Message: Make your next kitty party memorable and mindful. Swap the traditional chai for a cup of TEA BETTER—the healthier, tastier, and more Instagrammable choice that will get everyone talking.',
-            image: 'https://i.ibb.co/xqNdKYPN/Screenshot-2026-01-30-at-6-58-54-PM.png'
-          },
-          {
-            title: 'Campaign Pillar: Tea For Thought',
-            description: 'Core Message: Position TEA BETTER not just as a beverage, but as a catalyst for creativity, deep thinking, and mindfulness.',
-            image: 'https://i.ibb.co/35TFz5h7/Screenshot-2026-01-30-at-7-00-33-PM.png'
-          },
-          {
-            title: 'Campaign Pillar: Your Daily Dose of Better',
-            description: 'Core Message: TEA BETTER isnt just a drink; its a simple, delicious, and natural ritual for your daily well-being.',
-            image: 'https://i.ibb.co/6JYBDFc9/Screenshot-2026-01-30-at-7-00-50-PM.png'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 'p6',
-    title: 'Calendar design- based on Warli art',
-    category: 'Illustration',
-    coverImage: 'https://i.ibb.co/zVS4zwpV/Screenshot-2026-01-29-at-11-07-33-AM.png',
-    shortDescription: 'A series of vector illustrations inspired by traditional Warli art',
-    fullDescription: 'This series explores the intricate patterns found in Warli tribal art and translates them into a modern calendar format.',
-    problemHeadline: 'Indigenous art forms are often relegated to museums, losing their vibrancy and relevance in our daily lives.',
-    problemBody: 'The challenge was to take the rigid geometric language of Warli art and adapt it for a functional, modern object without stripping it of its cultural soul. This calendar acts as a daily reminder of traditional storytelling in a high-speed digital world.',
-    process: [
-      {
-        id: 'ps6-1',
-        title: 'Ethnographic Research',
+        phase: 'The Spark',
+        title: 'Ethnographic Research & Tribal Syntax',
         images: [
           'https://i.ibb.co/kgqbcqmL/Whats-App-Image-2026-02-19-at-12-50-46.jpg', 
           'https://i.ibb.co/5pFz6r0/Whats-App-Image-2026-02-19-at-12-51-03.jpg'
         ],
-        description: 'Studying the history and visual syntax of the Warli community. Making sketches and patterns of the art.',
+        description: 'Studying the symbolic vocabulary of the Warli community: two triangles joined at the tip symbolizing the balance of the universe, rhythmic circles representing social unity.',
+        reflection: 'I was humbled by the minimalism of Warli art. With just white pigment on red ochre mud, they communicate community, harvest, and ecology with unmatched clarity.',
         research: {
-          primary: 'Learning where all people see and watch this art.',
-          secondary: 'Seeing the different uses it already has and also the different patterns it uses to present its culture.',
+          primary: 'Explored folk art archives and practiced raw brushwork on handmade textured paper.',
+          secondary: 'Researched the 12 seasonal rhythms of rural agrarian communities to pair each month with an authentic cultural ceremony.',
           insights: [
-            'There could be a new use of it, instead of just walls and cloth.',
-            'Rhythm is more important than anatomical accuracy.',
-            'Earthly tones can be modernized using high-contrast digital vectors.'
+            'Warli art never features straight linear timelines; it portrays cyclical life in concentric circles.',
+            'Vectorization requires precision without losing the warm organic tremor of human hand-drawn strokes.',
+            'Functional dates and typographic numbers must harmonize with the raw rhythmic figures.'
           ]
         }
       },
       {
-        id: 'ps6-2',
-        title: 'The Final Calendar',
-        layout: 'featured',
-        description: 'Bridging tribal history with modern utility through vector precision.'
+        id: 'ps3-2',
+        phase: 'Craft',
+        title: 'Vector Precision & 12 Months of Folklore',
+        images: [
+          'https://i.ibb.co/DPg8yPnd/jan.jpg',
+          'https://i.ibb.co/d0DykQgX/feb.jpg',
+          'https://i.ibb.co/mFhJLz6F/march.jpg',
+          'https://i.ibb.co/XrP8Yr9c/april.jpg'
+        ],
+        description: 'Crafting 12 unique compositions reflecting the agricultural calendar: monsoon sowing, harvest festivals, village weddings, and starlit night storytelling.',
+        reflection: 'Translating mud-wall strokes into mathematical Bézier curves took days of calibration. I kept microscopic asymmetries so each figure retained its lively pulse.',
+        layout: 'gallery'
       },
       {
-        id: 'p6-gallery',
-        title: '',
+        id: 'ps3-gallery',
+        phase: 'Outcome',
+        title: 'The Complete 12-Month Calendar Collection',
+        layout: 'featured',
+        description: 'All twelve months illustrated in high-resolution vector precision, printed on recycled unbleached kraft paper.',
         images: [
           'https://i.ibb.co/DPg8yPnd/jan.jpg',
           'https://i.ibb.co/d0DykQgX/feb.jpg',
@@ -253,6 +241,201 @@ export const PROJECTS: Project[] = [
           'https://i.ibb.co/zhj1NHSB/nov.jpg',
           'https://i.ibb.co/mrmgk1jG/dec.jpg'
         ]
+      },
+      {
+        id: 'ps3-reflection',
+        phase: 'Reflection',
+        title: 'Preserving Heritage Through Daily Utility',
+        description: 'Art isn’t meant to sit behind glass. By embedding indigenous storytelling into a daily desk calendar, users reconnect with ancient rhythms every time they check the date.',
+        reflection: 'Modern design often overcomplicates. Warli taught me that the simplest geometric shapes carry the deepest emotional resonance.'
+      }
+    ]
+  },
+  {
+    id: 'p-internship-1',
+    title: 'Brand Experience & Spatial Identity',
+    category: 'Internship Work',
+    year: '2026',
+    role: 'Communication Design Intern',
+    duration: '8 Weeks Internship',
+    tools: ['Brand Strategy', 'Environmental Graphics', 'Spatial Prototyping', 'Print Collateral'],
+    isInternship: true,
+    coverImage: 'https://images.unsplash.com/photo-1572044162444-ad60f128bde2?auto=format&fit=crop&q=80&w=800',
+    postcardNote: 'Dispatched from my studio internship: translating brand philosophy into touchable physical spaces and living identity systems.',
+    postcardRotation: 1.8,
+    shortDescription: 'Internship Case Study: Environmental graphics, tactile brand touchpoints, and spatial identity systems.',
+    fullDescription: 'During my design studio internship, I worked alongside senior art directors to craft an end-to-end spatial brand experience for an experiential cultural space. The scope spanned brand guidelines, tactile environmental wayfinding, and print collateral.',
+    problemHeadline: 'How does a brand step out of digital screens and command physical presence in an architectural space?',
+    problemBody: 'Most brand guidelines define screen hex codes and letterheads, but dissolve when faced with light, texture, architectural sightlines, and visitor footfall. The internship brief was to construct a coherent, multi-sensory brand system that visitors can physically inhabit.',
+    process: [
+      {
+        id: 'ps-int1-1',
+        phase: 'The Spark',
+        title: 'Studio Brief & Spatial Context',
+        images: ['https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800'],
+        description: 'Analyzing the architectural blueprints and visitor circulation flows. The objective was to make the brand narrative perceptible through material choices, typography scale, and spatial threshold moments.',
+        reflection: 'Interning in a fast-paced studio environment forced me to communicate rationale with extreme clarity. Design decisions in physical spaces cost real material and fabrication budget.',
+        decisionNote: 'Opted for brushed metals, warm architectural timber, and laser-cut typography to reflect human warmth alongside technical precision.',
+        research: {
+          primary: 'Conducted walkthrough audits of existing visitor paths to identify disorientation bottlenecks.',
+          secondary: 'Researched sustainable architectural substrates and tactile signage materials with low environmental footprint.',
+          insights: [
+            'Wayfinding must be intuitive at eye level before it is decorative.',
+            'Typography scale in physical environments must be calculated based on 10-meter and 2-meter viewing distances.',
+            'Tactile materiality grounds a brand in ways a digital screen can never replicate.'
+          ]
+        }
+      },
+      {
+        id: 'ps-int1-2',
+        phase: 'Exploration',
+        title: 'Wayfinding Systems & Material Exploration',
+        images: ['https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800'],
+        description: 'Iterating on physical sign prototypes, directional arrows, room placards, and tactile sensory touchpoints across the studio floor.',
+        reflection: 'Seeing our 1:1 scale mockups taped onto physical walls completely changed my perspective on kerning and letter-spacing for three-dimensional space.',
+        layout: 'split'
+      },
+      {
+        id: 'ps-int1-3',
+        phase: 'Outcome',
+        title: 'The Integrated Brand Book & Spatial Rollout',
+        layout: 'featured',
+        images: [
+          'https://images.unsplash.com/photo-1572044162444-ad60f128bde2?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800'
+        ],
+        description: 'Comprehensive brand architecture delivered to the client, encompassing spatial guidelines, material specifications, and print deliverables.',
+        reflection: 'Presenting our spatial mockups to client stakeholders and receiving approval was one of the most rewarding milestones of my internship.'
+      },
+      {
+        id: 'ps-int1-reflection',
+        phase: 'Reflection',
+        title: 'Internship Learnings & Studio Collaboration',
+        description: 'Collaborating across multidisciplinary teams—architects, printmakers, and brand strategists—taught me that communication design is the glue that unites disparate disciplines into a single coherent human experience.',
+        reflection: 'Always design for the physical person walking into the room, not for the neat PDF presentation deck.'
+      }
+    ]
+  },
+  {
+    id: 'p-internship-2',
+    title: 'Design Systems & Digital Interfaces',
+    category: 'Internship Work',
+    year: '2026',
+    role: 'UI/UX Design Intern',
+    duration: '10 Weeks Internship',
+    tools: ['Figma Tokens', 'Component Architecture', 'Accessibility WCAG', 'Interactive Micro-interactions'],
+    isInternship: true,
+    coverImage: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800',
+    postcardNote: 'Dispatched from the digital product frontline: tokens, typography scales, and human-first interactions built for scale.',
+    postcardRotation: -1.5,
+    shortDescription: 'Internship Case Study: Building modular component libraries, responsive design systems, and inclusive UI states.',
+    fullDescription: 'During my product design internship, I led the audit and restructuring of an internal component library. I established accessible color token systems, typographic scales, and micro-interaction states that accelerated cross-platform handoff.',
+    problemHeadline: 'Inconsistent design debt and disjointed component variations were slowing down engineering delivery and degrading user trust.',
+    problemBody: 'The product suite had accumulated over 40 bespoke button variants, conflicting color contrasts, and zero accessibility documentation. My mandate as an intern was to audit the entire interface ecosystem, eliminate redundancy, and engineer a rock-solid, cohesive token architecture.',
+    process: [
+      {
+        id: 'ps-int2-1',
+        phase: 'The Spark',
+        title: 'System Audit & Component Inventory',
+        images: ['https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'],
+        description: 'Documenting every button, modal, form input, and dropdown state across 8 core product modules. Uncovering hundreds of visual discrepancies and contrast failures.',
+        reflection: 'Design systems are not about policing creativity; they are about freeing designers to solve actual human problems instead of arguing about button border radiuses.',
+        decisionNote: 'Adopted an atomic design hierarchy (Tokens -> Atoms -> Molecules -> Organisms) with strict WCAG AA color ratios.',
+        research: {
+          primary: 'Interviewed 8 front-end developers and 5 product designers to understand their daily friction points in design handoff.',
+          secondary: 'Analyzed leading industry systems (Material 3, Polaris, Apple HIG) for token naming conventions and state management.',
+          insights: [
+            'Developers spent 30% of their sprint time guessing padding and color values because documentation was absent.',
+            'Accessibility was previously treated as an afterthought rather than a foundation.',
+            'A unified token system cuts down UI regression bugs drastically.'
+          ]
+        }
+      },
+      {
+        id: 'ps-int2-2',
+        phase: 'Craft',
+        title: 'Token Architecture & Micro-Interactions',
+        images: ['https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800'],
+        description: 'Building semantic design tokens for light and dark modes, hover/active/focus/disabled states, and motion curves that make interactions feel responsive and tactile.',
+        reflection: 'The biggest breakthrough was introducing interactive component playgrounds in Figma with autolayout and variable modes, making adoption by other designers effortless.',
+        layout: 'split'
+      },
+      {
+        id: 'ps-int2-3',
+        phase: 'Outcome',
+        title: 'The Production-Ready Component Library',
+        layout: 'featured',
+        images: [
+          'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
+        ],
+        description: 'Over 60 scalable components with zero contrast errors, integrated seamlessly into the engineering codebase and adopted by the entire design team.',
+        reflection: 'Hearing developers say "this made building our sprint features twice as fast" was the ultimate validation of systemic craft.'
+      },
+      {
+        id: 'ps-int2-reflection',
+        phase: 'Reflection',
+        title: 'Growth as a Systems Thinker',
+        description: 'This internship taught me to look at digital products not as static screens, but as living, breathing interactive systems. Good design is as much about scalability and clarity as it is about visual beauty.',
+        reflection: 'Clarity is kindness. The clearer your system is, the more delight you can deliver to end users.'
+      }
+    ]
+  }
+];
+
+// Archived Explorations kept safe in case user wants to view or toggle them:
+export const ARCHIVED_PROJECTS: Project[] = [
+  {
+    id: 'p7',
+    title: 'Mirror Mirror',
+    category: 'Immersive Design Studio',
+    coverImage: 'https://i.ibb.co/Fk3z1Jyk/Whats-App-Image-2026-04-07-at-15-43-09-1.jpg',
+    shortDescription: 'In an era of relentless digital certainty, Mirror Mirror offers a whimsical turn into the unknown through interactive space and projection.',
+    fullDescription: 'By delivering cryptic, light-hearted responses through a talking projection, the mirror acts as a bridge between us and the universe.',
+    problemHeadline: 'How can we create an experience for people to feel present in an unseen space?',
+    problemBody: 'What elements allow a person to be immersed in an environment without physical boundaries? A study in gothic whimsy, projection mapping, and spatial presence.',
+    process: [
+      {
+        id: 'ps7-1',
+        title: 'Conceptualization',
+        images: ['https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop'],
+        description: 'Exploring space, reflection, and mystical interaction logic.'
+      }
+    ]
+  },
+  {
+    id: 'p5',
+    title: 'Rebranding & Marketing: Tea Better',
+    category: 'Digital Marketing',
+    coverImage: 'https://i.ibb.co/v4hF73HL/Screenshot-2026-01-29-at-11-05-53-AM.png',
+    shortDescription: 'Repositioning an artisanal tea company with narrative campaigns and community rituals.',
+    fullDescription: 'Built a social media campaign for Tea Better after in-depth research into youth wellness habits.',
+    problemHeadline: 'A brand with a great product but a disconnected story is invisible in the modern attention economy.',
+    problemBody: 'Tea Better had high quality, but low cultural resonance. Redefined their narrative from "just tea" to "a ritual for the focused mind".',
+    process: [
+      {
+        id: 'ps5-1',
+        title: 'Market Research',
+        images: ['https://i.ibb.co/gZFxTsY1/Screenshot-2026-01-30-at-7-09-12-PM.png'],
+        description: 'Analyzing the competitive landscape of the wellness beverage industry.'
+      }
+    ]
+  },
+  {
+    id: 'p8',
+    title: 'Neon Noir',
+    category: 'Production Design',
+    coverImage: 'https://images.unsplash.com/photo-1514306191717-452ec28c7814?q=80&w=800&auto=format&fit=crop',
+    shortDescription: 'Set design and practical lighting art direction for a cyberpunk short film.',
+    fullDescription: 'A production design project where I built a futuristic urban alleyway from scratch, focusing on practical lighting and weathered textures.',
+    problemHeadline: 'How can we create a believable future using limited physical space and budget?',
+    problemBody: 'Layering practical textures—rust, neon, steam—to evoke a lived-in futuristic world.',
+    process: [
+      {
+        id: 'ps8-1',
+        title: 'Set Construction',
+        images: ['https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=800&auto=format&fit=crop'],
+        description: 'Building modular studio walls with practical neon glow.'
       }
     ]
   }
@@ -261,9 +444,10 @@ export const PROJECTS: Project[] = [
 export const INTERESTS: Interest[] = [
   {
     id: 'i1',
-    name: 'Aerial',
+    name: 'Aerial Arts',
     image: 'https://i.ibb.co/tTh3XwyJ/Whats-App-Image-2026-02-02-at-19-57-05.jpg',
-    description: 'Aerial has always been something I was keen on doing, and once I started I havent been able to let go.',
+    description: 'Aerial has always been something I was drawn to, and once I took flight I haven’t been able to let go.',
+    personalNote: 'Suspended six meters off the ground, there is no room for overthinking. Aerial silks taught me spatial trust, balance, and the courage to let go—the exact same courage I bring into bold design choices.',
     gallery: [
       'https://i.ibb.co/5hTMLvNB/Whats-App-Image-2026-02-02-at-19-57-51.jpg',
       'https://i.ibb.co/gb29XJJP/Whats-App-Image-2026-02-02-at-19-59-36-2.jpg',
@@ -272,9 +456,10 @@ export const INTERESTS: Interest[] = [
   },
   {
     id: 'i2',
-    name: 'Sketching',
+    name: 'Tactile Sketchbooks',
     image: 'https://i.ibb.co/whzp4x8V/Chat-GPT-Image-Jan-29-2026-04-36-14-PM.png',
-    description: 'I had started sketching- just drawing since I was a little kid, the number of sketchbooks of different sizes I have cealrly shows how much I still love sketching and drawing on paper more than anything..',
+    description: 'Drawing and sketching on raw paper since I was a little kid—the stack of filled sketchbooks is proof of my earliest obsession.',
+    personalNote: 'Before any Figma file opens, it lives as a messy graphite scribble in my pocket notebook. The physical friction of pencil on grain keeps ideas honest and unpolished.',
     gallery: [
       'https://i.ibb.co/gLMp4N8P/vertical-building-white-background-soft-MATCHED.png',
       'https://i.ibb.co/kg0ZSxNL/street-sketch-white-background.png',
@@ -283,9 +468,10 @@ export const INTERESTS: Interest[] = [
   },
   {
     id: 'i3',
-    name: 'Cooking',
+    name: 'Sensory Cooking',
     image: 'https://i.ibb.co/4wKn8ZCW/Whats-App-Image-2026-02-12-at-16-48-23.jpg',
-    description: 'I have always LOVED EATING and now I have started loved cooking as well, only when I feel like;) just kidding always like making something for people that I love.',
+    description: 'I love eating and I love cooking for the people I care about. A labor of love and flavor exploration.',
+    personalNote: 'Cooking is edible communication design. Balancing acidity, warmth, crisp texture, and plating is the most immediate sensory feedback loop in the world.',
     gallery: [
       'https://i.ibb.co/4wKn8ZCW/Whats-App-Image-2026-02-12-at-16-48-23.jpg',
       'https://i.ibb.co/nNtDFVgd/Whats-App-Image-2026-02-19-at-13-44-44.jpg',
@@ -296,9 +482,10 @@ export const INTERESTS: Interest[] = [
   },
   {
     id: 'i4',
-    name: 'Fine Arts',
+    name: 'Fine Arts & Charcoal',
     image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=800',
-    description: 'Oil paintings and charcoal studies. Where traditional techniques meet modern concepts.',
+    description: 'Oil paintings, raw charcoal studies, and where traditional classical techniques encounter contemporary thought.',
+    personalNote: 'Getting paint on my hands reminds me that art is physical. The smell of linseed oil and turpentine grounds me when digital screens get too sterile.',
     gallery: [
       'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=800',
       'https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?q=80&w=800&auto=format&fit=crop',
@@ -308,9 +495,10 @@ export const INTERESTS: Interest[] = [
   },
   {
     id: 'i5',
-    name: 'Photography',
+    name: 'Analog Photography',
     image: 'https://i.ibb.co/75DDPZH/DSC08094.jpg',
-    description: 'Capturing the fleeting moments between shadows and light.',
+    description: 'Capturing fleeting moments between shadows, street corners, and spontaneous light.',
+    personalNote: 'A camera gives you permission to pause and study the world. Looking through the viewfinder taught me how light bends around corners and frames human emotion.',
     gallery: [
       'https://i.ibb.co/jvd0mF4B/Whats-App-Image-2026-02-03-at-20-22-57-1.jpg',
       'https://i.ibb.co/tpwpSK69/Whats-App-Image-2026-02-03-at-20-22-57.jpg',
@@ -318,3 +506,5 @@ export const INTERESTS: Interest[] = [
     ]
   }
 ];
+
+export const PERSONAL_PHOTO_URL = 'https://i.ibb.co/NdWK4w4P/Whats-App-Image-2026-02-03-at-12-48-07.jpg';

@@ -1,174 +1,266 @@
-
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Category, Project } from '../types';
-import { PROJECTS } from '../constants';
+import { PROJECTS, ARCHIVED_PROJECTS } from '../constants';
 
 interface PortfolioGridProps {
   selectedCategory: Category;
   onSelectCategory: (cat: Category) => void;
+  onOpenProject: (project: Project) => void;
 }
 
-const CATEGORIES: Category[] = ['All', 'UI/UX', 'Editorial Design', 'Web Development', 'Branding', 'Digital Marketing', 'Illustration'];
+const CATEGORIES: { label: string; value: Category }[] = [
+  { label: 'All 5 Works', value: 'All' },
+  { label: 'UI/UX', value: 'UI/UX' },
+  { label: 'Editorial Design', value: 'Editorial Design' },
+  { label: 'Illustration', value: 'Illustration' },
+  { label: 'Internship Work', value: 'Internship Work' },
+];
 
-const PortfolioGrid: React.FC<PortfolioGridProps> = ({ selectedCategory, onSelectCategory }) => {
-  const filteredProjects = selectedCategory === 'All' 
-    ? PROJECTS 
-    : PROJECTS.filter(p => p.category === selectedCategory);
+const PortfolioGrid: React.FC<PortfolioGridProps> = ({ 
+  selectedCategory, 
+  onSelectCategory,
+  onOpenProject 
+}) => {
+  const [showArchived, setShowArchived] = useState(false);
 
-  // Velocity-based shooting origins
-  const projectiles = [
-    { start: 'translate-x-[-120%] translate-y-[20%] rotate-[-30deg]', shape: 'rounded-[60%_40%_30%_70%_/_60%_30%_70%_40%]' },
-    { start: 'translate-x-[120%] translate-y-[-20%] rotate-[30deg]', shape: 'rounded-[30%_70%_70%_30%_/_50%_40%_60%_50%]' },
-    { start: 'translate-x-[-120%] translate-y-[-20%] rotate-[15deg]', shape: 'rounded-[50%_50%_20%_80%_/_25%_80%_20%_75%]' },
-    { start: 'translate-x-[120%] translate-y-[20%] rotate-[-15deg]', shape: 'rounded-[70%_30%_50%_50%_/_30%_70%_30%_70%]' },
-  ];
+  // Filter projects
+  const activeProjects = selectedCategory === 'All'
+    ? (showArchived ? [...PROJECTS, ...ARCHIVED_PROJECTS] : PROJECTS)
+    : [...PROJECTS, ...ARCHIVED_PROJECTS].filter(p => p.category === selectedCategory);
 
   return (
-    <div className="relative">
-      <div className="sticky top-24 z-50 mb-12 flex flex-wrap gap-3 overflow-x-auto pb-4 no-scrollbar bg-light/80 dark:bg-dark/80 backdrop-blur-md py-4 rounded-full px-6 border border-zinc-200 dark:border-zinc-800 shadow-sm mx-auto max-w-fit">
-        {CATEGORIES.map(cat => (
+    <section id="work" className="relative py-24 px-6 md:px-12 lg:px-20 bg-light dark:bg-dark transition-colors duration-500">
+      
+      {/* Section Header */}
+      <div className="max-w-6xl mx-auto mb-16">
+        <div className="flex flex-wrap items-end justify-between gap-6 border-b border-zinc-200 dark:border-zinc-800 pb-8">
+          <div>
+            <div className="flex items-center space-x-3 text-xs uppercase tracking-[0.3em] font-medium text-zinc-500 dark:text-zinc-400 mb-3">
+              <span className="w-2 h-2 rounded-full bg-zinc-900 dark:bg-zinc-100"></span>
+              <span>02 / 04 — SELECTED WORKS</span>
+            </div>
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+              The Postcard <span className="italic font-normal font-serif text-zinc-600 dark:text-zinc-400">Stack</span>
+            </h2>
+          </div>
+
+          <p className="max-w-md text-sm md:text-base text-zinc-500 dark:text-zinc-400 font-light leading-relaxed">
+            Five stories dispatched from the design studio. As you scroll, each project layers into a tactile archive of research, pivotal decisions, and craft.
+          </p>
+        </div>
+
+        {/* Filter Navigation & Archives Toggle */}
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex flex-wrap gap-2">
+            {CATEGORIES.map(cat => (
+              <button
+                key={cat.value}
+                onClick={() => onSelectCategory(cat.value)}
+                className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-300 border ${
+                  selectedCategory === cat.value
+                    ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 border-zinc-900 dark:border-zinc-100 shadow-md'
+                    : 'border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-600 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm'
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+
           <button
-            key={cat}
-            onClick={() => onSelectCategory(cat)}
-            className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all whitespace-nowrap border ${
-              selectedCategory === cat 
-                ? 'bg-dark text-light border-dark dark:bg-light dark:text-dark dark:border-light shadow-lg' 
-                : 'border-transparent text-zinc-500 hover:text-dark dark:hover:text-light'
-            }`}
+            onClick={() => setShowArchived(!showArchived)}
+            className="text-xs font-mono tracking-wider text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center space-x-1.5 py-1 px-3 rounded border border-dashed border-zinc-300 dark:border-zinc-700"
           >
-            {cat}
+            <span>{showArchived ? 'Hide' : '+ View'} Archived Explorations ({ARCHIVED_PROJECTS.length})</span>
           </button>
-        ))}
+        </div>
       </div>
 
-      <div className="relative">
-        {filteredProjects.map((project, idx) => (
-          <ProjectBall 
-            key={project.id} 
-            project={project} 
-            index={idx} 
-            // We give each project a higher z-index than the last so they stack correctly
-            zIndex={10 + idx}
-            motion={projectiles[idx % projectiles.length]}
-          />
-        ))}
+      {/* The Postcard Stack Container */}
+      <div className="max-w-5xl mx-auto space-y-24 md:space-y-36 pb-24 relative">
+        <AnimatePresence mode="wait">
+          {activeProjects.map((project, index) => (
+            <PostcardItem
+              key={project.id}
+              project={project}
+              index={index}
+              total={activeProjects.length}
+              onClick={() => onOpenProject(project)}
+            />
+          ))}
+        </AnimatePresence>
       </div>
-      
-      {filteredProjects.length === 0 && (
-        <div className="h-[50vh] flex flex-col items-center justify-center space-y-4">
-          <div className="w-16 h-16 rounded-full border border-dashed border-zinc-300 dark:border-zinc-700 animate-spin"></div>
-          <span className="text-zinc-400 font-serif italic text-xl">Curating more works...</span>
-        </div>
-      )}
-    </div>
+
+      {/* Bottom Transition to Section 03 */}
+      <div className="max-w-6xl mx-auto pt-16 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between text-xs">
+        <span className="font-mono uppercase text-zinc-400 tracking-widest">End of Selected Works</span>
+        <a 
+          href="#about"
+          className="group flex items-center space-x-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 font-serif italic text-sm transition-colors"
+        >
+          <span>Continue to 03 — About Me & Passions</span>
+          <span className="group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      </div>
+    </section>
   );
 };
 
-interface ProjectBallProps {
+interface PostcardItemProps {
   project: Project;
   index: number;
-  zIndex: number;
-  motion: { start: string, shape: string };
+  total: number;
+  onClick: () => void;
 }
 
-const ProjectBall: React.FC<ProjectBallProps> = ({ project, index, motion, zIndex }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [hasEntered, setHasEntered] = useState(false);
-  const [isExiting, setIsExiting] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // hasEntered triggers the "shooting in" animation
-        if (entry.isIntersecting) {
-          setHasEntered(true);
-          setIsExiting(false);
-        } else if (entry.boundingClientRect.top < 0) {
-          // If the element is scrolled above the viewport, mark as exiting
-          setIsExiting(true);
-        }
-      },
-      { 
-        threshold: 0.1,
-        rootMargin: "-5% 0px -5% 0px" 
-      }
-    );
-
-    if (containerRef.current) observer.observe(containerRef.current);
-    return () => observer.disconnect();
-  }, []);
+const PostcardItem: React.FC<PostcardItemProps> = ({ project, index, total, onClick }) => {
+  const rotation = project.postcardRotation ?? (index % 2 === 0 ? -1.5 : 1.5);
 
   return (
-    <div 
-      ref={containerRef}
-      className="relative h-[120vh] flex items-start justify-center"
-      style={{ zIndex }}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      style={{
+        zIndex: 10 + index,
+      }}
+      className="sticky top-28 md:top-32"
     >
-      <div 
-        onClick={() => window.location.hash = `project/${project.id}`}
-        className={`
-          sticky top-[15vh] w-[85vw] md:w-[65vw] lg:w-[50vw] aspect-square
-          transition-all duration-[1000ms] ease-[cubic-bezier(0.23,1,0.32,1)]
-          cursor-pointer group pointer-events-auto
-          ${hasEntered ? 'translate-x-0 translate-y-0 rotate-0 scale-100 opacity-100' : `${motion.start} opacity-0 scale-75`}
-          ${isExiting ? 'scale-90 opacity-0 blur-md pointer-events-none' : ''}
-        `}
+      <motion.div
+        whileHover={{ 
+          rotate: 0, 
+          scale: 1.015,
+          y: -4,
+          transition: { duration: 0.3, ease: "easeOut" } 
+        }}
+        style={{ rotate: rotation }}
+        onClick={onClick}
+        className="group relative cursor-pointer bg-[#fcfbfa] dark:bg-[#161619] rounded-sm border border-stone-200 dark:border-stone-800 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)] dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.65)] overflow-hidden transition-shadow duration-300"
       >
-        {/* The Liquid Object */}
-        <div className={`
-          absolute inset-0 shadow-[0_50px_100px_-30px_rgba(0,0,0,0.5)]
-          transition-all duration-700 group-hover:scale-105 active:scale-95
-          ${motion.shape} overflow-hidden bg-zinc-200 dark:bg-zinc-900
-          ${hasEntered && !isExiting ? 'animate-liquid' : ''}
-        `}>
-          <img 
-            src={project.coverImage} 
-            alt={project.title}
-            className={`
-              w-full h-full object-cover transition-all duration-[1500ms] group-hover:scale-110
-              ${hasEntered ? 'scale-100 blur-0' : 'scale-125 blur-2xl'}
-            `}
-          />
-          <div className="absolute inset-0 bg-gradient-to-tr from-dark/95 via-dark/30 to-transparent opacity-80 group-hover:opacity-50 transition-opacity"></div>
+        
+        {/* Subtle Decorative Airmail Top Stripe */}
+        <div className="h-1.5 w-full bg-gradient-to-r from-red-400/40 via-blue-400/40 to-amber-400/40 opacity-70"></div>
 
-          {/* Liquid Content Overlay */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 md:p-12">
-            <div className={`transition-all duration-1000 delay-300 transform ${hasEntered ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
-              <span className="inline-block px-4 py-1 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-[9px] font-bold uppercase tracking-[0.3em] text-white mb-6">
-                {project.category}
+        <div className="p-6 sm:p-8 md:p-10">
+          
+          {/* Postcard Top Meta Bar */}
+          <div className="flex items-start justify-between gap-4 mb-6 border-b border-stone-200/70 dark:border-stone-800 pb-5">
+            <div className="flex items-center space-x-3">
+              <span className="font-mono text-xs font-bold tracking-widest text-zinc-900 dark:text-zinc-100 px-2 py-0.5 bg-stone-100 dark:bg-stone-800 rounded">
+                POSTCARD {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
               </span>
-              <h3 className="text-3xl md:text-6xl font-serif font-bold text-white mb-8 tracking-tighter leading-tight drop-shadow-2xl px-4">
-                {project.title}
-              </h3>
-              <div className="inline-flex items-center space-x-3 text-white/60 group-hover:text-white transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                <span className="text-[9px] uppercase tracking-widest font-bold">Dive into story</span>
-                <div className="w-8 h-[1px] bg-white/40 group-hover:w-16 group-hover:bg-white transition-all"></div>
+              {project.isInternship && (
+                <span className="px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-widest bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 rounded font-semibold border border-emerald-300/40">
+                  ★ Internship Case Study
+                </span>
+              )}
+            </div>
+
+            {/* Vintage Postage Stamp with Cancellation Mark */}
+            <div className="flex items-center space-x-2 select-none pointer-events-none">
+              {/* Franking lines */}
+              <div className="hidden sm:flex flex-col space-y-1 opacity-40">
+                <div className="w-12 h-[1px] bg-zinc-600 dark:bg-zinc-400"></div>
+                <div className="w-16 h-[1px] bg-zinc-600 dark:bg-zinc-400"></div>
+                <div className="w-10 h-[1px] bg-zinc-600 dark:bg-zinc-400"></div>
+              </div>
+
+              {/* The Stamp */}
+              <div className="w-14 h-16 sm:w-16 sm:h-20 border border-dashed border-stone-400 dark:border-stone-600 bg-stone-100 dark:bg-stone-800/80 p-1 flex flex-col justify-between items-center text-center shadow-inner rounded-[2px]">
+                <span className="text-[7px] font-mono tracking-widest uppercase text-stone-500">AIRMAIL</span>
+                <span className="font-serif italic font-bold text-xs sm:text-sm text-stone-700 dark:text-stone-300">
+                  {project.year ?? '2026'}
+                </span>
+                <span className="text-[6px] font-mono uppercase text-stone-500">SUDENA·IN</span>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Floating Tag */}
-        <div className={`
-          absolute -top-4 -left-4 md:-top-8 md:-left-8 w-16 h-16 md:w-28 md:h-28 rounded-full bg-white dark:bg-zinc-100 flex items-center justify-center 
-          shadow-2xl z-30 transition-all duration-1000 delay-500 transform
-          ${hasEntered ? 'scale-100 rotate-[-12deg] opacity-100' : 'scale-0 rotate-45 opacity-0'}
-        `}>
-          <span className="text-dark font-serif italic font-bold text-2xl md:text-4xl tracking-tighter">0{index + 1}</span>
-        </div>
-      </div>
+          {/* Postcard Body: Two Columns (Image + Dispatches) */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            
+            {/* Left: The Postcard Visual */}
+            <div className="md:col-span-6 relative group-hover:shadow-lg transition-all duration-500 rounded overflow-hidden aspect-[4/3] bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
+              <img
+                src={project.coverImage}
+                alt={project.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors"></div>
 
-      <style>{`
-        @keyframes liquid {
-          0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-          33% { border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%; }
-          66% { border-radius: 70% 30% 50% 50% / 30% 70% 30% 70%; }
-        }
-        .animate-liquid {
-          animation: liquid 15s ease-in-out infinite;
-        }
-      `}</style>
-    </div>
+              {/* Photo Caption Strip */}
+              <div className="absolute bottom-2 left-2 right-2 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md px-3 py-1.5 rounded-sm flex items-center justify-between text-[10px] font-mono text-stone-600 dark:text-stone-300">
+                <span className="uppercase tracking-wider">{project.category}</span>
+                <span className="opacity-60">{project.duration ?? 'Featured'}</span>
+              </div>
+            </div>
+
+            {/* Right: The Handwritten Dispatch & Summary */}
+            <div className="md:col-span-6 flex flex-col justify-between space-y-6">
+              
+              <div className="space-y-3">
+                <div className="flex items-center space-x-2 text-xs font-mono uppercase text-stone-400 tracking-wider">
+                  <span>{project.role ?? 'Communication Design'}</span>
+                  <span>·</span>
+                  <span>{project.category}</span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-stone-700 dark:group-hover:text-stone-300 transition-colors">
+                  {project.title}
+                </h3>
+
+                <p className="text-sm text-stone-600 dark:text-stone-400 font-light leading-relaxed">
+                  {project.shortDescription}
+                </p>
+              </div>
+
+              {/* Handwritten Note / Dispatch */}
+              {project.postcardNote && (
+                <div className="p-4 rounded bg-stone-100/70 dark:bg-stone-800/40 border-l-2 border-stone-400 dark:border-stone-600">
+                  <span className="font-mono text-[9px] uppercase tracking-widest text-stone-400 block mb-1">
+                    Designer's Dispatch Note:
+                  </span>
+                  <p className="font-hand text-xl text-stone-800 dark:text-stone-200 leading-snug">
+                    "{project.postcardNote}"
+                  </p>
+                </div>
+              )}
+
+              {/* Action Button & Tool Tags */}
+              <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center space-x-2 text-xs font-mono font-medium text-zinc-900 dark:text-zinc-100 group-hover:translate-x-1 transition-transform">
+                  <span className="underline decoration-stone-300 underline-offset-4 group-hover:decoration-zinc-900 dark:group-hover:decoration-zinc-100">
+                    Open Case Story & Process
+                  </span>
+                  <span>→</span>
+                </div>
+
+                {project.tools && project.tools.length > 0 && (
+                  <div className="hidden sm:flex flex-wrap gap-1.5 text-[10px] font-mono text-stone-500">
+                    {project.tools.slice(0, 3).map((tool, i) => (
+                      <span key={i} className="px-2 py-0.5 bg-stone-100 dark:bg-stone-800/80 rounded">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Tactile Bottom Rule */}
+          <div className="mt-6 pt-4 border-t border-dashed border-stone-200 dark:border-stone-800 flex items-center justify-between text-[9px] font-mono text-stone-400 uppercase tracking-widest">
+            <span>PAR AVION / BY AIR MAIL</span>
+            <span>CLICK POSTCARD TO UNFOLD STORY</span>
+          </div>
+
+        </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
