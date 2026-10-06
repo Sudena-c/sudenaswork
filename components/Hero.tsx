@@ -101,15 +101,15 @@ const Hero: React.FC = () => {
           >
             <div>
               <span className="block font-mono text-[10px] uppercase tracking-wider text-zinc-400">Education</span>
-              <span className="font-medium text-zinc-800 dark:text-zinc-200">UID, Karnavati Univ</span>
+              <span className="font-medium text-zinc-800 dark:text-zinc-200">UID, Karnavati University</span>
             </div>
             <div>
-              <span className="block font-mono text-[10px] uppercase tracking-wider text-zinc-400">Curiosity</span>
-              <span className="font-medium text-zinc-800 dark:text-zinc-200">Aerial Arts & Print</span>
+              <span className="block font-mono text-[10px] uppercase tracking-wider text-zinc-400">Area of Interest</span>
+              <span className="font-medium text-zinc-800 dark:text-zinc-200">Publication Design & UI/UX</span>
             </div>
             <div>
               <span className="block font-mono text-[10px] uppercase tracking-wider text-zinc-400">Curated Work</span>
-              <span className="font-medium text-zinc-800 dark:text-zinc-200">5 Selected Stories</span>
+              <span className="font-medium text-zinc-800 dark:text-zinc-200">Selected Stories</span>
             </div>
           </motion.div>
         </div>
