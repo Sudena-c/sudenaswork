@@ -290,9 +290,9 @@ export const PROJECTS: Project[] = [
         id: 'ps-int1-2',
         phase: 'Ideation',
         title: 'Ideation and Brainstorming',
-        images: ['https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800'],
+        images: ['https://i.ibb.co/6R65HMgq/Whats-App-Image-2026-09-18-at-13-23-19-2.jpg'],
         description: 'We started off with everyone in the team- the art team and the copywriters thinking what all can be done, and the directions that could be taken.',
-        reflection: 'Being a part of the ideation process gave me a real experience on how a brief is broken down and articulated and ideateed upon.',
+        reflection: 'Being a part of the ideation process gave me a real experience on how a brief is broken down, articulated and ideated upon.',
         layout: 'split'
       },
       {
@@ -305,7 +305,7 @@ export const PROJECTS: Project[] = [
         deliverableGroups: [
           {
             id: 'dg-print',
-            category: '1) Print Ads (3)',
+            category: '1) Print Ads',
             description: 'Full-page editorial press and magazine print campaign ads developed for Shaya.',
             items: [
               {
@@ -325,7 +325,7 @@ export const PROJECTS: Project[] = [
               {
                 id: 'pa-3',
                 title: 'Print Ad 03',
-                caption: 'Brand ambassador feature with bold typography and conversational copy.',
+                caption: 'Full-page magazine ad showcasing their jewellery piece.',
                 image: 'https://i.ibb.co/Rkct0KqC/Silver-Macro-Print-01.png',
                 aspect: 'portrait'
               }
@@ -333,7 +333,7 @@ export const PROJECTS: Project[] = [
           },
           {
             id: 'dg-social',
-            category: '2) Social Media Grid (6 Posts)',
+            category: '2) Social Media Grid',
             description: 'Cohesive 6-post visual grid establishing the fresh #SoShaya tone of voice on Instagram.',
             items: [
               {
@@ -382,7 +382,7 @@ export const PROJECTS: Project[] = [
           },
           {
             id: 'dg-ooh',
-            category: '3) 6 — OOH Collaterals (Horizontal)',
+            category: '3) OOH Collaterals (Horizontal)',
             description: 'Horizontal outdoor advertising collaterals for highway billboards, horizontal gantry signage, and wide transit displays.',
             items: [
               {
@@ -431,7 +431,7 @@ export const PROJECTS: Project[] = [
           },
           {
             id: 'dg-digital',
-            category: '4) 1 Website Banner & 1 Facebook Cover',
+            category: '4) Website Banner & Facebook Cover',
             description: 'Digital touchpoint hero graphics calibrated for high click-through engagement.',
             items: [
               {
@@ -452,7 +452,7 @@ export const PROJECTS: Project[] = [
           },
           {
             id: 'dg-gallery',
-            category: '5) 2 Gallery Photos',
+            category: '5) Gallery Photos',
             description: 'Tactile, physical gallery images.',
             items: [
               {
