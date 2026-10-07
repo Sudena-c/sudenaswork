@@ -675,4 +675,5 @@ export const INTERESTS: Interest[] = [
 
 export const PERSONAL_PHOTO_URL = 'https://i.ibb.co/NdWK4w4P/Whats-App-Image-2026-02-03-at-12-48-07.jpg';
 
-export const RESUME_URL = '/Sudena_Chandnani_Resume.pdf';
+export const CV_URL = '/Sudena_Chandnani_CV.pdf';
+export const RESUME_URL = CV_URL;

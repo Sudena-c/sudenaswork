@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 
 const ContactSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -34,67 +33,43 @@ const ContactSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Clean Socials & Direct Email Grid (No dispatch form) */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-stretch">
+        {/* Clean Email & Socials Grid (Only Email ID and Socials) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
           
-          {/* Main Direct Email Card */}
-          <div className="md:col-span-7 bg-white dark:bg-zinc-900 p-8 sm:p-12 rounded-sm border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between space-y-8">
-            <div className="space-y-4">
+          {/* Email ID Card */}
+          <div className="bg-white dark:bg-zinc-900 p-8 sm:p-10 rounded-sm border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between space-y-6">
+            <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs uppercase tracking-widest text-zinc-400">
-                  Direct Electronic Mail
+                  Email ID
                 </span>
-                <span className="text-xs font-mono px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-medium">
-                  ● Inbox Active
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-semibold">
+                  Primary Contact
                 </span>
               </div>
-
-              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 dark:text-zinc-100 leading-snug">
-                Drop me a note directly anytime.
-              </h3>
-
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 font-light leading-relaxed">
-                Whether you have an upcoming project, an inquiry about my pitch and internship work, or just want to connect — feel free to email me.
-              </p>
+              <div className="pt-2">
+                <span className="font-mono text-lg sm:text-xl font-medium text-zinc-900 dark:text-zinc-100 block break-all">
+                  sudenachandnani@gmail.com
+                </span>
+              </div>
             </div>
 
-            <div className="space-y-4 pt-4 border-t border-stone-100 dark:border-stone-800">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700">
-                <a 
-                  href="mailto:sudenachandnani@gmail.com"
-                  className="font-mono text-base sm:text-lg font-medium text-zinc-900 dark:text-zinc-100 hover:underline truncate"
-                >
-                  sudenachandnani@gmail.com
-                </a>
-
-                <div className="flex items-center space-x-2 shrink-0">
-                  <button
-                    onClick={handleCopyEmail}
-                    className="px-4 py-2 rounded bg-white dark:bg-zinc-900 border border-stone-200 dark:border-stone-700 text-xs font-mono tracking-wider hover:bg-stone-100 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 transition-colors shadow-sm"
-                  >
-                    {copied ? '✓ Copied' : 'Copy'}
-                  </button>
-
-                  <a
-                    href="mailto:sudenachandnani@gmail.com"
-                    className="px-4 py-2 rounded bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 text-xs font-mono uppercase tracking-wider hover:scale-105 active:scale-95 transition-all shadow-sm"
-                  >
-                    Send Email ↗
-                  </a>
-                </div>
-              </div>
-              <span className="block text-[11px] font-mono text-zinc-400">
-                Based in Ahmedabad, India (IST) · Open worldwide
+            <div className="flex items-center justify-between pt-4 border-t border-stone-100 dark:border-stone-800">
+              <span className="text-xs font-mono text-zinc-400">
+                Ahmedabad, India · IST
               </span>
+              <button
+                onClick={handleCopyEmail}
+                className="px-4 py-2 rounded bg-stone-100 dark:bg-stone-800 text-xs font-mono tracking-wider hover:bg-stone-200 dark:hover:bg-stone-700 text-zinc-800 dark:text-zinc-200 transition-colors shadow-sm"
+              >
+                {copied ? '✓ Copied' : 'Copy Email'}
+              </button>
             </div>
           </div>
 
           {/* Social Profiles Grid */}
-          <div className="md:col-span-5 flex flex-col justify-between space-y-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-zinc-400 block px-1">
-              Socials & Portfolios
-            </span>
-
+          <div className="flex flex-col justify-between space-y-3">
+            
             <a
               href="https://www.linkedin.com/in/sudena-chandnani?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank"
@@ -156,10 +131,11 @@ const ContactSection: React.FC = () => {
                   <p className="text-xs font-mono text-zinc-400">behance.net/sudenaswork</p>
                 </div>
               </div>
-              <span className="text-base font-mono text-zinc-400 group-hover:text-zinc-900 dark:hover:text-zinc-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+              <span className="text-base font-mono text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                 ↗
               </span>
             </a>
+
           </div>
 
         </div>

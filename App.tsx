@@ -28,7 +28,7 @@ const App: React.FC = () => {
           setActiveProject(project);
           window.scrollTo(0, 0);
         }
-      } else {
+      } else if (!hash) {
         setActiveProject(null);
       }
     };

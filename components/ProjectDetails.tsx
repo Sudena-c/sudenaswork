@@ -48,18 +48,25 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
         {/* Phase Chapter Indicators */}
         <div className="hidden md:flex items-center space-x-1.5 text-[11px] font-mono">
           {project.process.map((step, idx) => (
-            <a
+            <button
               key={step.id}
-              href={`#step-${step.id}`}
+              type="button"
               className={`px-2.5 py-1 rounded transition-colors ${
                 activePhaseIndex === idx 
                   ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 font-medium' 
                   : 'text-stone-500 hover:text-zinc-900 dark:hover:text-zinc-100'
               }`}
-              onClick={() => setActivePhaseIndex(idx)}
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePhaseIndex(idx);
+                const el = document.getElementById(`step-${step.id}`);
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
             >
               {step.phase ?? `0${idx + 1}`}
-            </a>
+            </button>
           ))}
         </div>
 

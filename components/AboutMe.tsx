@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { INTERESTS, RESUME_URL } from '../constants';
+import { INTERESTS, CV_URL } from '../constants';
 import { Interest } from '../types';
 
 interface AboutMeProps {
@@ -58,14 +58,14 @@ const AboutMe: React.FC<AboutMeProps> = ({ onImageClick }) => {
               </p>
             </div>
 
-            {/* Resume / CV Section */}
+            {/* Curriculum Vitae (CV) Section */}
             <div className="p-5 rounded-sm bg-white dark:bg-zinc-900 border border-stone-200 dark:border-stone-800 space-y-3 shadow-sm">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-400 font-semibold">
-                  Curriculum Vitae / Resume
+                  Curriculum Vitae (CV)
                 </span>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 font-semibold border border-amber-200/50 dark:border-amber-800/40">
-                  PDF Available
+                  CV Document
                 </span>
               </div>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 font-light leading-relaxed">
@@ -73,22 +73,22 @@ const AboutMe: React.FC<AboutMeProps> = ({ onImageClick }) => {
               </p>
               <div className="flex flex-wrap items-center gap-3 pt-1">
                 <a
-                  href={RESUME_URL}
-                  download="Sudena_Chandnani_Resume.pdf"
+                  href={CV_URL}
+                  download="Sudena_Chandnani_CV.pdf"
                   className="px-4 py-2.5 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 text-xs font-mono uppercase tracking-wider rounded-sm hover:scale-105 active:scale-95 transition-all shadow-sm flex items-center space-x-2"
                 >
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
-                  <span>Download Resume</span>
+                  <span>Download CV</span>
                 </a>
                 <a
-                  href={RESUME_URL}
+                  href={CV_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2.5 border border-stone-300 dark:border-stone-700 text-xs font-mono uppercase tracking-wider text-zinc-700 dark:text-zinc-300 rounded-sm hover:border-zinc-900 dark:hover:border-zinc-100 transition-colors flex items-center space-x-1.5"
                 >
-                  <span>Open in New Tab</span>
+                  <span>Open CV in New Tab</span>
                   <span>↗</span>
                 </a>
               </div>
