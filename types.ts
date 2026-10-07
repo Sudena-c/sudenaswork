@@ -31,7 +31,7 @@ export interface IterationComparison {
 export interface ProcessStep {
   id: string;
   title: string;
-  phase?: 'The Spark' | 'Exploration' | 'The Pivot' | 'Craft' | 'Outcome' | 'Reflection';
+  phase?: 'The Spark' | 'Exploration' | 'The Pivot' | 'Craft' | 'Outcome' | 'Reflection' | 'Ideation' ;
   images?: string[];
   video?: string;
   posterImage?: string;

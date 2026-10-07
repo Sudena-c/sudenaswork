@@ -253,77 +253,77 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'p-internship-1',
-    title: 'Brand Experience & Spatial Identity',
+    title: 'New Brand Launch and Pitch work',
     category: 'Internship Work',
     year: '2026',
     role: 'Communication Design Intern',
-    duration: '8 Weeks Internship',
-    tools: ['Brand Strategy', 'Environmental Graphics', 'Spatial Prototyping', 'Print Collateral'],
+    duration: '14 Weeks Internship',
+    tools: ['Brand Strategy', 'Digital Collateral', 'Brand Guidelines', 'Print Collateral'],
     isInternship: true,
-    coverImage: 'https://images.unsplash.com/photo-1572044162444-ad60f128bde2?auto=format&fit=crop&q=80&w=800',
-    postcardNote: 'Dispatched from my studio internship: translating brand philosophy into touchable physical spaces and living identity systems.',
+    coverImage: 'https://ibb.co/0j0MKRwV',
+    postcardNote: 'From my Internship: understanding what a brand wants, how they want to show their brand, where all we need to be displaying the brand, and the perfect people for the brand.',
     postcardRotation: 1.8,
-    shortDescription: 'Internship Case Study: Environmental graphics, tactile brand touchpoints, and spatial identity systems.',
+    shortDescription: 'Internship Brief: Environmental graphics, tactile brand touchpoints, and spatial identity systems.',
     fullDescription: 'During my design studio internship, I worked alongside senior art directors to craft an end-to-end spatial brand experience for an experiential cultural space. The scope spanned brand guidelines, tactile environmental wayfinding, and print collateral.',
     problemHeadline: 'How does a brand step out of digital screens and command physical presence in an architectural space?',
-    problemBody: 'Most brand guidelines define screen hex codes and letterheads, but dissolve when faced with light, texture, architectural sightlines, and visitor footfall. The internship brief was to construct a coherent, multi-sensory brand system that visitors can physically inhabit.',
+    problemBody: 'Shaya by CaratLane is expanding horizons moving from digital to an omni channel business model. This is a defining moment for the brand – we want a creative partner who can translate our brand pitch and give Shaya a sharper, more emotionally resonant place in the consumers mind.',
     process: [
       {
         id: 'ps-int1-1',
         phase: 'The Spark',
-        title: 'Studio Brief & Spatial Context',
+        title: 'Brand Brief & Context',
         images: ['https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800'],
-        description: 'Analyzing the architectural blueprints and visitor circulation flows. The objective was to make the brand narrative perceptible through material choices, typography scale, and spatial threshold moments.',
-        reflection: 'Interning in a fast-paced studio environment forced me to communicate rationale with extreme clarity. Design decisions in physical spaces cost real material and fabrication budget.',
-        decisionNote: 'Opted for brushed metals, warm architectural timber, and laser-cut typography to reflect human warmth alongside technical precision.',
+        description: 'We Understood from the brand, what they stand for, their current guidelines and what they are expecting from us.',
+        reflection: 'Sitting for a brief with a brand helped me understand how brands give their briefs, and how to understand their expectations out of us.',
+        decisionNote: 'We noted down their guidelines, their expectations, and what they would like from us.',
         research: {
-          primary: 'Conducted walkthrough audits of existing visitor paths to identify disorientation bottlenecks.',
-          secondary: 'Researched sustainable architectural substrates and tactile signage materials with low environmental footprint.',
+          primary: 'Shaya is CaratLanes contemporary silver jewellery brand – handcrafted in 925 Silver, design led, at an accessible price point – for a style-first consumer who wants jewellery that keeps pace with her wardrobe, not just her milestones. We’re an Omni-channel brand with a strong digital-first presence with a growing retail footprint..',
+          secondary: 'We are your ultimate silver destination. From ethnic and minimal styles to our pioneering range of silver jewellery with natural diamonds and a bespoke range of articles — we have it all.',
           insights: [
-            'Wayfinding must be intuitive at eye level before it is decorative.',
-            'Typography scale in physical environments must be calculated based on 10-meter and 2-meter viewing distances.',
-            'Tactile materiality grounds a brand in ways a digital screen can never replicate.'
+            'Reintroduce Shaya in a way that makes the brand more desired, more talked-about, and more top-of-mind for our consumer. We will also be onboarding someone as our brand ambassador as a part of this campaign.',
+            'What all is expected: A distinctive idea, A voice thats #SoShaya, A story that travels, A 360 degree approach.',
+            'Also Indicative scope, timelines and team structure for execution are expected.'
           ]
         }
       },
       {
         id: 'ps-int1-2',
-        phase: 'Exploration',
-        title: 'Wayfinding Systems & Material Exploration',
+        phase: 'Ideation',
+        title: 'Ideation and Brainstorming',
         images: ['https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800'],
-        description: 'Iterating on physical sign prototypes, directional arrows, room placards, and tactile sensory touchpoints across the studio floor.',
-        reflection: 'Seeing our 1:1 scale mockups taped onto physical walls completely changed my perspective on kerning and letter-spacing for three-dimensional space.',
+        description: 'We started off with everyone in the team- the art team and the copywriters thinking what all can be done, and the directions that could be taken.',
+        reflection: 'Being a part of the ideation process gave me a real experience on how a brief is broken down and articulated and ideateed upon.',
         layout: 'split'
       },
       {
         id: 'ps-int1-3',
         phase: 'Outcome',
-        title: 'The Integrated Brand Book & Spatial Rollout',
+        title: 'The Final Outcome and deliverables',
         layout: 'featured',
         images: [
           'https://images.unsplash.com/photo-1572044162444-ad60f128bde2?auto=format&fit=crop&q=80&w=800',
           'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800'
         ],
-        description: 'Comprehensive brand architecture delivered to the client, encompassing spatial guidelines, material specifications, and print deliverables.',
-        reflection: 'Presenting our spatial mockups to client stakeholders and receiving approval was one of the most rewarding milestones of my internship.'
+        description: 'We played around their guidelines and fonts, and created different deliverables around digital, print and an entire 360 campaign.',
+        reflection: 'Preseting this pitch was another way to get feedback on the work done, we worked on this pitch in under a week and gave I think we did some really great work.'
       },
       {
         id: 'ps-int1-reflection',
         phase: 'Reflection',
-        title: 'Internship Learnings & Studio Collaboration',
-        description: 'Collaborating across multidisciplinary teams—architects, printmakers, and brand strategists—taught me that communication design is the glue that unites disparate disciplines into a single coherent human experience.',
-        reflection: 'Always design for the physical person walking into the room, not for the neat PDF presentation deck.'
+        title: 'Internship Learnings & Team Collaboration',
+        description: 'Collaborating across multidisciplinary teams—architects, Copywrites, and brand strategists—taught me that communication is the most while doing anything, good communication ties everything.',
+        reflection: 'I feel like you should always put your ideas forward. It gives you the freedom to think more, explore different possibilities, and push yourself to think outside the box without limiting yourself.'
       }
     ]
   },
   {
     id: 'p-internship-2',
-    title: 'Design Systems & Digital Interfaces',
+    title: 'Digital Interfaces',
     category: 'Internship Work',
     year: '2026',
-    role: 'UI/UX Design Intern',
-    duration: '10 Weeks Internship',
-    tools: ['Figma Tokens', 'Component Architecture', 'Accessibility WCAG', 'Interactive Micro-interactions'],
+    role: 'Graphic Design',
+    duration: '14 Weeks Internship',
+    tools: ['Figma', 'Photoshop', 'Illustrator', 'AI Image Generation'],
     isInternship: true,
     coverImage: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800',
     postcardNote: 'Dispatched from the digital product frontline: tokens, typography scales, and human-first interactions built for scale.',
