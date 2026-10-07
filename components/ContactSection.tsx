@@ -2,14 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const ContactSection: React.FC = () => {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
   const [copied, setCopied] = useState(false);
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    inquiryType: 'Project Collaboration',
-    message: ''
-  });
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('sudenachandnani@gmail.com');
@@ -17,20 +10,10 @@ const ContactSection: React.FC = () => {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('sending');
-    setTimeout(() => {
-      setStatus('success');
-      setForm({ name: '', email: '', inquiryType: 'Project Collaboration', message: '' });
-      setTimeout(() => setStatus('idle'), 4000);
-    }, 1200);
-  };
-
   return (
     <section id="contact" className="relative py-28 px-6 md:px-12 lg:px-20 bg-stone-100 dark:bg-stone-900/60 border-t border-stone-200 dark:border-stone-800 transition-colors duration-500">
       
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         
         {/* Section Header */}
         <div className="border-b border-stone-200 dark:border-stone-800 pb-8 mb-16">
@@ -46,206 +29,143 @@ const ContactSection: React.FC = () => {
               </h2>
             </div>
             <div className="lg:col-span-4 text-sm font-light text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              Available for full-time opportunities, creative internships, brand collaborations, and discussions on design systems or aerial arts.
+              Available for full-time opportunities, design internships, brand collaborations, and discussions on editorial systems or aerial arts.
             </div>
           </div>
         </div>
 
-        {/* Content Grid: Contact Details & Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        {/* Clean Socials & Direct Email Grid (No dispatch form) */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-stretch">
           
-          {/* Left Column: Direct Inquiries & Socials */}
-          <div className="lg:col-span-5 space-y-10">
+          {/* Main Direct Email Card */}
+          <div className="md:col-span-7 bg-white dark:bg-zinc-900 p-8 sm:p-12 rounded-sm border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between space-y-8">
             <div className="space-y-4">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-400 block">
-                Direct Electronic Mail
-              </span>
-              <div className="p-4 bg-white dark:bg-zinc-900 rounded-sm border border-stone-200 dark:border-stone-800 shadow-sm flex items-center justify-between gap-4">
-                <div>
-                  <a 
-                    href="mailto:sudenachandnani@gmail.com"
-                    className="font-mono text-sm sm:text-base font-medium text-zinc-900 dark:text-zinc-100 hover:underline"
-                  >
-                    sudenachandnani@gmail.com
-                  </a>
-                  <span className="block text-[10px] font-mono text-zinc-400 mt-0.5">
-                    Typical response: within 24 hours
-                  </span>
-                </div>
-                <button
-                  onClick={handleCopyEmail}
-                  className="px-3 py-1.5 rounded bg-stone-100 dark:bg-stone-800 text-xs font-mono tracking-wider hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors"
-                >
-                  {copied ? '✓ Copied' : 'Copy'}
-                </button>
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs uppercase tracking-widest text-zinc-400">
+                  Direct Electronic Mail
+                </span>
+                <span className="text-xs font-mono px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-medium">
+                  ● Inbox Active
+                </span>
               </div>
-            </div>
 
-            {/* Social Footprints */}
-            <div className="space-y-4">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-400 block">
-                Channels & Profiles
-              </span>
-              <div className="grid grid-cols-1 gap-2.5">
-                <a
-                  href="https://www.linkedin.com/in/sudena-chandnani?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group p-3.5 bg-white dark:bg-zinc-900 rounded-sm border border-stone-200 dark:border-stone-800 flex items-center justify-between hover:border-zinc-900 dark:hover:border-zinc-100 transition-all"
-                >
-                  <div className="flex items-center space-x-3">
-                    <span className="w-2 h-2 rounded-full bg-blue-600"></span>
-                    <span className="font-medium text-sm text-zinc-900 dark:text-zinc-100">LinkedIn</span>
-                    <span className="text-xs text-zinc-400 font-light">/in/sudena-chandnani</span>
-                  </div>
-                  <span className="text-xs font-mono group-hover:translate-x-1 transition-transform">↗</span>
-                </a>
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 dark:text-zinc-100 leading-snug">
+                Drop me a note directly anytime.
+              </h3>
 
-                <a
-                  href="https://www.instagram.com/_sudena_?igsh=MTNvNWFpZ2o5a2VyZQ=="
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group p-3.5 bg-white dark:bg-zinc-900 rounded-sm border border-stone-200 dark:border-stone-800 flex items-center justify-between hover:border-zinc-900 dark:hover:border-zinc-100 transition-all"
-                >
-                  <div className="flex items-center space-x-3">
-                    <span className="w-2 h-2 rounded-full bg-rose-500"></span>
-                    <span className="font-medium text-sm text-zinc-900 dark:text-zinc-100">Instagram</span>
-                    <span className="text-xs text-zinc-400 font-light">@_sudena_</span>
-                  </div>
-                  <span className="text-xs font-mono group-hover:translate-x-1 transition-transform">↗</span>
-                </a>
-
-                <a
-                  href="https://www.behance.net/sudenaswork"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group p-3.5 bg-white dark:bg-zinc-900 rounded-sm border border-stone-200 dark:border-stone-800 flex items-center justify-between hover:border-zinc-900 dark:hover:border-zinc-100 transition-all"
-                >
-                  <div className="flex items-center space-x-3">
-                    <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
-                    <span className="font-medium text-sm text-zinc-900 dark:text-zinc-100">Behance</span>
-                    <span className="text-xs text-zinc-400 font-light">behance.net/sudenaswork</span>
-                  </div>
-                  <span className="text-xs font-mono group-hover:translate-x-1 transition-transform">↗</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Location & Time */}
-            <div className="p-4 rounded-sm bg-stone-200/50 dark:bg-stone-800/40 text-xs font-mono text-zinc-600 dark:text-zinc-400 space-y-1">
-              <div className="flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                <span className="uppercase tracking-wider">Based in Ahmedabad, Gujarat, India</span>
-              </div>
-              <p className="text-[11px] opacity-75 font-sans font-light">
-                Standard Time (IST · UTC+5:30) · Available worldwide for remote projects.
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 font-light leading-relaxed">
+                Whether you have an upcoming project, an inquiry about my pitch and internship work, or just want to connect — feel free to email me.
               </p>
+            </div>
+
+            <div className="space-y-4 pt-4 border-t border-stone-100 dark:border-stone-800">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700">
+                <a 
+                  href="mailto:sudenachandnani@gmail.com"
+                  className="font-mono text-base sm:text-lg font-medium text-zinc-900 dark:text-zinc-100 hover:underline truncate"
+                >
+                  sudenachandnani@gmail.com
+                </a>
+
+                <div className="flex items-center space-x-2 shrink-0">
+                  <button
+                    onClick={handleCopyEmail}
+                    className="px-4 py-2 rounded bg-white dark:bg-zinc-900 border border-stone-200 dark:border-stone-700 text-xs font-mono tracking-wider hover:bg-stone-100 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 transition-colors shadow-sm"
+                  >
+                    {copied ? '✓ Copied' : 'Copy'}
+                  </button>
+
+                  <a
+                    href="mailto:sudenachandnani@gmail.com"
+                    className="px-4 py-2 rounded bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 text-xs font-mono uppercase tracking-wider hover:scale-105 active:scale-95 transition-all shadow-sm"
+                  >
+                    Send Email ↗
+                  </a>
+                </div>
+              </div>
+              <span className="block text-[11px] font-mono text-zinc-400">
+                Based in Ahmedabad, India (IST) · Open worldwide
+              </span>
             </div>
           </div>
 
-          {/* Right Column: Tactile Inquiry Form */}
-          <div className="lg:col-span-7 bg-white dark:bg-zinc-900 p-8 sm:p-10 rounded-sm border border-stone-200 dark:border-stone-800 shadow-sm">
-            <div className="mb-8">
-              <h3 className="text-2xl font-serif font-bold text-zinc-900 dark:text-zinc-100">
-                Send a Dispatch
-              </h3>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 font-light mt-1">
-                Fill in the details below and I’ll get back to you promptly.
-              </p>
-            </div>
+          {/* Social Profiles Grid */}
+          <div className="md:col-span-5 flex flex-col justify-between space-y-4">
+            <span className="font-mono text-xs uppercase tracking-widest text-zinc-400 block px-1">
+              Socials & Portfolios
+            </span>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 block">
-                    Your Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="e.g. Maya Lin"
-                    className="w-full px-4 py-3 bg-stone-50 dark:bg-zinc-800/80 border border-stone-200 dark:border-stone-700 rounded-sm text-sm text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors"
-                  />
+            <a
+              href="https://www.linkedin.com/in/sudena-chandnani?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-5 bg-white dark:bg-zinc-900 rounded-sm border border-stone-200 dark:border-stone-800 flex items-center justify-between hover:border-zinc-900 dark:hover:border-zinc-100 hover:shadow-md transition-all"
+            >
+              <div className="flex items-center space-x-4">
+                <div className="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-sm">
+                  in
                 </div>
-
-                <div className="space-y-2">
-                  <label className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 block">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    placeholder="maya@studio.com"
-                    className="w-full px-4 py-3 bg-stone-50 dark:bg-zinc-800/80 border border-stone-200 dark:border-stone-700 rounded-sm text-sm text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors"
-                  />
+                <div>
+                  <h4 className="font-serif font-bold text-base text-zinc-900 dark:text-zinc-100 group-hover:underline">
+                    LinkedIn
+                  </h4>
+                  <p className="text-xs font-mono text-zinc-400">/in/sudena-chandnani</p>
                 </div>
               </div>
+              <span className="text-base font-mono text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                ↗
+              </span>
+            </a>
 
-              <div className="space-y-2">
-                <label className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 block">
-                  Inquiry Topic
-                </label>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {['Internship Offer', 'Project Inquiry', 'Saying Hi'].map((type) => (
-                    <button
-                      type="button"
-                      key={type}
-                      onClick={() => setForm({ ...form, inquiryType: type })}
-                      className={`py-2 px-3 text-xs font-mono rounded-sm border transition-all text-center ${
-                        form.inquiryType === type
-                          ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 border-zinc-900 dark:border-zinc-100 font-medium'
-                          : 'border-stone-200 dark:border-stone-700 text-zinc-600 dark:text-zinc-400 hover:border-zinc-400'
-                      }`}
-                    >
-                      {type}
-                    </button>
-                  ))}
+            <a
+              href="https://www.instagram.com/_sudena_?igsh=MTNvNWFpZ2o5a2VyZQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-5 bg-white dark:bg-zinc-900 rounded-sm border border-stone-200 dark:border-stone-800 flex items-center justify-between hover:border-zinc-900 dark:hover:border-zinc-100 hover:shadow-md transition-all"
+            >
+              <div className="flex items-center space-x-4">
+                <div className="w-10 h-10 rounded-full bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800/60 flex items-center justify-center text-rose-600 dark:text-rose-400 font-bold text-sm">
+                  ig
+                </div>
+                <div>
+                  <h4 className="font-serif font-bold text-base text-zinc-900 dark:text-zinc-100 group-hover:underline">
+                    Instagram
+                  </h4>
+                  <p className="text-xs font-mono text-zinc-400">@_sudena_</p>
                 </div>
               </div>
+              <span className="text-base font-mono text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                ↗
+              </span>
+            </a>
 
-              <div className="space-y-2">
-                <label className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 block">
-                  Message or Brief *
-                </label>
-                <textarea
-                  rows={4}
-                  required
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  placeholder="Share a bit about what you're working on or what you'd like to discuss..."
-                  className="w-full px-4 py-3 bg-stone-50 dark:bg-zinc-800/80 border border-stone-200 dark:border-stone-700 rounded-sm text-sm text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors resize-none"
-                />
+            <a
+              href="https://www.behance.net/sudenaswork"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-5 bg-white dark:bg-zinc-900 rounded-sm border border-stone-200 dark:border-stone-800 flex items-center justify-between hover:border-zinc-900 dark:hover:border-zinc-100 hover:shadow-md transition-all"
+            >
+              <div className="flex items-center space-x-4">
+                <div className="w-10 h-10 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-bold text-sm">
+                  Bē
+                </div>
+                <div>
+                  <h4 className="font-serif font-bold text-base text-zinc-900 dark:text-zinc-100 group-hover:underline">
+                    Behance
+                  </h4>
+                  <p className="text-xs font-mono text-zinc-400">behance.net/sudenaswork</p>
+                </div>
               </div>
-
-              <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
-                <button
-                  type="submit"
-                  disabled={status !== 'idle'}
-                  className="px-8 py-3.5 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 font-medium text-xs font-mono uppercase tracking-widest rounded-sm hover:scale-105 active:scale-95 transition-all shadow disabled:opacity-50"
-                >
-                  {status === 'idle' && 'Transmit Message →'}
-                  {status === 'sending' && 'Sending Dispatch...'}
-                  {status === 'success' && '✓ Message Received!'}
-                </button>
-
-                {status === 'success' && (
-                  <span className="text-xs font-serif italic text-emerald-600 dark:text-emerald-400">
-                    Thank you! I will reply shortly.
-                  </span>
-                )}
-              </div>
-            </form>
+              <span className="text-base font-mono text-zinc-400 group-hover:text-zinc-900 dark:hover:text-zinc-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                ↗
+              </span>
+            </a>
           </div>
 
         </div>
 
         {/* Global Footer Signature */}
-        <div className="mt-24 pt-8 border-t border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-400">
+        <div className="mt-20 pt-8 border-t border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-400">
           <div>
             © 2026 SUDENA CHANDNANI · COMMUNICATION DESIGN
           </div>

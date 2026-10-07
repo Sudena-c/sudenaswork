@@ -345,8 +345,174 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                 </div>
               )}
 
+              {/* Deliverable Groups (Categorized outcome sections: Print, Social, OOH, Digital, Gallery) */}
+              {step.deliverableGroups && step.deliverableGroups.length > 0 && (
+                <div className="space-y-14 pt-4">
+                  {step.deliverableGroups.map((group) => (
+                    <div 
+                      key={group.id} 
+                      className="space-y-6 bg-[#fcfbfa] dark:bg-[#151518] p-6 sm:p-8 rounded-sm border border-stone-200 dark:border-stone-800 shadow-sm"
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-stone-200 dark:border-stone-800 pb-4">
+                        <div>
+                          <span className="font-mono text-[10px] uppercase tracking-widest text-amber-600 dark:text-amber-400 block mb-1">
+                            Deliverable Series
+                          </span>
+                          <h4 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900 dark:text-zinc-100">
+                            {group.category}
+                          </h4>
+                        </div>
+                        <span className="font-mono text-xs text-stone-400 bg-stone-100 dark:bg-stone-800 px-2.5 py-1 rounded">
+                          {group.items.length} {group.items.length === 1 ? 'Item' : 'Items'}
+                        </span>
+                      </div>
+                      
+                      {group.description && (
+                        <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-400 font-light leading-relaxed">
+                          {group.description}
+                        </p>
+                      )}
+
+                      {/* Dynamic Layout per Group Type */}
+                      {group.id === 'dg-social' ? (
+                        /* 2) Social Media Grid for 6 posts: 3x2 authentic Instagram layout */
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                          {group.items.map((item, idx) => (
+                            <div
+                              key={idx}
+                              onClick={() => onImageClick(item.image)}
+                              className="group relative cursor-zoom-in rounded overflow-hidden aspect-square bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm"
+                            >
+                              <img
+                                src={item.image}
+                                alt={item.title ?? `Post ${idx + 1}`}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              />
+                              <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors" />
+                              <div className="absolute bottom-2 left-2 right-2 p-1.5 bg-black/60 backdrop-blur-sm rounded text-[9px] font-mono text-white opacity-0 group-hover:opacity-100 transition-opacity truncate">
+                                {item.title ?? `Post ${idx + 1}`}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : group.id === 'dg-print' ? (
+                        /* 1) Print Ads: 3 portrait frames */
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                          {group.items.map((item, idx) => (
+                            <div key={idx} className="space-y-3">
+                              <div
+                                onClick={() => onImageClick(item.image)}
+                                className="group relative cursor-zoom-in rounded overflow-hidden aspect-[3/4] bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-md"
+                              >
+                                <img
+                                  src={item.image}
+                                  alt={item.title ?? `Print Ad ${idx + 1}`}
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                                <div className="absolute inset-0 bg-stone-900/15 group-hover:bg-transparent transition-colors" />
+                                <div className="absolute top-2 right-2 px-2 py-0.5 bg-black/60 backdrop-blur-sm rounded text-[9px] font-mono text-white">
+                                  Ad 0{idx + 1}
+                                </div>
+                              </div>
+                              {item.title && (
+                                <h5 className="font-serif font-bold text-sm text-zinc-900 dark:text-zinc-100">{item.title}</h5>
+                              )}
+                              {item.caption && (
+                                <p className="text-xs text-stone-500 font-light leading-relaxed">{item.caption}</p>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      ) : group.id === 'dg-ooh' ? (
+                        /* 3) 6 OOH Collaterals: strictly horizontal across all 6 */
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                          {group.items.map((item, idx) => (
+                            <div key={idx} className="space-y-3">
+                              <div
+                                onClick={() => onImageClick(item.image)}
+                                className="group relative cursor-zoom-in rounded overflow-hidden aspect-[16/9] bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm"
+                              >
+                                <img
+                                  src={item.image}
+                                  alt={item.title ?? `OOH ${idx + 1}`}
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                                <div className="absolute inset-0 bg-stone-900/15 group-hover:bg-transparent transition-colors" />
+                                <div className="absolute top-2 right-2 px-2 py-0.5 bg-black/60 backdrop-blur-sm rounded text-[9px] font-mono text-white">
+                                  Horizontal OOH 0{idx + 1}
+                                </div>
+                              </div>
+                              {item.title && (
+                                <h5 className="font-serif font-bold text-sm text-zinc-900 dark:text-zinc-100">{item.title}</h5>
+                              )}
+                              {item.caption && (
+                                <p className="text-xs text-stone-500 font-light leading-relaxed">{item.caption}</p>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      ) : group.id === 'dg-digital' ? (
+                        /* 4) 1 Website Banner & 1 Facebook Cover: wide panoramic displays */
+                        <div className="space-y-6">
+                          {group.items.map((item, idx) => (
+                            <div key={idx} className="space-y-2">
+                              <div className="flex items-center justify-between text-xs font-mono text-stone-500">
+                                <span className="font-bold text-zinc-900 dark:text-zinc-100">{item.title}</span>
+                                <span className="uppercase">{idx === 0 ? 'Panoramic Web Banner' : 'Facebook Page Cover'}</span>
+                              </div>
+                              <div
+                                onClick={() => onImageClick(item.image)}
+                                className="group relative cursor-zoom-in rounded overflow-hidden aspect-[21/9] sm:aspect-[24/9] bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-md"
+                              >
+                                <img
+                                  src={item.image}
+                                  alt={item.title ?? `Digital Banner ${idx + 1}`}
+                                  className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                                />
+                                <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors" />
+                              </div>
+                              {item.caption && (
+                                <p className="text-xs text-stone-500 font-light">{item.caption}</p>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        /* 5) 2 Gallery Photos: high-res feature spreads */
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          {group.items.map((item, idx) => (
+                            <div key={idx} className="space-y-3">
+                              <div
+                                onClick={() => onImageClick(item.image)}
+                                className="group relative cursor-zoom-in rounded overflow-hidden aspect-[16/10] bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-md"
+                              >
+                                <img
+                                  src={item.image}
+                                  alt={item.title ?? `Gallery Photo ${idx + 1}`}
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                                <div className="absolute inset-0 bg-stone-900/15 group-hover:bg-transparent transition-colors" />
+                                <div className="absolute bottom-3 right-3 px-2 py-0.5 bg-black/60 backdrop-blur-sm rounded text-[9px] font-mono text-white">
+                                  Pitch Board {idx + 1} ↗
+                                </div>
+                              </div>
+                              {item.title && (
+                                <h5 className="font-serif font-bold text-sm text-zinc-900 dark:text-zinc-100">{item.title}</h5>
+                              )}
+                              {item.caption && (
+                                <p className="text-xs text-stone-500 font-light leading-relaxed">{item.caption}</p>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {/* Step Images Gallery */}
-              {step.images && step.images.length > 0 && !step.video && (
+              {step.images && step.images.length > 0 && !step.video && !step.deliverableGroups && (
                 <div className={`grid gap-6 ${
                   step.images.length === 1 
                     ? 'grid-cols-1' 

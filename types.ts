@@ -28,6 +28,21 @@ export interface IterationComparison {
   image?: string;
 }
 
+export interface DeliverableItem {
+  id?: string;
+  title?: string;
+  image: string;
+  caption?: string;
+  aspect?: 'square' | 'portrait' | 'landscape' | 'banner' | 'wide';
+}
+
+export interface DeliverableGroup {
+  id: string;
+  category: string;
+  description?: string;
+  items: DeliverableItem[];
+}
+
 export interface ProcessStep {
   id: string;
   title: string;
@@ -41,6 +56,7 @@ export interface ProcessStep {
   research?: ResearchData;
   campaignIdeas?: CampaignIdea[];
   iterations?: IterationComparison[];
+  deliverableGroups?: DeliverableGroup[];
   layout?: 'default' | 'featured' | 'split' | 'gallery' | 'story-pivot';
 }
 

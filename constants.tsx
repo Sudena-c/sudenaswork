@@ -260,7 +260,7 @@ export const PROJECTS: Project[] = [
     duration: '14 Weeks Internship',
     tools: ['Brand Strategy', 'Digital Collateral', 'Brand Guidelines', 'Print Collateral'],
     isInternship: true,
-    coverImage: 'https://ibb.co/0j0MKRwV',
+    coverImage: 'https://i.ibb.co/RpX0Nk54/Gallery-01.png',
     postcardNote: 'From my Internship: understanding what a brand wants, how they want to show their brand, where all we need to be displaying the brand, and the perfect people for the brand.',
     postcardRotation: 1.8,
     shortDescription: 'Internship Brief: Environmental graphics, tactile brand touchpoints, and spatial identity systems.',
@@ -298,14 +298,180 @@ export const PROJECTS: Project[] = [
       {
         id: 'ps-int1-3',
         phase: 'Outcome',
-        title: 'The Final Outcome and deliverables',
+        title: 'The Final Outcome and Deliverables',
         layout: 'featured',
-        images: [
-          'https://images.unsplash.com/photo-1572044162444-ad60f128bde2?auto=format&fit=crop&q=80&w=800',
-          'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800'
-        ],
-        description: 'We played around their guidelines and fonts, and created different deliverables around digital, print and an entire 360 campaign.',
-        reflection: 'Preseting this pitch was another way to get feedback on the work done, we worked on this pitch in under a week and gave I think we did some really great work.'
+        description: 'We played around with the brand guidelines and fonts, crafting a comprehensive 360-degree campaign across print ads, an editorial social grid, high-impact out-of-home (OOH) collaterals, digital banners, and presentation boards.',
+        reflection: 'Presenting this pitch was another way to get feedback on the work done. We worked on this pitch in under a week, and I think we produced some really great, cohesive work.',
+        deliverableGroups: [
+          {
+            id: 'dg-print',
+            category: '1) Print Ads (3)',
+            description: 'Full-page editorial press and magazine print campaign ads developed for Shaya.',
+            items: [
+              {
+                id: 'pa-1',
+                title: 'Print Ad 01 — Hero Editorial',
+                caption: 'Full-page magazine ad focusing on handcrafted 925 silver and style-first wardrobe integration.',
+                image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800',
+                aspect: 'portrait'
+              },
+              {
+                id: 'pa-2',
+                title: 'Print Ad 02 — Minimal & Ethnic',
+                caption: 'Dual showcase juxtaposing minimal workday elegance against ethnic celebration pieces.',
+                image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=800',
+                aspect: 'portrait'
+              },
+              {
+                id: 'pa-3',
+                title: 'Print Ad 03 — The #SoShaya Statement',
+                caption: 'Brand ambassador feature with bold typography and conversational copy.',
+                image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=800',
+                aspect: 'portrait'
+              }
+            ]
+          },
+          {
+            id: 'dg-social',
+            category: '2) Social Media Grid (6 Posts)',
+            description: 'Cohesive 6-post visual grid establishing the fresh #SoShaya tone of voice on Instagram.',
+            items: [
+              {
+                id: 'sm-1',
+                title: 'Post 01 — The Teaser',
+                caption: 'Macro crop teasing the upcoming silver collection.',
+                image: 'https://images.unsplash.com/photo-1611591475870-8b15ca9fe195?auto=format&fit=crop&q=80&w=800',
+                aspect: 'square'
+              },
+              {
+                id: 'sm-2',
+                title: 'Post 02 — The Brand Manifesto',
+                caption: 'Typographic carousel defining the silver lifestyle.',
+                image: 'https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&q=80&w=800',
+                aspect: 'square'
+              },
+              {
+                id: 'sm-3',
+                title: 'Post 03 — Product Spotlight',
+                caption: 'Close-up of signature 925 silver earrings with diamond accents.',
+                image: 'https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&q=80&w=800',
+                aspect: 'square'
+              },
+              {
+                id: 'sm-4',
+                title: 'Post 04 — Editorial Styling Guide',
+                caption: 'How to layer delicate silver chains for daily wear.',
+                image: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?auto=format&fit=crop&q=80&w=800',
+                aspect: 'square'
+              },
+              {
+                id: 'sm-5',
+                title: 'Post 05 — Ambassador Quote',
+                caption: 'Bold quote graphic tying the campaign to personal expression.',
+                image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800',
+                aspect: 'square'
+              },
+              {
+                id: 'sm-6',
+                title: 'Post 06 — Call to Explore',
+                caption: 'Omni-channel store locator and web boutique invitation.',
+                image: 'https://images.unsplash.com/photo-1576053139778-7e32f2ae3cfd?auto=format&fit=crop&q=80&w=800',
+                aspect: 'square'
+              }
+            ]
+          },
+          {
+            id: 'dg-ooh',
+            category: '3) 6 — OOH Collaterals (Horizontal)',
+            description: 'Horizontal outdoor advertising collaterals for highway billboards, horizontal gantry signage, and wide transit displays.',
+            items: [
+              {
+                id: 'ooh-1',
+                title: 'OOH 01 — Prime Highway Billboard',
+                caption: 'Horizontal landscape billboard designed for long-distance readability.',
+                image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1200',
+                aspect: 'landscape'
+              },
+              {
+                id: 'ooh-2',
+                title: 'OOH 02 — Metro Horizontal Gantry',
+                caption: 'Wide horizontal transit display engaging commuters.',
+                image: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&q=80&w=1200',
+                aspect: 'landscape'
+              },
+              {
+                id: 'ooh-3',
+                title: 'OOH 03 — Mall Atrium Horizontal Screen',
+                caption: 'Panoramic digital screen at luxury retail destinations.',
+                image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1200',
+                aspect: 'landscape'
+              },
+              {
+                id: 'ooh-4',
+                title: 'OOH 04 — Street Horizontal Billboard',
+                caption: 'Wide horizontal roadside banner along high-footfall avenues.',
+                image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200',
+                aspect: 'landscape'
+              },
+              {
+                id: 'ooh-5',
+                title: 'OOH 05 — Retail Flagship Horizontal Hoarding',
+                caption: 'Wide storefront architectural banner announcing the omni-channel launch.',
+                image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200',
+                aspect: 'landscape'
+              },
+              {
+                id: 'ooh-6',
+                title: 'OOH 06 — Airport Terminal Horizontal Display',
+                caption: 'High-impact horizontal panoramic digital screen at airport departure gates.',
+                image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200',
+                aspect: 'landscape'
+              }
+            ]
+          },
+          {
+            id: 'dg-digital',
+            category: '4) 1 Website Banner & 1 Facebook Cover',
+            description: 'Digital touchpoint hero graphics calibrated for high click-through engagement.',
+            items: [
+              {
+                id: 'dig-1',
+                title: 'Website E-Commerce Hero Banner',
+                caption: 'Panoramic desktop landing banner showcasing the new collection and omni-channel locator.',
+                image: 'https://i.ibb.co/gbJJ3BTT/Silver-Macro-Website-Banners.png',
+                aspect: 'banner'
+              },
+              {
+                id: 'dig-2',
+                title: 'Facebook Page Brand Cover',
+                caption: 'Social header tying together the pitch messaging, campaign hashtag, and ambassadors.',
+                image: 'https://ibb.co/vf2y6PN',
+                aspect: 'banner'
+              }
+            ]
+          },
+          {
+            id: 'dg-gallery',
+            category: '5) 2 Gallery Photos',
+            description: 'Tactile behind-the-scenes and brand presentation photography from the pitch session.',
+            items: [
+              {
+                id: 'gal-1',
+                title: 'Gallery Photo 01',
+                caption: 'Primary pitch presentation board showcasing brand color theory and product styling.',
+                image: 'https://i.ibb.co/RpX0Nk54/Gallery-01.png',
+                aspect: 'wide'
+              },
+              {
+                id: 'gal-2',
+                title: 'Gallery Photo 02',
+                caption: 'Secondary pitch deliverable board featuring typographic scale and collateral mockups.',
+                image: 'https://ibb.co/F4CcNvhD',
+                aspect: 'wide'
+              }
+            ]
+          }
+        ]
       },
       {
         id: 'ps-int1-reflection',
@@ -508,3 +674,5 @@ export const INTERESTS: Interest[] = [
 ];
 
 export const PERSONAL_PHOTO_URL = 'https://i.ibb.co/NdWK4w4P/Whats-App-Image-2026-02-03-at-12-48-07.jpg';
+
+export const RESUME_URL = '/Sudena_Chandnani_Resume.pdf';
