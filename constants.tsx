@@ -265,14 +265,14 @@ export const PROJECTS: Project[] = [
     postcardRotation: 1.8,
     shortDescription: 'Brief: Understanding the brand, understanding what the brand wants, desinging collaterals for them.',
     fullDescription: 'During this project, I worked alongside senior art heads to design digital collaterals for Shaya. The scope spanned brand rebranding, real digital and print collateral.',
-    problemHeadline: 'How does a brand rebrand itself and target their audience through digital and print collateral?',
+    problemHeadline: 'How does a brand rebrand itself and target their audience through digital and print collateral',
     problemBody: 'Shaya by CaratLane is expanding horizons moving from digital to an omni channel business model. This is a defining moment for the brand – we want a creative partner who can translate our brand pitch and give Shaya a sharper, more emotionally resonant place in the consumers mind.',
     process: [
       {
         id: 'ps-int1-1',
         phase: 'The Spark',
         title: 'Brand Brief & Context',
-        images: ['https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800'],
+        images: ['https://i.ibb.co/Fb19vPdw/Screenshot-2026-10-07-at-12-50-54-PM.png'],
         description: 'We Understood from the brand, what they stand for, their current guidelines and what they are expecting from us.',
         reflection: 'Sitting for a brief with a brand helped me understand how brands give their briefs, and how to understand their expectations out of us.',
         decisionNote: 'We noted down their guidelines, their expectations, and what they would like from us.',
