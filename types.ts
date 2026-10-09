@@ -80,6 +80,7 @@ export interface Project {
   duration?: string;
   tools?: string[];
   isInternship?: boolean;
+  projectSection?: 'college' | 'internship-freelance';
   process: ProcessStep[];
 }
 

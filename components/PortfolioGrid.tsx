@@ -19,17 +19,27 @@ const CATEGORIES: { label: string; value: Category }[] = [
   { label: 'Illustration', value: 'Illustration' },
 ];
 
+type WorkSectionFilter = 'all' | 'college' | 'internship-freelance';
+
 const PortfolioGrid: React.FC<PortfolioGridProps> = ({ 
   selectedCategory, 
   onSelectCategory,
   onOpenProject 
 }) => {
   const [showArchived, setShowArchived] = useState(false);
+  const [workSectionFilter, setWorkSectionFilter] = useState<WorkSectionFilter>('all');
 
-  // Filter projects
-  const activeProjects = selectedCategory === 'All'
-    ? (showArchived ? [...PROJECTS, ...ARCHIVED_PROJECTS] : PROJECTS)
-    : [...PROJECTS, ...ARCHIVED_PROJECTS].filter(p => p.category === selectedCategory);
+  // All eligible projects base
+  const allAvailableProjects = showArchived ? [...PROJECTS, ...ARCHIVED_PROJECTS] : PROJECTS;
+
+  // Filter by category if selected
+  const categoryFiltered = selectedCategory === 'All'
+    ? allAvailableProjects
+    : allAvailableProjects.filter(p => p.category === selectedCategory);
+
+  // Split into the 2 requested parts: College Projects & Internship/Freelance Projects
+  const collegeProjects = categoryFiltered.filter(p => p.projectSection === 'college' || (!p.projectSection && !p.isInternship));
+  const internshipFreelanceProjects = categoryFiltered.filter(p => p.projectSection === 'internship-freelance' || p.isInternship);
 
   return (
     <section id="work" className="relative py-24 px-6 md:px-12 lg:px-20 bg-light dark:bg-dark transition-colors duration-500">
@@ -39,27 +49,83 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({
         <div className="flex flex-wrap items-end justify-between gap-6 border-b border-zinc-200 dark:border-zinc-800 pb-8">
           <div>
             <div className="flex items-center space-x-3 text-xs uppercase tracking-[0.3em] font-medium text-zinc-500 dark:text-zinc-400 mb-3">
-              <span className="w-2 h-2 rounded-full bg-zinc-900 dark:bg-zinc-100"></span>
+              <span className="w-2 h-2 rounded-full bg-sky-300"></span>
               <span>SELECTED WORKS</span>
             </div>
+            {/* "My Work" in baby pastel blue heading */}
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-              The Work <span className="italic font-normal font-serif text-zinc-600 dark:text-zinc-400">My Work</span>
+              The Work{' '}
+              <span className="italic font-normal font-serif text-[#7dd3fc] dark:text-[#7dd3fc] bg-gradient-to-r from-sky-300 via-sky-400 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_2px_14px_rgba(125,211,252,0.4)]">
+                My Work
+              </span>
             </h2>
           </div>
 
           <p className="max-w-md text-sm md:text-base text-zinc-500 dark:text-zinc-400 font-light leading-relaxed">
-            Seven curated stories dispatched from the design studio. As you scroll, each project layers into a tactile archive of research, pivotal decisions, and craft.
+            Curated stories divided into two key chapters: exploratory <strong className="font-medium text-zinc-700 dark:text-zinc-300">College Projects</strong> and real-world <strong className="font-medium text-zinc-700 dark:text-zinc-300">Internship & Freelance</strong> campaigns.
           </p>
         </div>
 
-        {/* Filter Navigation & Archives Toggle */}
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex flex-wrap gap-2">
+        {/* Two-Part Section Quick Filter Switcher + Discipline Tags */}
+        <div className="mt-8 space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            
+            {/* The 2-Part Section Tab Switcher */}
+            <div className="inline-flex p-1 bg-stone-100 dark:bg-zinc-800/80 rounded-xl border border-stone-200 dark:border-zinc-700">
+              <button
+                onClick={() => setWorkSectionFilter('all')}
+                className={`px-4 py-2 rounded-lg text-xs font-mono uppercase tracking-wider transition-all ${
+                  workSectionFilter === 'all'
+                    ? 'bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-sm font-semibold'
+                    : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100'
+                }`}
+              >
+                All Works ({categoryFiltered.length})
+              </button>
+              <button
+                onClick={() => setWorkSectionFilter('college')}
+                className={`px-4 py-2 rounded-lg text-xs font-mono uppercase tracking-wider transition-all flex items-center space-x-2 ${
+                  workSectionFilter === 'college'
+                    ? 'bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-sm font-semibold'
+                    : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100'
+                }`}
+              >
+                <span>🎓 College Projects</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-pink-100 dark:bg-pink-950/80 text-pink-600 dark:text-pink-300 font-bold">
+                  {collegeProjects.length}
+                </span>
+              </button>
+              <button
+                onClick={() => setWorkSectionFilter('internship-freelance')}
+                className={`px-4 py-2 rounded-lg text-xs font-mono uppercase tracking-wider transition-all flex items-center space-x-2 ${
+                  workSectionFilter === 'internship-freelance'
+                    ? 'bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-sm font-semibold'
+                    : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100'
+                }`}
+              >
+                <span>💼 Internship & Freelance</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-bold">
+                  {internshipFreelanceProjects.length}
+                </span>
+              </button>
+            </div>
+
+            {/* Archives Toggle */}
+            <button
+              onClick={() => setShowArchived(!showArchived)}
+              className="text-xs font-mono tracking-wider text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center space-x-1.5 py-1 px-3 rounded border border-dashed border-zinc-300 dark:border-zinc-700"
+            >
+              <span>{showArchived ? 'Hide' : '+ View'} Archived Explorations ({ARCHIVED_PROJECTS.length})</span>
+            </button>
+          </div>
+
+          {/* Discipline Filters */}
+          <div className="flex flex-wrap gap-2 pt-1">
             {CATEGORIES.map(cat => (
               <button
                 key={cat.value}
                 onClick={() => onSelectCategory(cat.value)}
-                className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-300 border ${
+                className={`px-3 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-300 border ${
                   selectedCategory === cat.value
                     ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 border-zinc-900 dark:border-zinc-100 shadow-md'
                     : 'border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-600 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm'
@@ -69,29 +135,82 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({
               </button>
             ))}
           </div>
-
-          <button
-            onClick={() => setShowArchived(!showArchived)}
-            className="text-xs font-mono tracking-wider text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center space-x-1.5 py-1 px-3 rounded border border-dashed border-zinc-300 dark:border-zinc-700"
-          >
-            <span>{showArchived ? 'Hide' : '+ View'} Archived Explorations ({ARCHIVED_PROJECTS.length})</span>
-          </button>
         </div>
       </div>
 
-      {/* The Postcard Stack Container */}
-      <div className="max-w-5xl mx-auto space-y-24 md:space-y-36 pb-24 relative">
-        <AnimatePresence mode="wait">
-          {activeProjects.map((project, index) => (
-            <PostcardItem
-              key={project.id}
-              project={project}
-              index={index}
-              total={activeProjects.length}
-              onClick={() => onOpenProject(project)}
-            />
-          ))}
-        </AnimatePresence>
+      {/* Main Works Presentation Divided in Two Parts */}
+      <div className="max-w-5xl mx-auto space-y-28 md:space-y-36 pb-24 relative">
+        
+        {/* PART 1: COLLEGE PROJECTS */}
+        {(workSectionFilter === 'all' || workSectionFilter === 'college') && collegeProjects.length > 0 && (
+          <div className="space-y-16">
+            
+            {/* Section Divider Banner */}
+            <div className="flex items-center justify-between gap-4 border-b-2 border-stone-300 dark:border-stone-700 pb-4">
+              <div className="flex items-center space-x-3">
+                <span className="w-3 h-3 rounded-full bg-pink-400"></span>
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900 dark:text-zinc-100">
+                  Part 01 — College Projects
+                </h3>
+              </div>
+              <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">
+                {collegeProjects.length} Curated Works
+              </span>
+            </div>
+
+            {/* Postcard Stack for College Projects */}
+            <div className="space-y-24 md:space-y-36">
+              <AnimatePresence mode="wait">
+                {collegeProjects.map((project, index) => (
+                  <PostcardItem
+                    key={project.id}
+                    project={project}
+                    index={index}
+                    total={collegeProjects.length}
+                    onClick={() => onOpenProject(project)}
+                  />
+                ))}
+              </AnimatePresence>
+            </div>
+
+          </div>
+        )}
+
+        {/* PART 2: INTERNSHIP & FREELANCE PROJECTS */}
+        {(workSectionFilter === 'all' || workSectionFilter === 'internship-freelance') && internshipFreelanceProjects.length > 0 && (
+          <div className="space-y-16 pt-12">
+            
+            {/* Section Divider Banner */}
+            <div className="flex items-center justify-between gap-4 border-b-2 border-emerald-300/70 dark:border-emerald-800/70 pb-4">
+              <div className="flex items-center space-x-3">
+                <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900 dark:text-zinc-100">
+                  Part 02 — Internship & Freelance Projects
+                </h3>
+              </div>
+              <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">
+                {internshipFreelanceProjects.length} Professional Cases
+              </span>
+            </div>
+
+            {/* Postcard Stack for Internship & Freelance */}
+            <div className="space-y-24 md:space-y-36">
+              <AnimatePresence mode="wait">
+                {internshipFreelanceProjects.map((project, index) => (
+                  <PostcardItem
+                    key={project.id}
+                    project={project}
+                    index={index}
+                    total={internshipFreelanceProjects.length}
+                    onClick={() => onOpenProject(project)}
+                  />
+                ))}
+              </AnimatePresence>
+            </div>
+
+          </div>
+        )}
+
       </div>
 
       {/* Bottom Transition to Section 03 */}
@@ -143,7 +262,7 @@ const PostcardItem: React.FC<PostcardItemProps> = ({ project, index, total, onCl
       >
         
         {/* Subtle Decorative Airmail Top Stripe */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-red-400/40 via-blue-400/40 to-amber-400/40 opacity-70"></div>
+        <div className="h-1.5 w-full bg-gradient-to-r from-pink-400/50 via-rose-400/40 to-amber-400/40 opacity-80"></div>
 
         <div className="p-6 sm:p-8 md:p-10">
           
@@ -153,9 +272,13 @@ const PostcardItem: React.FC<PostcardItemProps> = ({ project, index, total, onCl
               <span className="font-mono text-xs font-bold tracking-widest text-zinc-900 dark:text-zinc-100 px-2 py-0.5 bg-stone-100 dark:bg-stone-800 rounded">
                 POSTCARD {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
               </span>
-              {project.isInternship && (
+              {project.projectSection === 'internship-freelance' || project.isInternship ? (
                 <span className="px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-widest bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 rounded font-semibold border border-emerald-300/40">
-                  ★ Internship Case Study
+                  ★ Internship / Freelance
+                </span>
+              ) : (
+                <span className="px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-widest bg-pink-50 text-pink-700 dark:bg-pink-950/60 dark:text-pink-300 rounded font-semibold border border-pink-200/50 dark:border-pink-800/40">
+                  🎓 College Project
                 </span>
               )}
             </div>
@@ -220,7 +343,7 @@ const PostcardItem: React.FC<PostcardItemProps> = ({ project, index, total, onCl
 
               {/* Handwritten Note / Dispatch */}
               {project.postcardNote && (
-                <div className="p-4 rounded bg-stone-100/70 dark:bg-stone-800/40 border-l-2 border-stone-400 dark:border-stone-600">
+                <div className="p-4 rounded bg-stone-100/70 dark:bg-stone-800/40 border-l-2 border-pink-400/60 dark:border-pink-500/60">
                   <span className="font-mono text-[9px] uppercase tracking-widest text-stone-400 block mb-1">
                     Designer's Dispatch Note:
                   </span>
@@ -233,7 +356,7 @@ const PostcardItem: React.FC<PostcardItemProps> = ({ project, index, total, onCl
               {/* Action Button & Tool Tags */}
               <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center space-x-2 text-xs font-mono font-medium text-zinc-900 dark:text-zinc-100 group-hover:translate-x-1 transition-transform">
-                  <span className="underline decoration-stone-300 underline-offset-4 group-hover:decoration-zinc-900 dark:group-hover:decoration-zinc-100">
+                  <span className="underline decoration-pink-300 underline-offset-4 group-hover:decoration-pink-500 dark:group-hover:decoration-pink-400">
                     Open Case Story & Process
                   </span>
                   <span>→</span>

@@ -51,9 +51,9 @@ const CustomCursor: React.FC = () => {
     >
       <div 
         className={`
-          -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#3b4621] 
+          -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#7dd3fc] 
           transition-all duration-300 ease-in-out
-          ${isHovering ? 'w-12 h-12 bg-[#3b4621]/20 scale-125' : 'w-5 h-5 bg-[#3b4621]'}
+          ${isHovering ? 'w-12 h-12 bg-[#7dd3fc]/20 scale-125' : 'w-5 h-5 bg-[#7dd3fc] shadow-[0_0_12px_rgba(125,211,252,0.6)]'}
         `}
       />
     </div>

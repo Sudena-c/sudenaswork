@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { PERSONAL_PHOTO_URL } from '../constants';
+import SparkleEffects from './SparkleEffects';
 
 const Hero: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
     <section id="home" className="relative min-h-screen w-full flex flex-col justify-between pt-28 pb-16 px-6 md:px-12 lg:px-20 overflow-hidden bg-light dark:bg-dark transition-colors duration-500">
+      {/* Light Opacity Baby Pastel Blue Sparkles on Home Page Only */}
+      <SparkleEffects />
+
       {/* Background Subtle Watermark & Texture */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden opacity-[0.03] dark:opacity-[0.05] z-0 flex items-center justify-center">
         <span className="text-[28vw] font-serif font-bold italic tracking-tighter leading-none">
@@ -45,7 +49,7 @@ const Hero: React.FC = () => {
             
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-serif font-bold tracking-tight leading-[0.95] text-zinc-900 dark:text-zinc-100">
               Sudena <br />
-              <span className="italic font-normal font-serif text-zinc-700 dark:text-zinc-300">
+              <span className="italic font-normal font-serif text-[#7dd3fc] dark:text-[#7dd3fc] bg-gradient-to-r from-sky-300 via-sky-400 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_2px_14px_rgba(125,211,252,0.4)]">
                 Chandnani
               </span>
             </h1>
