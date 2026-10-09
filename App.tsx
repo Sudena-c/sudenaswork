@@ -26,9 +26,16 @@ const App: React.FC = () => {
         const project = allProjects.find(p => p.id === projectId);
         if (project) {
           setActiveProject(project);
-          window.scrollTo(0, 0);
         }
-      } else if (!hash) {
+      } else if (
+        hash.startsWith('step-') || 
+        hash.startsWith('group-') || 
+        hash.startsWith('chapter-') ||
+        hash.startsWith('youtube')
+      ) {
+        // Internal project section anchor: preserve active project!
+        return;
+      } else if (!hash || hash === 'home' || hash === 'work' || hash === 'about' || hash === 'contact') {
         setActiveProject(null);
       }
     };

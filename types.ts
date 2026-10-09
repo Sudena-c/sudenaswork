@@ -40,6 +40,7 @@ export interface DeliverableGroup {
   id: string;
   category: string;
   description?: string;
+  displayMode?: 'pairs' | 'horizontal-scroll' | 'grid';
   items: DeliverableItem[];
 }
 
@@ -49,6 +50,7 @@ export interface ProcessStep {
   phase?: 'The Spark' | 'Exploration' | 'The Pivot' | 'Craft' | 'Outcome' | 'Reflection' | 'Ideation' ;
   images?: string[];
   video?: string;
+  youtubeUrl?: string;
   posterImage?: string;
   description?: string;
   reflection?: string; // Personal thinking & designer reflection
@@ -66,6 +68,7 @@ export interface Project {
   category: Category;
   coverImage: string;
   heroVideo?: string;
+  youtubeUrl?: string;
   shortDescription: string;
   fullDescription: string;
   problemHeadline: string;

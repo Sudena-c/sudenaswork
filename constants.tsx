@@ -1,8 +1,15 @@
 import { Project, Interest } from './types';
 
-// The 5 curated projects featured in the Postcard Stack:
-// 3 core projects + 2 internship projects
+// The 7 curated projects featured on the scroll:
+// 1) MealMate (existing project)
+// 2) Publication Design (existing project)
+// 3) Immersive Design Studio (with YouTube video support)
+// 4) Production Design (with YouTube video support)
+// 5) Internship 1st project (with horizontally scrollable/swipeable large OOHs)
+// 6) Internship 2nd (scrollable collection of posters & social creatives in pairs / horizontal)
+// 7) Calendar design (existing project)
 export const PROJECTS: Project[] = [
+  // 1) MealMate (existing project)
   {
     id: 'p1',
     title: 'MealMate',
@@ -106,9 +113,11 @@ export const PROJECTS: Project[] = [
       }
     ]
   },
+
+  // 2) Publication Design (existing project)
   {
     id: 'p2',
-    title: 'Vinyl — A Timeless Sound',
+    title: 'Publication Design — Vinyl: A Timeless Sound',
     category: 'Editorial Design',
     year: '2026',
     role: 'Editorial Designer & Art Director',
@@ -171,86 +180,138 @@ export const PROJECTS: Project[] = [
       }
     ]
   },
+
+  // 3) Immersive Design Studio (existing project with YouTube video support)
   {
-    id: 'p3',
-    title: 'Calendar Design — Warli Art',
-    category: 'Illustration',
+    id: 'p7',
+    title: 'Immersive Design Studio — Mirror Mirror',
+    category: 'Immersive Design Studio',
     year: '2026',
-    role: 'Illustrator & Cultural Researcher',
-    duration: '4 Weeks',
-    tools: ['Adobe Illustrator', 'Vector Geometry', 'Ethnographic Studies', 'Print Production'],
-    coverImage: 'https://i.ibb.co/zVS4zwpV/Screenshot-2026-01-29-at-11-07-33-AM.png',
-    postcardNote: 'Sent with love from Maharashtra’s tribal lands: sacred geometric circles, harvest dances, and living folklore.',
-    postcardRotation: -1.2,
-    shortDescription: 'A functional 12-month calendar system translating indigenous Warli tribal geometry into contemporary vector art.',
-    fullDescription: 'This series explores the profound geometric syntax of Warli tribal art, translating ancient wall narratives into a functional, year-long daily art calendar.',
-    problemHeadline: 'Ancient indigenous art forms are too frequently treated as static museum relics, isolated from modern functional daily objects.',
-    problemBody: 'The challenge was to honor the sacred geometric vocabulary of Warli art (the circle of the sun, the triangle of mountains and bodies) without reducing it to decorative caricature. This calendar acts as a daily living narrative celebrating indigenous ecology.',
+    role: 'Spatial & Interaction Designer',
+    duration: '5 Weeks',
+    tools: ['Projection Mapping', 'TouchDesigner', 'Spatial Audio', 'Interactive Sensors', 'Physical Prototyping'],
+    coverImage: 'https://i.ibb.co/Fk3z1Jyk/Whats-App-Image-2026-04-07-at-15-43-09-1.jpg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    postcardNote: 'Dispatched from the darkened studio: light, two-way mirrors, and responsive projections dissolving physical boundaries.',
+    postcardRotation: -2.1,
+    shortDescription: 'An interactive spatial installation blending gothic whimsy, talking projections, and reflective presence.',
+    fullDescription: 'By delivering cryptic, light-hearted responses through a talking projection, Mirror Mirror acts as a poetic bridge between the viewer and the universe. An exploration of immersive spatial storytelling and responsive installation art.',
+    problemHeadline: 'How can an interactive installation dissolve physical walls to make people feel truly present in an unseen, whimsical world?',
+    problemBody: 'In an era of hyper-functional screens, people are starved for enchantment and wonder. The challenge was building an installation where participants communicate with a surreal, living mirror through voice and proximity without feeling alienated by the technology powering it.',
     process: [
       {
-        id: 'ps3-1',
+        id: 'ps7-1',
         phase: 'The Spark',
-        title: 'Ethnographic Research & Tribal Syntax',
-        images: [
-          'https://i.ibb.co/kgqbcqmL/Whats-App-Image-2026-02-19-at-12-50-46.jpg', 
-          'https://i.ibb.co/5pFz6r0/Whats-App-Image-2026-02-19-at-12-51-03.jpg'
-        ],
-        description: 'Studying the symbolic vocabulary of the Warli community: two triangles joined at the tip symbolizing the balance of the universe, rhythmic circles representing social unity.',
-        reflection: 'I was humbled by the minimalism of Warli art. With just white pigment on red ochre mud, they communicate community, harvest, and ecology with unmatched clarity.',
+        title: 'Conceptualization & Spatial Presence',
+        images: ['https://i.ibb.co/Fk3z1Jyk/Whats-App-Image-2026-04-07-at-15-43-09-1.jpg'],
+        description: 'Investigating the psychology of reflection, folklore mirrors, and Victorian spirit cabinets. Prototyping two-way beam splitters and micro-projector focal lengths.',
+        reflection: 'When people look into a normal mirror, they see themselves. When they look into an enchanted mirror that answers back, their posture shifts from vanity to childlike wonder.',
+        decisionNote: 'Decided on a physical gothic gilded frame enclosing a concealed high-lumen projection surface and depth-sensing camera.',
         research: {
-          primary: 'Explored folk art archives and practiced raw brushwork on handmade textured paper.',
-          secondary: 'Researched the 12 seasonal rhythms of rural agrarian communities to pair each month with an authentic cultural ceremony.',
+          primary: 'Conducted live spatial tests observing how participants approach darkened rooms and mirrors.',
+          secondary: 'Researched theatrical Pepper’s Ghost techniques and real-time generative visual nodes in TouchDesigner.',
           insights: [
-            'Warli art never features straight linear timelines; it portrays cyclical life in concentric circles.',
-            'Vectorization requires precision without losing the warm organic tremor of human hand-drawn strokes.',
-            'Functional dates and typographic numbers must harmonize with the raw rhythmic figures.'
+            'Latency kills magic: any delay over 100ms breaks the illusion of a living entity.',
+            'Spatial audio directed from behind the mirror glass creates an eerie feeling of intimacy.',
+            'Cryptic, poetic answers resonate far deeper than literal chat responses.'
           ]
         }
       },
       {
-        id: 'ps3-2',
+        id: 'ps7-2',
         phase: 'Craft',
-        title: 'Vector Precision & 12 Months of Folklore',
-        images: [
-          'https://i.ibb.co/DPg8yPnd/jan.jpg',
-          'https://i.ibb.co/d0DykQgX/feb.jpg',
-          'https://i.ibb.co/mFhJLz6F/march.jpg',
-          'https://i.ibb.co/XrP8Yr9c/april.jpg'
-        ],
-        description: 'Crafting 12 unique compositions reflecting the agricultural calendar: monsoon sowing, harvest festivals, village weddings, and starlit night storytelling.',
-        reflection: 'Translating mud-wall strokes into mathematical Bézier curves took days of calibration. I kept microscopic asymmetries so each figure retained its lively pulse.',
-        layout: 'gallery'
+        title: 'Projection Mapping & Sensor Calibration',
+        images: ['https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop'],
+        description: 'Calibrating projection luminosity against ambient candlelight, mapping animations onto glass geometry, and fine-tuning ultrasonic proximity triggers.',
+        reflection: 'The biggest breakthrough was blending practical vintage objects (antique candelabras, heavy velvet drapes) with razor-sharp digital projection mapping.',
+        layout: 'split'
       },
       {
-        id: 'ps3-gallery',
+        id: 'ps7-youtube',
         phase: 'Outcome',
-        title: 'The Complete 12-Month Calendar Collection',
+        title: 'Interactive Spatial Walkthrough (YouTube Video Showcase)',
         layout: 'featured',
-        description: 'All twelve months illustrated in high-resolution vector precision, printed on recycled unbleached kraft paper.',
-        images: [
-          'https://i.ibb.co/DPg8yPnd/jan.jpg',
-          'https://i.ibb.co/d0DykQgX/feb.jpg',
-          'https://i.ibb.co/mFhJLz6F/march.jpg',
-          'https://i.ibb.co/XrP8Yr9c/april.jpg',
-          'https://i.ibb.co/PdK5s4V/may.jpg',
-          'https://i.ibb.co/8nJnhQFn/june.jpg',
-          'https://i.ibb.co/d4xjfP4X/july.jpg',
-          'https://i.ibb.co/PGRGZw86/august.jpg',
-          'https://i.ibb.co/twM5FHvY/sep.jpg',
-          'https://i.ibb.co/0RBn5LS7/oct.jpg',
-          'https://i.ibb.co/zhj1NHSB/nov.jpg',
-          'https://i.ibb.co/mrmgk1jG/dec.jpg'
-        ]
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        posterImage: 'https://i.ibb.co/Fk3z1Jyk/Whats-App-Image-2026-04-07-at-15-43-09-1.jpg',
+        description: 'Complete documentation of the spatial installation in motion: participant interactions, audio responsive projection, and the ambient environment.',
+        reflection: 'Seeing participants gasp and smile when the mirror first whispered back to them was the most fulfilling moment of the studio semester.'
       },
       {
-        id: 'ps3-reflection',
+        id: 'ps7-reflection',
         phase: 'Reflection',
-        title: 'Preserving Heritage Through Daily Utility',
-        description: 'Art isn’t meant to sit behind glass. By embedding indigenous storytelling into a daily desk calendar, users reconnect with ancient rhythms every time they check the date.',
-        reflection: 'Modern design often overcomplicates. Warli taught me that the simplest geometric shapes carry the deepest emotional resonance.'
+        title: 'The Poetics of Interactive Spaces',
+        description: 'Technology is at its most powerful when it becomes invisible. Immersive design is not about high-tech gizmos; it is about orchestrating light, sound, and curiosity to awaken the human spirit.',
+        reflection: 'Spatial design taught me that the environment itself is the canvas. Every beam of light and shadow carries narrative weight.'
       }
     ]
   },
+
+  // 4) Production Design (existing project with YouTube video support)
+  {
+    id: 'p8',
+    title: 'Production Design — Neon Noir',
+    category: 'Production Design',
+    year: '2026',
+    role: 'Production Designer & Art Director',
+    duration: '6 Weeks',
+    tools: ['Physical Set Construction', 'Practical Lighting', 'Texture Aging', 'Drafting & Blueprints', 'Color Scripting'],
+    coverImage: 'https://images.unsplash.com/photo-1514306191717-452ec28c7814?q=80&w=800&auto=format&fit=crop',
+    youtubeUrl: 'https://www.youtube.com/watch?v=L_LUpnjgPso',
+    postcardNote: 'Dispatched from the studio soundstage: weathered textures, dripping steam, and physical neon tubes built from scratch.',
+    postcardRotation: 1.7,
+    shortDescription: 'Set design, practical lighting art direction, and worldbuilding for a cyberpunk short film.',
+    fullDescription: 'A production design endeavor building an urban dystopian alleyway inside a soundstage. Layered practical weathering, modular steel framing, and custom bent neon tubes to create a gritty, lived-in world for cinema.',
+    problemHeadline: 'How can we build a believable, breathing sci-fi future using physical craft, practical illumination, and limited soundstage space?',
+    problemBody: 'Too much contemporary sci-fi relies on flat green screens that detach actors from their tactile environment. This project created a 360-degree practical set where physical rust, real steam pipes, and glowing neon provide organic cinematic depth and tangible actor interaction.',
+    process: [
+      {
+        id: 'ps8-1',
+        phase: 'The Spark',
+        title: 'Architectural Blueprints & Urban Decay Research',
+        images: ['https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=800&auto=format&fit=crop'],
+        description: 'Drafting 1:20 architectural scale models, sourcing industrial salvage materials, and studying the weathering patterns of Kowloon Walled City and neo-noir cinema classics.',
+        reflection: 'A great set tells a story before an actor even enters the frame. Every peeled poster layer and grease stain implies years of forgotten human life.',
+        decisionNote: 'Constructed reversible modular timber and corrugated metal wall flats that could be re-arranged into three distinct camera setups.',
+        research: {
+          primary: 'Explored metal scrap yards and reclaimed vintage fixtures to create authentic textural decay.',
+          secondary: 'Analyzed color temperature interplay between warm sodium-vapor amber (2200K) and cold cybernetic cyan/magenta neon.',
+          insights: [
+            'Wet asphalt doubles light reflectivity and stretches camera depth of field.',
+            'Practical lights (in-camera neon, street lamps) must be dimmable to prevent digital camera sensor clipping.',
+            'Textural weathering requires multiple layers: base primer, patina wash, spattered grease, and dry-brushed rust.'
+          ]
+        }
+      },
+      {
+        id: 'ps8-2',
+        phase: 'Craft',
+        title: 'Set Construction & Practical Lighting Installation',
+        images: ['https://images.unsplash.com/photo-1514306191717-452ec28c7814?q=80&w=800&auto=format&fit=crop'],
+        description: 'Building modular flats, rigging custom neon signage, piping atmospheric steam lines, and hand-distressing typography across weathered shop facades.',
+        reflection: 'Spending late nights in the workshop with sawdust, paint fumes, and wiring transformers gave me an enduring respect for physical set craft.',
+        layout: 'split'
+      },
+      {
+        id: 'ps8-youtube',
+        phase: 'Outcome',
+        title: 'Cinematic Reel & Lighting Walkthrough (YouTube Video Showcase)',
+        layout: 'featured',
+        youtubeUrl: 'https://www.youtube.com/watch?v=L_LUpnjgPso',
+        posterImage: 'https://images.unsplash.com/photo-1514306191717-452ec28c7814?q=80&w=800&auto=format&fit=crop',
+        description: 'Cinematic camera tests demonstrating practical neon reflections, steam diffusion, and dynamic actor framing across the completed set.',
+        reflection: 'When the Director of Photography flipped on the practical lights and rolled camera, the soundstage completely vanished—we were standing in a living cyberpunk city.'
+      },
+      {
+        id: 'ps8-reflection',
+        phase: 'Reflection',
+        title: 'Worldbuilding as Physical Architecture',
+        description: 'Production design taught me that visual communication extends far beyond 2D graphics into three-dimensional volume, texture, and light.',
+        reflection: 'True cinematic immersion comes from tangible authenticity. Real materials react to camera lenses in ways computer software cannot replicate.'
+      }
+    ]
+  },
+
+  // 5) Internship 1st project (with horizontal scrollable OOHs)
   {
     id: 'p-internship-1',
     title: 'New Brand Launch and Pitch work',
@@ -382,48 +443,49 @@ export const PROJECTS: Project[] = [
           },
           {
             id: 'dg-ooh',
-            category: '3) OOH Collaterals (Horizontal)',
-            description: 'Horizontal outdoor advertising collaterals for highway billboards, horizontal gantry signage, and wide transit displays.',
+            category: '3) OOH Collaterals (Horizontal Swipeable)',
+            description: 'Horizontal outdoor advertising collaterals for highway billboards, horizontal gantry signage, and wide transit displays. Scroll or swipe horizontally to see each billboard in large scale.',
+            displayMode: 'horizontal-scroll',
             items: [
               {
                 id: 'ooh-1',
-                title: 'OOH 01',
-                caption: 'Horizontal landscape billboard designed for long-distance readability.',
+                title: 'OOH 01 — Highway Landscape Billboard',
+                caption: 'Horizontal landscape billboard designed for high-speed highway visibility and bold typography.',
                 image: 'https://i.ibb.co/DDFgq2nD/Mock-Silver-Macro-OOH-03.png',
                 aspect: 'landscape'
               },
               {
                 id: 'ooh-2',
-                title: 'OOH 02',
-                caption: 'Wide horizontal transit display engaging commuters.',
+                title: 'OOH 02 — Transit Hub Horizontal Display',
+                caption: 'Wide horizontal transit display captivating urban commuters with macro jewelry highlights.',
                 image: 'https://i.ibb.co/7J4cR1DG/Mock-Silver-Macro-OOH-02.png',
                 aspect: 'landscape'
               },
               {
                 id: 'ooh-3',
-                title: 'OOH 03',
-                caption: 'Horizontal Billboard designed.',
+                title: 'OOH 03 — Boulevard Gantry Billboard',
+                caption: 'Expansive horizontal boulevard gantry billboard with balanced negative space.',
                 image: 'https://i.ibb.co/ynZWxQCs/Mock-Silver-Macro-OOH-01.png',
                 aspect: 'landscape'
               },
               {
                 id: 'ooh-4',
-                title: 'OOH 04',
-                caption: 'Wide horizontal roadside banner along high-footfall avenues.',
+                title: 'OOH 04 — High-Footfall Avenue Banner',
+                caption: 'Wide horizontal roadside banner along bustling commercial avenues.',
                 image: 'https://i.ibb.co/9kYsG0Ks/Silver-Macro-OOH-01.png',
                 aspect: 'landscape'
               },
               {
                 id: 'ooh-5',
-                title: 'OOH 05',
-                caption: 'Wide Billboard.',
+                title: 'OOH 05 — Panoramic Brand Skyline Billboard',
+                caption: 'Wide horizontal skyline billboard framing silver craft against the cityscape.',
                 image: 'https://i.ibb.co/ymPqqBZd/Silver-Macro-OOH-02.png',
                 aspect: 'landscape'
               },
               {
                 id: 'ooh-6',
-                title: 'OOH 06',
-                caption: 'High-impact horizontal panoramic digital screen.',
+                title: 'OOH 06 — Digital Outdoor Screen',
+                caption: 'High-impact horizontal panoramic digital screen designed for motion and crisp clarity.',
                 image: 'https://i.ibb.co/mVtpR99c/Mock-Silver-Portrait-OOH-04.png',
                 aspect: 'landscape'
               }
@@ -482,93 +544,220 @@ export const PROJECTS: Project[] = [
       }
     ]
   },
+
+  // 6) Internship 2nd (collation of posters and social media creatives, scrollable in pairs or horizontal)
   {
     id: 'p-internship-2',
-    title: 'Digital Interfaces',
+    title: 'Posters & Social Media Creatives Collection',
     category: 'Internship Work',
     year: '2026',
-    role: 'Graphic Design',
+    role: 'Graphic & Campaign Design Intern',
     duration: '14 Weeks Internship',
-    tools: ['Figma', 'Photoshop', 'Illustrator', 'AI Image Generation'],
+    tools: ['Photoshop', 'Illustrator', 'Figma', 'Art Direction', 'Typography', 'Social Strategy'],
     isInternship: true,
-    coverImage: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800',
-    postcardNote: 'Dispatched from the digital product frontline: tokens, typography scales, and human-first interactions built for scale.',
+    coverImage: 'https://i.ibb.co/6R65HMgq/Whats-App-Image-2026-09-18-at-13-23-19-2.jpg',
+    postcardNote: 'Dispatched from the studio: an expansive collation of typographic posters and punchy social media creatives, created to stop the scroll.',
     postcardRotation: -1.5,
-    shortDescription: 'Internship Case Study: Building modular component libraries, responsive design systems, and inclusive UI states.',
-    fullDescription: 'During my product design internship, I led the audit and restructuring of an internal component library. I established accessible color token systems, typographic scales, and micro-interaction states that accelerated cross-platform handoff.',
-    problemHeadline: 'Inconsistent design debt and disjointed component variations were slowing down engineering delivery and degrading user trust.',
-    problemBody: 'The product suite had accumulated over 40 bespoke button variants, conflicting color contrasts, and zero accessibility documentation. My mandate as an intern was to audit the entire interface ecosystem, eliminate redundancy, and engineer a rock-solid, cohesive token architecture.',
+    shortDescription: 'A curated collation of campaign posters and social media creatives created during my internship, viewable in scrollable pairs or horizontally.',
+    fullDescription: 'During my internship, I developed a diverse series of promotional posters, typographic collaterals, and high-impact social media creatives for fast-moving client campaigns. This collection showcases how visual rhythm, bold color blocking, and sharp copywriting intersect across digital and physical touchpoints.',
+    problemHeadline: 'How do you sustain distinctive visual energy and typographic authority across high-frequency daily posters and social campaigns?',
+    problemBody: 'In fast-paced advertising and social storytelling, creatives must communicate instantly. Each poster and post in this collation was engineered to balance rapid readability with refined editorial elegance, turning routine announcements into memorable visual statements.',
     process: [
       {
         id: 'ps-int2-1',
         phase: 'The Spark',
-        title: 'System Audit & Component Inventory',
-        images: ['https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'],
-        description: 'Documenting every button, modal, form input, and dropdown state across 8 core product modules. Uncovering hundreds of visual discrepancies and contrast failures.',
-        reflection: 'Design systems are not about policing creativity; they are about freeing designers to solve actual human problems instead of arguing about button border radiuses.',
-        decisionNote: 'Adopted an atomic design hierarchy (Tokens -> Atoms -> Molecules -> Organisms) with strict WCAG AA color ratios.',
+        title: 'The Campaign Pulse & Rapid Turnaround',
+        images: ['https://i.ibb.co/Fb19vPdw/Screenshot-2026-10-07-at-12-50-54-PM.png'],
+        description: 'Working within 24-to-48-hour sprint cycles to pitch, iterate, and finalize poster layouts and social media sets for various brand activations.',
+        reflection: 'Speed forces you to trust your instinct. When you only have hours to craft a poster, you learn which elements are essential and which are merely decorative clutter.',
+        decisionNote: 'Established modular typographic templates with expressive display titles and clean informational hierarchies.',
         research: {
-          primary: 'Interviewed 8 front-end developers and 5 product designers to understand their daily friction points in design handoff.',
-          secondary: 'Analyzed leading industry systems (Material 3, Polaris, Apple HIG) for token naming conventions and state management.',
+          primary: 'Analyzed eye-tracking data across mobile feeds and poster streetboards to optimize focal landing points.',
+          secondary: 'Curated inspiration from Swiss International Style, brutalist gig posters, and modern editorial digital carousels.',
           insights: [
-            'Developers spent 30% of their sprint time guessing padding and color values because documentation was absent.',
-            'Accessibility was previously treated as an afterthought rather than a foundation.',
-            'A unified token system cuts down UI regression bugs drastically.'
+            'Posters paired side-by-side create a compelling visual dialogue, encouraging viewers to compare details.',
+            'High-contrast typography paired with raw photographic textures generates the highest feed retention.',
+            'Consistency in color temperature gives disparate campaign posts a unified signature.'
           ]
         }
       },
       {
         id: 'ps-int2-2',
         phase: 'Craft',
-        title: 'Token Architecture & Micro-Interactions',
-        images: ['https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800'],
-        description: 'Building semantic design tokens for light and dark modes, hover/active/focus/disabled states, and motion curves that make interactions feel responsive and tactile.',
-        reflection: 'The biggest breakthrough was introducing interactive component playgrounds in Figma with autolayout and variable modes, making adoption by other designers effortless.',
+        title: 'Typographic Tension & Color Dynamics',
+        images: ['https://i.ibb.co/6R65HMgq/Whats-App-Image-2026-09-18-at-13-23-19-2.jpg'],
+        description: 'Pairing tight negative space with exaggerated kerning, vibrant gradient maps, and custom distressed texture overlays.',
+        reflection: 'The beauty of poster design is total creative autonomy within a single rectangular canvas. Every millimeter of bleed and margin serves the message.',
         layout: 'split'
       },
       {
-        id: 'ps-int2-3',
+        id: 'ps-int2-collection',
         phase: 'Outcome',
-        title: 'The Production-Ready Component Library',
+        title: 'The Scrollable Collection: Posters & Social Creatives',
         layout: 'featured',
-        images: [
-          'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800',
-          'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
-        ],
-        description: 'Over 60 scalable components with zero contrast errors, integrated seamlessly into the engineering codebase and adopted by the entire design team.',
-        reflection: 'Hearing developers say "this made building our sprint features twice as fast" was the ultimate validation of systemic craft.'
+        description: 'A rich collation of posters and social media creatives created during the internship. Experience them scrolling in pairs side-by-side or horizontally.',
+        deliverableGroups: [
+          {
+            id: 'dg-posters-collection',
+            category: 'Posters & Social Media Creatives Collation',
+            description: 'Scroll through the collection in curated pairs or toggle horizontal scroll to swipe through them seamlessly.',
+            displayMode: 'pairs',
+            items: [
+              {
+                id: 'post-1',
+                title: 'Poster 01 — Modernist Typographic Statement',
+                caption: 'High-contrast typography exploration playing with letterform scale and brutalist margins.',
+                image: 'https://i.ibb.co/fzL8SKqt/Silver-Portrait-Print-03.png',
+                aspect: 'portrait'
+              },
+              {
+                id: 'post-2',
+                title: 'Poster 02 — Macro Form & Texture Study',
+                caption: 'Close-up macro study capturing metallic reflection, delicate shadows, and sculptural shape.',
+                image: 'https://i.ibb.co/VYfwjSSv/Silver-Macro-Print-02.png',
+                aspect: 'portrait'
+              },
+              {
+                id: 'post-3',
+                title: 'Creative 03 — Editorial Brand Teaser',
+                caption: 'Square campaign creative engineered to hook attention on Instagram and mobile feeds.',
+                image: 'https://i.ibb.co/99zks5tT/04.png',
+                aspect: 'square'
+              },
+              {
+                id: 'post-4',
+                title: 'Creative 04 — Typographic Manifesto Post',
+                caption: 'Carousel title creative featuring bold typographic hierarchy and confident negative space.',
+                image: 'https://i.ibb.co/yt1wVty/05.png',
+                aspect: 'square'
+              },
+              {
+                id: 'post-5',
+                title: 'Poster 05 — Minimalist Product Architecture',
+                caption: 'Full-page campaign poster emphasizing subtle elegance and refined lighting.',
+                image: 'https://i.ibb.co/Rkct0KqC/Silver-Macro-Print-01.png',
+                aspect: 'portrait'
+              },
+              {
+                id: 'post-6',
+                title: 'Creative 06 — Spotlight Social Asset',
+                caption: 'Dynamic product highlight combining clean studio photography with minimal badge accents.',
+                image: 'https://i.ibb.co/RkVwgghD/02.png',
+                aspect: 'square'
+              },
+              {
+                id: 'post-7',
+                title: 'Creative 07 — Editorial Style Guide Asset',
+                caption: 'Visual storytelling post demonstrating wearable layering and tactile everyday styling.',
+                image: 'https://i.ibb.co/MQXDxTM/03.png',
+                aspect: 'square'
+              },
+              {
+                id: 'post-8',
+                title: 'Poster 08 — Brand Ambassador Quote Poster',
+                caption: 'Bold typographic statement poster combining voice, identity, and editorial photography.',
+                image: 'https://i.ibb.co/xS4DScLK/06.png',
+                aspect: 'portrait'
+              }
+            ]
+          }
+        ]
       },
       {
         id: 'ps-int2-reflection',
         phase: 'Reflection',
-        title: 'Growth as a Systems Thinker',
-        description: 'This internship taught me to look at digital products not as static screens, but as living, breathing interactive systems. Good design is as much about scalability and clarity as it is about visual beauty.',
-        reflection: 'Clarity is kindness. The clearer your system is, the more delight you can deliver to end users.'
+        title: 'Speed, Adaptability & Creative Stamina',
+        description: 'Producing high volumes of posters and social assets under real studio deadlines taught me that consistency is born from rigorous systems, not luck.',
+        reflection: 'Every creative asset you build is an opportunity to experiment with a new typeface, grid, or color harmony. Never treat small formats as small opportunities.'
+      }
+    ]
+  },
+
+  // 7) Calendar design (existing project)
+  {
+    id: 'p3',
+    title: 'Calendar Design — Warli Art',
+    category: 'Illustration',
+    year: '2026',
+    role: 'Illustrator & Cultural Researcher',
+    duration: '4 Weeks',
+    tools: ['Adobe Illustrator', 'Vector Geometry', 'Ethnographic Studies', 'Print Production'],
+    coverImage: 'https://i.ibb.co/zVS4zwpV/Screenshot-2026-01-29-at-11-07-33-AM.png',
+    postcardNote: 'Sent with love from Maharashtra’s tribal lands: sacred geometric circles, harvest dances, and living folklore.',
+    postcardRotation: -1.2,
+    shortDescription: 'A functional 12-month calendar system translating indigenous Warli tribal geometry into contemporary vector art.',
+    fullDescription: 'This series explores the profound geometric syntax of Warli tribal art, translating ancient wall narratives into a functional, year-long daily art calendar.',
+    problemHeadline: 'Ancient indigenous art forms are too frequently treated as static museum relics, isolated from modern functional daily objects.',
+    problemBody: 'The challenge was to honor the sacred geometric vocabulary of Warli art (the circle of the sun, the triangle of mountains and bodies) without reducing it to decorative caricature. This calendar acts as a daily living narrative celebrating indigenous ecology.',
+    process: [
+      {
+        id: 'ps3-1',
+        phase: 'The Spark',
+        title: 'Ethnographic Research & Tribal Syntax',
+        images: [
+          'https://i.ibb.co/kgqbcqmL/Whats-App-Image-2026-02-19-at-12-50-46.jpg', 
+          'https://i.ibb.co/5pFz6r0/Whats-App-Image-2026-02-19-at-12-51-03.jpg'
+        ],
+        description: 'Studying the symbolic vocabulary of the Warli community: two triangles joined at the tip symbolizing the balance of the universe, rhythmic circles representing social unity.',
+        reflection: 'I was humbled by the minimalism of Warli art. With just white pigment on red ochre mud, they communicate community, harvest, and ecology with unmatched clarity.',
+        research: {
+          primary: 'Explored folk art archives and practiced raw brushwork on handmade textured paper.',
+          secondary: 'Researched the 12 seasonal rhythms of rural agrarian communities to pair each month with an authentic cultural ceremony.',
+          insights: [
+            'Warli art never features straight linear timelines; it portrays cyclical life in concentric circles.',
+            'Vectorization requires precision without losing the warm organic tremor of human hand-drawn strokes.',
+            'Functional dates and typographic numbers must harmonize with the raw rhythmic figures.'
+          ]
+        }
+      },
+      {
+        id: 'ps3-2',
+        phase: 'Craft',
+        title: 'Vector Precision & 12 Months of Folklore',
+        images: [
+          'https://i.ibb.co/DPg8yPnd/jan.jpg',
+          'https://i.ibb.co/d0DykQgX/feb.jpg',
+          'https://i.ibb.co/mFhJLz6F/march.jpg',
+          'https://i.ibb.co/XrP8Yr9c/april.jpg'
+        ],
+        description: 'Crafting 12 unique compositions reflecting the agricultural calendar: monsoon sowing, harvest festivals, village weddings, and starlit night storytelling.',
+        reflection: 'Translating mud-wall strokes into mathematical Bézier curves took days of calibration. I kept microscopic asymmetries so each figure retained its lively pulse.',
+        layout: 'gallery'
+      },
+      {
+        id: 'ps3-gallery',
+        phase: 'Outcome',
+        title: 'The Complete 12-Month Calendar Collection',
+        layout: 'featured',
+        description: 'All twelve months illustrated in high-resolution vector precision, printed on recycled unbleached kraft paper.',
+        images: [
+          'https://i.ibb.co/DPg8yPnd/jan.jpg',
+          'https://i.ibb.co/d0DykQgX/feb.jpg',
+          'https://i.ibb.co/mFhJLz6F/march.jpg',
+          'https://i.ibb.co/XrP8Yr9c/april.jpg',
+          'https://i.ibb.co/PdK5s4V/may.jpg',
+          'https://i.ibb.co/8nJnhQFn/june.jpg',
+          'https://i.ibb.co/d4xjfP4X/july.jpg',
+          'https://i.ibb.co/PGRGZw86/august.jpg',
+          'https://i.ibb.co/twM5FHvY/sep.jpg',
+          'https://i.ibb.co/0RBn5LS7/oct.jpg',
+          'https://i.ibb.co/zhj1NHSB/nov.jpg',
+          'https://i.ibb.co/mrmgk1jG/dec.jpg'
+        ]
+      },
+      {
+        id: 'ps3-reflection',
+        phase: 'Reflection',
+        title: 'Preserving Heritage Through Daily Utility',
+        description: 'Art isn’t meant to sit behind glass. By embedding indigenous storytelling into a daily desk calendar, users reconnect with ancient rhythms every time they check the date.',
+        reflection: 'Modern design often overcomplicates. Warli taught me that the simplest geometric shapes carry the deepest emotional resonance.'
       }
     ]
   }
 ];
 
-// Archived Explorations kept safe in case user wants to view or toggle them:
+// Archived Explorations kept safe
 export const ARCHIVED_PROJECTS: Project[] = [
-  {
-    id: 'p7',
-    title: 'Mirror Mirror',
-    category: 'Immersive Design Studio',
-    coverImage: 'https://i.ibb.co/Fk3z1Jyk/Whats-App-Image-2026-04-07-at-15-43-09-1.jpg',
-    shortDescription: 'In an era of relentless digital certainty, Mirror Mirror offers a whimsical turn into the unknown through interactive space and projection.',
-    fullDescription: 'By delivering cryptic, light-hearted responses through a talking projection, the mirror acts as a bridge between us and the universe.',
-    problemHeadline: 'How can we create an experience for people to feel present in an unseen space?',
-    problemBody: 'What elements allow a person to be immersed in an environment without physical boundaries? A study in gothic whimsy, projection mapping, and spatial presence.',
-    process: [
-      {
-        id: 'ps7-1',
-        title: 'Conceptualization',
-        images: ['https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop'],
-        description: 'Exploring space, reflection, and mystical interaction logic.'
-      }
-    ]
-  },
   {
     id: 'p5',
     title: 'Rebranding & Marketing: Tea Better',
@@ -584,24 +773,6 @@ export const ARCHIVED_PROJECTS: Project[] = [
         title: 'Market Research',
         images: ['https://i.ibb.co/gZFxTsY1/Screenshot-2026-01-30-at-7-09-12-PM.png'],
         description: 'Analyzing the competitive landscape of the wellness beverage industry.'
-      }
-    ]
-  },
-  {
-    id: 'p8',
-    title: 'Neon Noir',
-    category: 'Production Design',
-    coverImage: 'https://images.unsplash.com/photo-1514306191717-452ec28c7814?q=80&w=800&auto=format&fit=crop',
-    shortDescription: 'Set design and practical lighting art direction for a cyberpunk short film.',
-    fullDescription: 'A production design project where I built a futuristic urban alleyway from scratch, focusing on practical lighting and weathered textures.',
-    problemHeadline: 'How can we create a believable future using limited physical space and budget?',
-    problemBody: 'Layering practical textures—rust, neon, steam—to evoke a lived-in futuristic world.',
-    process: [
-      {
-        id: 'ps8-1',
-        title: 'Set Construction',
-        images: ['https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=800&auto=format&fit=crop'],
-        description: 'Building modular studio walls with practical neon glow.'
       }
     ]
   }

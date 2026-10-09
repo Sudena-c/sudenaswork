@@ -10,11 +10,13 @@ interface PortfolioGridProps {
 }
 
 const CATEGORIES: { label: string; value: Category }[] = [
-  { label: 'All 5 Works', value: 'All' },
+  { label: 'All Works', value: 'All' },
   { label: 'UI/UX', value: 'UI/UX' },
   { label: 'Editorial Design', value: 'Editorial Design' },
-  { label: 'Illustration', value: 'Illustration' },
+  { label: 'Immersive Design', value: 'Immersive Design Studio' },
+  { label: 'Production Design', value: 'Production Design' },
   { label: 'Internship Work', value: 'Internship Work' },
+  { label: 'Illustration', value: 'Illustration' },
 ];
 
 const PortfolioGrid: React.FC<PortfolioGridProps> = ({ 
@@ -38,7 +40,7 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({
           <div>
             <div className="flex items-center space-x-3 text-xs uppercase tracking-[0.3em] font-medium text-zinc-500 dark:text-zinc-400 mb-3">
               <span className="w-2 h-2 rounded-full bg-zinc-900 dark:bg-zinc-100"></span>
-              <span>02 / 04 — SELECTED WORKS</span>
+              <span>SELECTED WORKS</span>
             </div>
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
               The Work <span className="italic font-normal font-serif text-zinc-600 dark:text-zinc-400">My Work</span>
@@ -46,7 +48,7 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({
           </div>
 
           <p className="max-w-md text-sm md:text-base text-zinc-500 dark:text-zinc-400 font-light leading-relaxed">
-            Five stories dispatched from the design studio. As you scroll, each project layers into a tactile archive of research, pivotal decisions, and craft.
+            Seven curated stories dispatched from the design studio. As you scroll, each project layers into a tactile archive of research, pivotal decisions, and craft.
           </p>
         </div>
 

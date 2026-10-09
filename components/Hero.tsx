@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
       <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-b border-zinc-200/80 dark:border-zinc-800/80 pb-6">
         <div className="flex items-center space-x-3 text-xs uppercase tracking-[0.3em] font-medium text-zinc-500 dark:text-zinc-400">
           <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>01 / 04 — HOMEPAGE</span>
+          <span> HOMEPAGE</span>
           <span className="opacity-40">·</span>
           <span className="hidden sm:inline">COMMUNICATION DESIGNER</span>
         </div>
@@ -206,7 +206,7 @@ const Hero: React.FC = () => {
           className="group flex items-center space-x-3 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
         >
           <span className="font-mono text-[10px] uppercase tracking-widest">Next Section:</span>
-          <span className="font-serif italic text-sm font-medium group-hover:translate-x-1 transition-transform">02 — Postcard Works (5)</span>
+          <span className="font-serif italic text-sm font-medium group-hover:translate-x-1 transition-transform">02 — Works (5)</span>
           <svg className="w-4 h-4 animate-bounce group-hover:translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
