@@ -61,8 +61,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-xl font-light leading-relaxed"
           >
-            I craft narrative-driven visual identities, tactile editorial systems, and human digital products. 
-            Exploring the delicate balance between <span className="text-zinc-900 dark:text-zinc-100 font-medium">structural rigidity</span> and <span className="text-zinc-900 dark:text-zinc-100 font-medium">organic expression</span>.
+            Part designer, part artist, and always a curious mind. I find inspiration in the little things, love exploring the world around me and enjoy bringing ideas to life through research, visuals and experimentation. I'm interested in making things that have a story to tell .
           </motion.p>
 
           <motion.div 
@@ -113,7 +112,7 @@ const Hero: React.FC = () => {
             </div>
             <div>
               <span className="block font-mono text-[10px] uppercase tracking-wider text-zinc-400">Curated Work</span>
-              <span className="font-medium text-zinc-800 dark:text-zinc-200">Selected Stories</span>
+              <span className="font-medium text-zinc-800 dark:text-zinc-200">Selected Work</span>
             </div>
           </motion.div>
         </div>
@@ -124,7 +123,7 @@ const Hero: React.FC = () => {
           {/* Subtle Decorative stamp mark behind polaroid */}
           <div className="absolute -top-8 -right-4 w-28 h-28 border border-dashed border-zinc-300 dark:border-zinc-700 rounded-full flex items-center justify-center opacity-60 pointer-events-none rotate-12">
             <span className="text-[9px] font-mono uppercase tracking-widest text-center text-zinc-400">
-              STUDIO SUDENA<br/>★ 2026 ★<br/>PORTRAIT
+              SUDENA<br/>★ 2026 ★<br/>PORTRAIT
             </span>
           </div>
 

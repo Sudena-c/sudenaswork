@@ -56,7 +56,7 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
               The Work{' '}
               <span className="italic font-normal font-serif text-[#f472b6] dark:text-[#f9a8d4] bg-gradient-to-r from-pink-300 via-pink-400 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_2px_14px_rgba(244,114,182,0.4)]">
-                My Work
+            
               </span>
             </h2>
           </div>

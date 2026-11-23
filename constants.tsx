@@ -190,14 +190,14 @@ export const PROJECTS: Project[] = [
     category: 'Immersive Design Studio',
     year: '2026',
     role: 'Spatial & Interaction Designer',
-    duration: '5 Weeks',
-    tools: ['Projection Mapping', 'TouchDesigner', 'Spatial Audio', 'Interactive Sensors', 'Physical Prototyping'],
+    duration: '2 Weeks',
+    tools: ['Projection Mapping', 'Space Design', 'Spatial Audio', 'Interactive Sensors', 'Physical Prototyping'],
     projectSection: 'college',
     coverImage: 'https://i.ibb.co/Fk3z1Jyk/Whats-App-Image-2026-04-07-at-15-43-09-1.jpg',
-    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    postcardNote: 'Dispatched from the darkened studio: light, two-way mirrors, and responsive projections dissolving physical boundaries.',
+    youtubeUrl: 'hhttps://youtu.be/4GA_zJEcWdg',
+    postcardNote: 'How can we create a space where, when once entered a person fully immerses themselves into the space.',
     postcardRotation: -2.1,
-    shortDescription: 'An interactive spatial installation blending gothic whimsy, talking projections, and reflective presence.',
+    shortDescription: 'This installation reimagines the ancient ritual of seeking guidance, transforming the "fortune tellers chamber into a space for playful introspection..',
     fullDescription: 'By delivering cryptic, light-hearted responses through a talking projection, Mirror Mirror acts as a poetic bridge between the viewer and the universe. An exploration of immersive spatial storytelling and responsive installation art.',
     problemHeadline: 'How can an interactive installation dissolve physical walls to make people feel truly present in an unseen, whimsical world?',
     problemBody: 'In an era of hyper-functional screens, people are starved for enchantment and wonder. The challenge was building an installation where participants communicate with a surreal, living mirror through voice and proximity without feeling alienated by the technology powering it.',
@@ -206,26 +206,27 @@ export const PROJECTS: Project[] = [
         id: 'ps7-1',
         phase: 'The Spark',
         title: 'Conceptualization & Spatial Presence',
-        images: ['https://i.ibb.co/Fk3z1Jyk/Whats-App-Image-2026-04-07-at-15-43-09-1.jpg'],
-        description: 'Investigating the psychology of reflection, folklore mirrors, and Victorian spirit cabinets. Prototyping two-way beam splitters and micro-projector focal lengths.',
+        images: ['https://i.ibb.co/MkRsGTRw/Whats-App-Image-2026-04-13-at-11-09-12.jpg'],
+        description: 'We started with visualizing and storyboarding how the space will look and what do we want them to feel and experience when they enter this space.',
         reflection: 'When people look into a normal mirror, they see themselves. When they look into an enchanted mirror that answers back, their posture shifts from vanity to childlike wonder.',
-        decisionNote: 'Decided on a physical gothic gilded frame enclosing a concealed high-lumen projection surface and depth-sensing camera.',
+        decisionNote: 'We decided to let people talk and explore inside the room, and figure out what magic is done inside.',
         research: {
-          primary: 'Conducted live spatial tests observing how participants approach darkened rooms and mirrors.',
-          secondary: 'Researched theatrical Pepper’s Ghost techniques and real-time generative visual nodes in TouchDesigner.',
+          primary: 'Researched on the different kinds of experiences people have had in such places.',
+          secondary: 'Thought about what we can do differently and give such an immersion that people forget where they are.',
           insights: [
-            'Latency kills magic: any delay over 100ms breaks the illusion of a living entity.',
-            'Spatial audio directed from behind the mirror glass creates an eerie feeling of intimacy.',
-            'Cryptic, poetic answers resonate far deeper than literal chat responses.'
+            'The space could be closed and dark.',
+            'Some real converstaion and interaction will make the experience real.',
+            'Materials, objects, lights, sensors, conversation everything had to make sure that it felt real.'
           ]
         }
       },
       {
         id: 'ps7-2',
         phase: 'Craft',
-        title: 'Projection Mapping & Sensor Calibration',
-        images: ['https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop'],
-        description: 'Calibrating projection luminosity against ambient candlelight, mapping animations onto glass geometry, and fine-tuning ultrasonic proximity triggers.',
+        title: 'Projection Mapping & space creation',
+        images: ['https://i.ibb.co/M5VqZpsH/Whats-App-Image-2026-04-13-at-11-10-29.jpg'],
+        images: ['https://i.ibb.co/sdMR6wCw/Whats-App-Image-2026-04-13-at-11-10-28-1.jpg'],
+        description: 'Creating a real projection inside the space and a real magical space.',
         reflection: 'The biggest breakthrough was blending practical vintage objects (antique candelabras, heavy velvet drapes) with razor-sharp digital projection mapping.',
         layout: 'split'
       },
@@ -235,7 +236,7 @@ export const PROJECTS: Project[] = [
         title: 'Interactive Spatial Walkthrough (YouTube Video Showcase)',
         layout: 'featured',
         youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        posterImage: 'https://i.ibb.co/Fk3z1Jyk/Whats-App-Image-2026-04-07-at-15-43-09-1.jpg',
+        posterImage: 'https://i.ibb.co/0jkyvQSy/Whats-App-Image-2026-04-13-at-11-10-28-2.jpg',
         description: 'Complete documentation of the spatial installation in motion: participant interactions, audio responsive projection, and the ambient environment.',
         reflection: 'Seeing participants gasp and smile when the mirror first whispered back to them was the most fulfilling moment of the studio semester.'
       },
@@ -243,7 +244,7 @@ export const PROJECTS: Project[] = [
         id: 'ps7-reflection',
         phase: 'Reflection',
         title: 'The Poetics of Interactive Spaces',
-        description: 'Technology is at its most powerful when it becomes invisible. Immersive design is not about high-tech gizmos; it is about orchestrating light, sound, and curiosity to awaken the human spirit.',
+        description: 'Technology is at its most powerful when it becomes invisible. Immersive design is not about high-tech gizmos; it is about orchestrating light, sound, materials and curiosity to awaken the human spirit.',
         reflection: 'Spatial design taught me that the environment itself is the canvas. Every beam of light and shadow carries narrative weight.'
       }
     ]
