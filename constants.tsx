@@ -689,7 +689,7 @@ export const PROJECTS: Project[] = [
     id: 'p3',
     title: 'Calendar Design — Warli Art',
     category: 'Illustration',
-    year: '2026',
+    year: '2024',
     role: 'Illustrator & Cultural Researcher',
     duration: '4 Weeks',
     tools: ['Adobe Illustrator', 'Vector Geometry', 'Ethnographic Studies', 'Print Production'],

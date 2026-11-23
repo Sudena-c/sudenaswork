@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Project, ProcessStep, CampaignIdea, ResearchData } from '../types';
 import { PROJECTS } from '../constants';
+import CalendarFlipBook from './CalendarFlipBook';
 
 interface ProjectDetailsProps {
   project: Project;
@@ -1174,30 +1175,38 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                 </div>
               )}
 
-              {/* Step Images Gallery */}
+              {/* Step Images Gallery (or Real Flipping Calendar for 12-Month Calendar Outcome) */}
               {step.images && step.images.length > 0 && !step.video && !step.deliverableGroups && (
-                <div className={`grid gap-6 ${
-                  step.images.length === 1 
-                    ? 'grid-cols-1' 
-                    : step.images.length === 2 
-                    ? 'grid-cols-1 md:grid-cols-2' 
-                    : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4'
-                }`}>
-                  {step.images.map((img, imgIdx) => (
-                    <div
-                      key={imgIdx}
-                      onClick={() => onImageClick(img)}
-                      className="group relative cursor-zoom-in rounded overflow-hidden aspect-[4/3] bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800"
-                    >
-                      <img 
-                        src={img} 
-                        alt={`${step.title} visual ${imgIdx + 1}`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                      />
-                      <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                  ))}
-                </div>
+                step.id === 'ps3-gallery' ? (
+                  <CalendarFlipBook
+                    images={step.images}
+                    onImageClick={onImageClick}
+                    scrollRootRef={containerRef}
+                  />
+                ) : (
+                  <div className={`grid gap-6 ${
+                    step.images.length === 1 
+                      ? 'grid-cols-1' 
+                      : step.images.length === 2 
+                      ? 'grid-cols-1 md:grid-cols-2' 
+                      : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4'
+                  }`}>
+                    {step.images.map((img, imgIdx) => (
+                      <div
+                        key={imgIdx}
+                        onClick={() => onImageClick(img)}
+                        className="group relative cursor-zoom-in rounded overflow-hidden aspect-[4/3] bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800"
+                      >
+                        <img 
+                          src={img} 
+                          alt={`${step.title} visual ${imgIdx + 1}`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors"></div>
+                      </div>
+                    ))}
+                  </div>
+                )
               )}
 
               {/* Campaign Pillars if any */}
