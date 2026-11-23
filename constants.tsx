@@ -259,7 +259,7 @@ export const PROJECTS: Project[] = [
     duration: '2 Weeks',
     tools: ['Physical Set Construction', 'Practical Lighting', 'Texture Aging', 'Drafting & Blueprints', 'Color Scripting', 'Script Writing', 'Props Collection and Sourcing'],
     projectSection: 'college',
-    coverImage: 'https://images.unsplash.com/photo-1514306191717-452ec28c7814?q=80&w=800&auto=format&fit=crop',
+    coverImage: 'https://i.ibb.co/m5snQSbb/Screenshot-2026-11-23-at-1-14-26-PM.png',
     youtubeUrl: 'https://youtu.be/92cfgCO9Uj0?si=y8ne2r1vTX1wdtH5',
     btsYoutubeUrl: 'https://youtu.be/dxwtHVDQAEo',
     postcardNote: 'A space carefully crafted to show the Shringar Rasa(love/poetic) only through the props and space design.',
@@ -307,7 +307,7 @@ export const PROJECTS: Project[] = [
         title: 'Set Construction & Practical Lighting Installation',
         images: ['https://i.ibb.co/HfCVrg9h/Screenshot-2026-04-03-at-3-08-35-PM.png'],
         description: 'Building a list of all the props required and need to be sourced and how we can create the objects we need.',
-        reflection: 'Not everything needs to be bought, some things can be reused, some htings can be used as some thing that it actually isnt.',
+        reflection: 'Not everything needs to be bought, some things can be reused, some objects can be shown as something they actually arent.',
         layout: 'split'
       },
       {
