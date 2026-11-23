@@ -4,7 +4,7 @@ import { INTERESTS, CV_URL } from '../constants';
 import { Interest } from '../types';
 
 interface AboutMeProps {
-  onImageClick: (url: string) => void;
+  onImageClick: (url: string, gallery?: string[]) => void;
 }
 
 const AboutMe: React.FC<AboutMeProps> = ({ onImageClick }) => {
@@ -85,7 +85,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ onImageClick }) => {
               {/* Main Feature Image */}
               <div 
                 className="lg:col-span-5 relative group cursor-zoom-in rounded overflow-hidden aspect-[4/3] bg-stone-100 dark:bg-stone-800 shadow"
-                onClick={() => onImageClick(activeInterest.image)}
+                onClick={() => onImageClick(activeInterest.image, [activeInterest.image, ...(activeInterest.gallery ?? [])])}
               >
                 <img 
                   src={activeInterest.image} 
@@ -127,7 +127,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ onImageClick }) => {
                       {activeInterest.gallery.map((imgUrl, idx) => (
                         <div
                           key={idx}
-                          onClick={() => onImageClick(imgUrl)}
+                          onClick={() => onImageClick(imgUrl, [activeInterest.image, ...(activeInterest.gallery ?? [])])}
                           className="w-16 h-16 sm:w-20 sm:h-20 rounded overflow-hidden cursor-zoom-in border border-stone-200 dark:border-stone-800 hover:scale-105 transition-transform"
                         >
                           <img 

@@ -4,7 +4,7 @@ const ContactSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('sudenaswork@gmail.com');
+    navigator.clipboard.writeText('sudena.swork@gmail.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
@@ -50,9 +50,12 @@ const ContactSection: React.FC = () => {
                 </span>
               </div>
               <div className="pt-2">
-                <span className="font-mono text-lg sm:text-xl font-medium text-zinc-900 dark:text-zinc-100 block break-all">
-                  sudenachandnani@gmail.com
-                </span>
+                <a
+                  href="mailto:sudena.swork@gmail.com"
+                  className="font-mono text-lg sm:text-xl font-medium text-zinc-900 dark:text-zinc-100 hover:text-pink-500 dark:hover:text-pink-400 transition-colors block break-all"
+                >
+                  sudena.swork@gmail.com
+                </a>
               </div>
             </div>
 

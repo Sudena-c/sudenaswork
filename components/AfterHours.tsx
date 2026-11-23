@@ -5,7 +5,7 @@ import { Interest } from '../types';
 import InterestGallery from './InterestGallery';
 
 interface AfterHoursProps {
-  onImageClick: (url: string) => void;
+  onImageClick: (url: string, gallery?: string[]) => void;
 }
 
 const AfterHours: React.FC<AfterHoursProps> = ({ onImageClick }) => {

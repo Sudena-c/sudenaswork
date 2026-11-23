@@ -5,7 +5,7 @@ import { Interest } from '../types';
 interface InterestGalleryProps {
   interest: Interest;
   onClose: () => void;
-  onImageClick: (url: string) => void;
+  onImageClick: (url: string, gallery?: string[]) => void;
 }
 
 const InterestGallery: React.FC<InterestGalleryProps> = ({ interest, onClose, onImageClick }) => {
@@ -75,7 +75,7 @@ const InterestGallery: React.FC<InterestGalleryProps> = ({ interest, onClose, on
                 className="max-w-full max-h-full object-contain cursor-zoom-in transition-transform duration-500 hover:scale-[1.02]"
                 onClick={(e) => {
                   e.stopPropagation();
-                  onImageClick(img);
+                  onImageClick(img, gallery);
                 }}
               />
             </div>

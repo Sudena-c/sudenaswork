@@ -7,7 +7,7 @@ import CalendarFlipBook from './CalendarFlipBook';
 interface ProjectDetailsProps {
   project: Project;
   onClose: () => void;
-  onImageClick: (url: string) => void;
+  onImageClick: (url: string, gallery?: string[]) => void;
 }
 
 // Helper to extract embeddable YouTube URL
@@ -692,7 +692,10 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                     {step.iterations[selectedIteration].image && (
                       <div 
                         className="rounded overflow-hidden aspect-[16/9] bg-stone-200 dark:bg-stone-800 cursor-zoom-in"
-                        onClick={() => onImageClick(step.iterations[selectedIteration].image!)}
+                        onClick={() => onImageClick(
+                          step.iterations![selectedIteration].image!,
+                          step.iterations!.filter(it => it.image).map(it => it.image!)
+                        )}
                       >
                         <img 
                           src={step.iterations[selectedIteration].image} 
@@ -858,7 +861,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                                   className="flex-shrink-0 w-[85vw] max-w-[860px] sm:w-[740px] md:w-[860px] snap-center space-y-3 group"
                                 >
                                   <div
-                                    onClick={() => onImageClick(item.image)}
+                                    onClick={() => onImageClick(item.image, group.items.map(i => i.image))}
                                     className="relative cursor-zoom-in rounded overflow-hidden aspect-[16/9] bg-stone-900 border border-stone-300 dark:border-stone-700 shadow-xl group-hover:border-zinc-900 dark:group-hover:border-zinc-100 transition-all"
                                   >
                                     <img
@@ -924,7 +927,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                             {group.items.map((item, idx) => (
                               <div key={idx} className="space-y-3">
                                 <div
-                                  onClick={() => onImageClick(item.image)}
+                                  onClick={() => onImageClick(item.image, group.items.map(i => i.image))}
                                   className="group relative cursor-zoom-in rounded overflow-hidden aspect-[16/9] bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm"
                                 >
                                   <img
@@ -960,7 +963,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                               {group.items.map((item, idx) => (
                                 <div key={idx} className="space-y-4 group">
                                   <div
-                                    onClick={() => onImageClick(item.image)}
+                                    onClick={() => onImageClick(item.image, group.items.map(i => i.image))}
                                     className={`relative cursor-zoom-in rounded overflow-hidden bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-md group-hover:border-zinc-900 dark:group-hover:border-zinc-100 transition-all ${
                                       item.aspect === 'square' ? 'aspect-square' : 'aspect-[3/4]'
                                     }`}
@@ -1039,7 +1042,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                                   className="flex-shrink-0 w-[300px] sm:w-[380px] snap-center space-y-3 group"
                                 >
                                   <div
-                                    onClick={() => onImageClick(item.image)}
+                                    onClick={() => onImageClick(item.image, group.items.map(i => i.image))}
                                     className={`relative cursor-zoom-in rounded overflow-hidden bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-md group-hover:border-zinc-900 dark:group-hover:border-zinc-100 transition-all ${
                                       item.aspect === 'square' ? 'aspect-square' : 'aspect-[3/4]'
                                     }`}
@@ -1072,7 +1075,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                           {group.items.map((item, idx) => (
                             <div
                               key={idx}
-                              onClick={() => onImageClick(item.image)}
+                              onClick={() => onImageClick(item.image, group.items.map(i => i.image))}
                               className="group relative cursor-zoom-in rounded overflow-hidden aspect-square bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm"
                             >
                               <img
@@ -1093,7 +1096,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                           {group.items.map((item, idx) => (
                             <div key={idx} className="space-y-3">
                               <div
-                                onClick={() => onImageClick(item.image)}
+                                onClick={() => onImageClick(item.image, group.items.map(i => i.image))}
                                 className="group relative cursor-zoom-in rounded overflow-hidden aspect-[3/4] bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-md"
                               >
                                 <img
@@ -1125,7 +1128,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                                 <span className="uppercase">{idx === 0 ? 'Panoramic Web Banner' : 'Facebook Page Cover'}</span>
                               </div>
                               <div
-                                onClick={() => onImageClick(item.image)}
+                                onClick={() => onImageClick(item.image, group.items.map(i => i.image))}
                                 className="group relative cursor-zoom-in rounded overflow-hidden aspect-[21/9] sm:aspect-[24/9] bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-md"
                               >
                                 <img
@@ -1147,7 +1150,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                           {group.items.map((item, idx) => (
                             <div key={idx} className="space-y-3">
                               <div
-                                onClick={() => onImageClick(item.image)}
+                                onClick={() => onImageClick(item.image, group.items.map(i => i.image))}
                                 className="group relative cursor-zoom-in rounded overflow-hidden aspect-[16/10] bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-md"
                               >
                                 <img
@@ -1194,7 +1197,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                     {step.images.map((img, imgIdx) => (
                       <div
                         key={imgIdx}
-                        onClick={() => onImageClick(img)}
+                        onClick={() => onImageClick(img, step.images)}
                         className="group relative cursor-zoom-in rounded overflow-hidden aspect-[4/3] bg-stone-200 dark:bg-stone-900 border border-stone-200 dark:border-stone-800"
                       >
                         <img 
@@ -1216,7 +1219,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                     <div key={ideaIdx} className="space-y-3 p-4 bg-stone-50 dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800">
                       <div 
                         className="aspect-[4/3] rounded overflow-hidden cursor-zoom-in"
-                        onClick={() => onImageClick(idea.image)}
+                        onClick={() => onImageClick(idea.image, step.campaignIdeas!.map(c => c.image))}
                       >
                         <img src={idea.image} alt={idea.title} className="w-full h-full object-cover" />
                       </div>

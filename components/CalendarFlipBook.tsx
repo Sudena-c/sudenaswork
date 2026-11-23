@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface CalendarFlipBookProps {
   images: string[];
-  onImageClick: (url: string) => void;
+  onImageClick: (url: string, gallery?: string[]) => void;
   scrollRootRef: React.RefObject<HTMLDivElement | null>;
 }
 
@@ -133,7 +133,7 @@ const CalendarFlipBook: React.FC<CalendarFlipBookProps> = ({
 
           <button
             type="button"
-            onClick={() => onImageClick(images[currentIndex])}
+            onClick={() => onImageClick(images[currentIndex], images)}
             className="px-3 py-1.5 rounded text-[11px] font-mono uppercase tracking-wider border border-stone-300 dark:border-stone-700 bg-white/80 dark:bg-stone-900 text-stone-700 dark:text-stone-300 hover:border-zinc-900 dark:hover:border-zinc-100 transition-colors"
           >
             View Full Size ↗
@@ -234,7 +234,7 @@ const CalendarFlipBook: React.FC<CalendarFlipBookProps> = ({
                   <div
                     onClick={() => {
                       setIsAutoPlaying(false);
-                      onImageClick(images[currentIndex]);
+                      onImageClick(images[currentIndex], images);
                     }}
                     className="relative w-full h-full flex items-center justify-center cursor-zoom-in group"
                     title="Click to zoom full resolution"

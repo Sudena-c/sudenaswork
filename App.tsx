@@ -14,7 +14,19 @@ const App: React.FC = () => {
   const [theme, setTheme] = useState<Theme>(Theme.LIGHT);
   const [selectedCategory, setSelectedCategory] = useState<Category>('All');
   const [activeProject, setActiveProject] = useState<Project | null>(null);
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxState, setLightboxState] = useState<{ images: string[]; index: number } | null>(null);
+
+  const handleOpenLightbox = useCallback((url: string, gallery?: string[]) => {
+    const uniqueImages =
+      gallery && gallery.length > 0
+        ? Array.from(new Set(gallery))
+        : [url];
+    const foundIndex = uniqueImages.indexOf(url);
+    setLightboxState({
+      images: uniqueImages,
+      index: foundIndex >= 0 ? foundIndex : 0,
+    });
+  }, []);
 
   // Handle Hash Routing for seamless project story pages
   useEffect(() => {
@@ -90,7 +102,7 @@ const App: React.FC = () => {
           />
           
           {/* SECTION 03 — ABOUT ME (BEYOND DESIGN & IN MOTION) */}
-          <AboutMe onImageClick={setLightboxImage} />
+          <AboutMe onImageClick={handleOpenLightbox} />
           
           {/* SECTION 04 — CONTACT ME */}
           <ContactSection />
@@ -99,14 +111,15 @@ const App: React.FC = () => {
         <ProjectDetails 
           project={activeProject} 
           onClose={closeProject} 
-          onImageClick={setLightboxImage}
+          onImageClick={handleOpenLightbox}
         />
       )}
 
-      {lightboxImage && (
+      {lightboxState && (
         <Lightbox 
-          image={lightboxImage} 
-          onClose={() => setLightboxImage(null)} 
+          images={lightboxState.images}
+          initialIndex={lightboxState.index}
+          onClose={() => setLightboxState(null)} 
         />
       )}
     </div>

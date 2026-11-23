@@ -194,7 +194,7 @@ export const PROJECTS: Project[] = [
     tools: ['Projection Mapping', 'Space Design', 'Spatial Audio', 'Interactive Sensors', 'Physical Prototyping'],
     projectSection: 'college',
     coverImage: 'https://i.ibb.co/Fk3z1Jyk/Whats-App-Image-2026-04-07-at-15-43-09-1.jpg',
-    youtubeUrl: 'hhttps://youtu.be/4GA_zJEcWdg',
+    youtubeUrl: 'https://youtu.be/4GA_zJEcWdg',
     postcardNote: 'How can we create a space where, when once entered a person fully immerses themselves into the space.',
     postcardRotation: -2.1,
     shortDescription: 'This installation reimagines the ancient ritual of seeking guidance, transforming the "fortune tellers chamber into a space for playful introspection..',
@@ -224,8 +224,10 @@ export const PROJECTS: Project[] = [
         id: 'ps7-2',
         phase: 'Craft',
         title: 'Projection Mapping & space creation',
-        images: ['https://i.ibb.co/M5VqZpsH/Whats-App-Image-2026-04-13-at-11-10-29.jpg'],
-        images: ['https://i.ibb.co/sdMR6wCw/Whats-App-Image-2026-04-13-at-11-10-28-1.jpg'],
+        images: [
+          'https://i.ibb.co/M5VqZpsH/Whats-App-Image-2026-04-13-at-11-10-29.jpg',
+          'https://i.ibb.co/sdMR6wCw/Whats-App-Image-2026-04-13-at-11-10-28-1.jpg'
+        ],
         description: 'Creating a real projection inside the space and a real magical space.',
         reflection: 'The biggest breakthrough was blending practical vintage objects (antique candelabras, heavy velvet drapes) with razor-sharp digital projection mapping.',
         layout: 'split'
@@ -235,7 +237,7 @@ export const PROJECTS: Project[] = [
         phase: 'Outcome',
         title: 'Interactive Spatial Walkthrough (YouTube Video Showcase)',
         layout: 'featured',
-        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        youtubeUrl: 'https://youtu.be/4GA_zJEcWdg',
         posterImage: 'https://i.ibb.co/0jkyvQSy/Whats-App-Image-2026-04-13-at-11-10-28-2.jpg',
         description: 'Complete documentation of the spatial installation in motion: participant interactions, audio responsive projection, and the ambient environment.',
         reflection: 'Seeing participants gasp and smile when the mirror first whispered back to them was the most fulfilling moment of the studio semester.'
@@ -859,5 +861,5 @@ export const INTERESTS: Interest[] = [
 
 export const PERSONAL_PHOTO_URL = 'https://i.ibb.co/NdWK4w4P/Whats-App-Image-2026-02-03-at-12-48-07.jpg';
 
-export const CV_URL = '/Sudena_Chandnani_CV.pdf';
+export const CV_URL = '/assets/aistudio/Chandnani_Sudena_Resume_17th_October_b45e04c8.pdf';
 export const RESUME_URL = CV_URL;
