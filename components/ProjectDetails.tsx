@@ -392,7 +392,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
           {project.postcardNote && (
             <div className="mt-8 p-4 rounded bg-stone-100/80 dark:bg-stone-800/40 border-l-2 border-stone-400 dark:border-stone-600">
               <span className="text-[9px] font-mono uppercase tracking-widest text-stone-400 block mb-1">
-                Author's Note:
+                Thought though thought:
               </span>
               <p className="font-hand text-2xl text-stone-800 dark:text-stone-200 leading-snug">
                 "{project.postcardNote}"
@@ -1223,7 +1223,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                 <div className="p-6 bg-amber-50/60 dark:bg-stone-900/50 rounded-sm border-l-2 border-amber-500/80 dark:border-amber-400/60 space-y-2">
                   <div className="flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-amber-700 dark:text-amber-400">
                     <span>✎</span>
-                    <span>Designer's Honest Reflection:</span>
+                    <span>Reflection!</span>
                   </div>
                   <p className="font-hand text-2xl text-stone-800 dark:text-stone-200 leading-snug">
                     "{step.reflection}"

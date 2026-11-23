@@ -257,7 +257,7 @@ export const PROJECTS: Project[] = [
     year: '2026',
     role: 'Production Manager & Props Master',
     duration: '2 Weeks',
-    tools: ['Physical Set Construction', 'Practical Lighting', 'Texture Aging', 'Drafting & Blueprints', 'Color Scripting', 'Script Writing', 'Props Collection and Sourcing'],
+    tools: ['Set Design', 'Practical Lighting', 'Texture Aging', 'Drafting & Blueprints', 'Color Scripting', 'Script Writing', 'Props Collection and Sourcing'],
     projectSection: 'college',
     coverImage: 'https://i.ibb.co/m5snQSbb/Screenshot-2026-11-23-at-1-14-26-PM.png',
     youtubeUrl: 'https://youtu.be/92cfgCO9Uj0?si=y8ne2r1vTX1wdtH5',
@@ -265,8 +265,8 @@ export const PROJECTS: Project[] = [
     postcardNote: 'A space carefully crafted to show the Shringar Rasa(love/poetic) only through the props and space design.',
     postcardRotation: 1.7,
     shortDescription: 'This Project explores Shringar (Love and Intimacy) through a warm, lived in apartment space. Subtle props like wine glass, food remnants, and personal items suggest the prescence of two unseen individuals. Natural disarray adds realism and emotional depth, Warm lighting and soft textures create a sense of comfort and closeness. The design focuses on visual storytelling, where the final film convey intimacy purely through space, mood and carefully crafted details.',
-    fullDescription: 'On a quiet Friday night, an urban couple finally unwinds after a long week of corporate life. Netflix hums in the background, wine sits half-finished on the table, and the room glows with warm, familiar comfort. But in the stillness between episodes when the screen asks “Are you still watching?” a subtle shift occurs. What begins as an ordinary night slowly reveals the quiet intimacy, pauses, and unspoken moments that live inside shared routines. Sometimes, the most meaningful stories unfold in the silence between them.',
-    problemHeadline: 'How can we create this space which shows the emotions love and poetic without actually having 2 people on the set. Only show this by material and the space design.',
+    fullDescription: 'Script: On a quiet Friday night, an urban couple finally unwinds after a long week of corporate life. Netflix hums in the background, wine sits half-finished on the table, and the room glows with warm, familiar comfort. But in the stillness between episodes when the screen asks “Are you still watching?” a subtle shift occurs. What begins as an ordinary night slowly reveals the quiet intimacy, pauses, and unspoken moments that live inside shared routines. Sometimes, the most meaningful stories unfold in the silence between them.',
+    problemHeadline: 'How can we create a space which shows the emotions love and poetic without actually having 2 people on the set and only show this by material and the space design.',
     problemBody: 'Shringar Rasa is the aesthetic emotion of love, beauty, and romantic attraction in Indian art and literature. Described in the ancient text Natyashastra by Bharata Muni, it is considered the king of all rasas because love is one of the most powerful human emotions. .',
     process: [
       {
