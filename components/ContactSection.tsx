@@ -4,7 +4,7 @@ const ContactSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('sudenachandnani@gmail.com');
+    navigator.clipboard.writeText('sudenaswork@gmail.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
@@ -17,14 +17,14 @@ const ContactSection: React.FC = () => {
         {/* Section Header */}
         <div className="border-b border-stone-200 dark:border-stone-800 pb-8 mb-16">
           <div className="flex items-center space-x-3 text-xs uppercase tracking-[0.3em] font-medium text-zinc-500 dark:text-zinc-400 mb-3">
-            <span className="w-2 h-2 rounded-full bg-sky-300"></span>
+            <span className="w-2 h-2 rounded-full bg-pink-300"></span>
             <span>04 / 04 — CONTACT ME</span>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-8">
               <h2 className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
                 Let's Start a <br />
-                <span className="italic font-normal font-serif text-[#7dd3fc] dark:text-[#7dd3fc] bg-gradient-to-r from-sky-300 via-sky-400 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_2px_14px_rgba(125,211,252,0.4)]">
+                <span className="italic font-normal font-serif text-[#f472b6] dark:text-[#f9a8d4] bg-gradient-to-r from-pink-300 via-pink-400 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_2px_14px_rgba(244,114,182,0.4)]">
                   Conversation
                 </span>
               </h2>

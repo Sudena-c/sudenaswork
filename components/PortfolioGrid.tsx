@@ -49,13 +49,13 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({
         <div className="flex flex-wrap items-end justify-between gap-6 border-b border-zinc-200 dark:border-zinc-800 pb-8">
           <div>
             <div className="flex items-center space-x-3 text-xs uppercase tracking-[0.3em] font-medium text-zinc-500 dark:text-zinc-400 mb-3">
-              <span className="w-2 h-2 rounded-full bg-sky-300"></span>
+              <span className="w-2 h-2 rounded-full bg-pink-300"></span>
               <span>SELECTED WORKS</span>
             </div>
-            {/* "My Work" in baby pastel blue heading */}
+            {/* "My Work" in very baby pastel pink heading */}
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
               The Work{' '}
-              <span className="italic font-normal font-serif text-[#7dd3fc] dark:text-[#7dd3fc] bg-gradient-to-r from-sky-300 via-sky-400 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_2px_14px_rgba(125,211,252,0.4)]">
+              <span className="italic font-normal font-serif text-[#f472b6] dark:text-[#f9a8d4] bg-gradient-to-r from-pink-300 via-pink-400 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_2px_14px_rgba(244,114,182,0.4)]">
                 My Work
               </span>
             </h2>
@@ -90,7 +90,7 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({
                     : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100'
                 }`}
               >
-                <span>🎓 College Projects</span>
+                <span>🎓 Academic Work </span>
                 <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-pink-100 dark:bg-pink-950/80 text-pink-600 dark:text-pink-300 font-bold">
                   {collegeProjects.length}
                 </span>
@@ -141,7 +141,7 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({
       {/* Main Works Presentation Divided in Two Parts */}
       <div className="max-w-5xl mx-auto space-y-28 md:space-y-36 pb-24 relative">
         
-        {/* PART 1: COLLEGE PROJECTS */}
+        {/* PART 1: ACADEMIC WORK */}
         {(workSectionFilter === 'all' || workSectionFilter === 'college') && collegeProjects.length > 0 && (
           <div className="space-y-16">
             
@@ -150,7 +150,7 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({
               <div className="flex items-center space-x-3">
                 <span className="w-3 h-3 rounded-full bg-pink-400"></span>
                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900 dark:text-zinc-100">
-                  Part 01 — College Projects
+                  Part 01 — Academic Work
                 </h3>
               </div>
               <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">

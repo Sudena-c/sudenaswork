@@ -139,10 +139,10 @@ export const PROJECTS: Project[] = [
         title: 'Visual Research & The Analog Ritual',
         images: ['https://i.ibb.co/yFTV158d/Screenshot-2026-02-18-at-12-22-18-PM.png'],
         description: 'Analyzing the visual language of 70s and 80s underground print publications, Japanese jazz kissa culture, and record pressing plant archives.',
-        reflection: 'I spent weeks flipping through vintage Rolling Stone and Blue Note jackets. There is an unmistakable warmth and texture in physical ink and paper grain that screens simply flatten.',
+        reflection: 'I spent sometime flipping through vintage Rolling Stone and Blue Note jackets. There is an unmistakable warmth and texture in physical ink and paper grain that screens simply flatten.',
         decisionNote: 'Committed to uncoated heavy stock and an asymmetrical layout rhythm that echoes the needle tracking across a vinyl groove.',
         research: {
-          primary: 'Surveyed vinyl collectors, audio engineers, and first-time analog listeners spanning Gen Z and veteran audiophiles.',
+          primary: 'Surveyed vinyl collectors, audio engineers, and first-time analog listeners spanning Gen Z and veteran audiophiles. Understood what people feel and like about the Vinyl.',
           secondary: 'Documented the industrial pressing process: lacquer master, metal stamper, and hydraulic steam press.',
           insights: [
             'Younger listeners do not buy vinyl for sound quality alone; they buy it for the mindfulness of intentional listening.',
@@ -252,37 +252,52 @@ export const PROJECTS: Project[] = [
   // 4) Production Design (existing project with YouTube video support)
   {
     id: 'p8',
-    title: 'Production Design — Neon Noir',
+    title: 'Production Design — Intertwined',
     category: 'Production Design',
     year: '2026',
-    role: 'Production Designer & Art Director',
-    duration: '6 Weeks',
-    tools: ['Physical Set Construction', 'Practical Lighting', 'Texture Aging', 'Drafting & Blueprints', 'Color Scripting'],
+    role: 'Production Manager & Props Master',
+    duration: '2 Weeks',
+    tools: ['Physical Set Construction', 'Practical Lighting', 'Texture Aging', 'Drafting & Blueprints', 'Color Scripting', 'Script Writing', 'Props Collection and Sourcing'],
     projectSection: 'college',
     coverImage: 'https://images.unsplash.com/photo-1514306191717-452ec28c7814?q=80&w=800&auto=format&fit=crop',
-    youtubeUrl: 'https://www.youtube.com/watch?v=L_LUpnjgPso',
-    postcardNote: 'Dispatched from the studio soundstage: weathered textures, dripping steam, and physical neon tubes built from scratch.',
+    youtubeUrl: 'https://youtu.be/92cfgCO9Uj0?si=y8ne2r1vTX1wdtH5',
+    btsYoutubeUrl: 'https://youtu.be/dxwtHVDQAEo',
+    postcardNote: 'A space carefully crafted to show the Shringar Rasa(love/poetic) only through the props and space design.',
     postcardRotation: 1.7,
-    shortDescription: 'Set design, practical lighting art direction, and worldbuilding for a cyberpunk short film.',
-    fullDescription: 'A production design endeavor building an urban dystopian alleyway inside a soundstage. Layered practical weathering, modular steel framing, and custom bent neon tubes to create a gritty, lived-in world for cinema.',
-    problemHeadline: 'How can we build a believable, breathing sci-fi future using physical craft, practical illumination, and limited soundstage space?',
-    problemBody: 'Too much contemporary sci-fi relies on flat green screens that detach actors from their tactile environment. This project created a 360-degree practical set where physical rust, real steam pipes, and glowing neon provide organic cinematic depth and tangible actor interaction.',
+    shortDescription: 'This Project explores Shringar (Love and Intimacy) through a warm, lived in apartment space. Subtle props like wine glass, food remnants, and personal items suggest the prescence of two unseen individuals. Natural disarray adds realism and emotional depth, Warm lighting and soft textures create a sense of comfort and closeness. The design focuses on visual storytelling, where the final film convey intimacy purely through space, mood and carefully crafted details.',
+    fullDescription: 'On a quiet Friday night, an urban couple finally unwinds after a long week of corporate life. Netflix hums in the background, wine sits half-finished on the table, and the room glows with warm, familiar comfort. But in the stillness between episodes when the screen asks “Are you still watching?” a subtle shift occurs. What begins as an ordinary night slowly reveals the quiet intimacy, pauses, and unspoken moments that live inside shared routines. Sometimes, the most meaningful stories unfold in the silence between them.',
+    problemHeadline: 'How can we create this space which shows the emotions love and poetic without actually having 2 people on the set. Only show this by material and the space design.',
+    problemBody: 'Shringar Rasa is the aesthetic emotion of love, beauty, and romantic attraction in Indian art and literature. Described in the ancient text Natyashastra by Bharata Muni, it is considered the king of all rasas because love is one of the most powerful human emotions. .',
     process: [
       {
         id: 'ps8-1',
         phase: 'The Spark',
-        title: 'Architectural Blueprints & Urban Decay Research',
-        images: ['https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=800&auto=format&fit=crop'],
-        description: 'Drafting 1:20 architectural scale models, sourcing industrial salvage materials, and studying the weathering patterns of Kowloon Walled City and neo-noir cinema classics.',
-        reflection: 'A great set tells a story before an actor even enters the frame. Every peeled poster layer and grease stain implies years of forgotten human life.',
-        decisionNote: 'Constructed reversible modular timber and corrugated metal wall flats that could be re-arranged into three distinct camera setups.',
+        title: 'How shall we design the space to show these emotions: Shringar Rasa(Love and Poetic)',
+        images: ['https://i.ibb.co/LD6dT5tn/Screenshot-2026-11-23-at-1-31-15-PM.png', 'https://i.ibb.co/VbP5Kqh/Screenshot-2026-11-23-at-1-31-08-PM.png'],
+        description: 'The scene captures a quiet Friday night in the home of an urban working couple, both IT professionals balancing demanding corporate lives. After a long week, they unwind in a familiar routine — Netflix playing in the background, pizza on the table, and glasses of wine shared between them. Warm, soft lighting creates a cozy and intimate atmosphere within their lived-in space. The Netflix screen asking “Are you still watching?” marks a brief pause as one partner has just stepped out of the room, leaving behind the calm aftermath of their shared evening ritual and hinting at the night slowly moving toward a more private moment.',
+        reflection: 'A great set tells a story before an actor even enters the frame.',
+        decisionNote: 'Did reserach on how different materials and objects can show what emotions and feelings.',
         research: {
-          primary: 'Explored metal scrap yards and reclaimed vintage fixtures to create authentic textural decay.',
-          secondary: 'Analyzed color temperature interplay between warm sodium-vapor amber (2200K) and cold cybernetic cyan/magenta neon.',
+          primary: [
+            'Urban working couple – Two professionals living together in a modern city setting.',
+            'Friday night setting – End of the workweek; a moment to unwind.',
+            'IT professionals – Both partners juggle demanding corporate/tech careers.',
+            'Routine & comfort – Netflix, pizza, and wine as their familiar way to relax.',
+            'Implied intimacy – Quiet emotional closeness without explicit display.',
+            'Recent presence – One partner has just stepped out, leaving a lingering sense of presence.'
+          ],
+          secondary: [
+            'Warm lighting – Soft lighting creates a cozy, intimate mood.',
+            'Pause in the moment – Netflix’s “Are you still watching?” adds a reflective pause.',
+            'Shift in the night – Subtle movement from living room toward a more private space.',
+            'Lived-in home – The setting feels comfortable and domestically familiar.',
+            'Shared ritual – Friday night unwinding becomes their routine together.',
+            'Quiet aftermath – A calm, intimate stillness after the evening.'
+          ],
           insights: [
-            'Wet asphalt doubles light reflectivity and stretches camera depth of field.',
-            'Practical lights (in-camera neon, street lamps) must be dimmable to prevent digital camera sensor clipping.',
-            'Textural weathering requires multiple layers: base primer, patina wash, spattered grease, and dry-brushed rust.'
+            'Can make props fake the area they are displaying through resurfacing them.',
+            'Can make best out of the available materials and repurpose materials.',
+            'Exploring different textures and materials helps create different moods.'
           ]
         }
       },
@@ -290,27 +305,17 @@ export const PROJECTS: Project[] = [
         id: 'ps8-2',
         phase: 'Craft',
         title: 'Set Construction & Practical Lighting Installation',
-        images: ['https://images.unsplash.com/photo-1514306191717-452ec28c7814?q=80&w=800&auto=format&fit=crop'],
-        description: 'Building modular flats, rigging custom neon signage, piping atmospheric steam lines, and hand-distressing typography across weathered shop facades.',
-        reflection: 'Spending late nights in the workshop with sawdust, paint fumes, and wiring transformers gave me an enduring respect for physical set craft.',
+        images: ['https://i.ibb.co/HfCVrg9h/Screenshot-2026-04-03-at-3-08-35-PM.png'],
+        description: 'Building a list of all the props required and need to be sourced and how we can create the objects we need.',
+        reflection: 'Not everything needs to be bought, some things can be reused, some htings can be used as some thing that it actually isnt.',
         layout: 'split'
-      },
-      {
-        id: 'ps8-youtube',
-        phase: 'Outcome',
-        title: 'Cinematic Reel & Lighting Walkthrough (YouTube Video Showcase)',
-        layout: 'featured',
-        youtubeUrl: 'https://www.youtube.com/watch?v=L_LUpnjgPso',
-        posterImage: 'https://images.unsplash.com/photo-1514306191717-452ec28c7814?q=80&w=800&auto=format&fit=crop',
-        description: 'Cinematic camera tests demonstrating practical neon reflections, steam diffusion, and dynamic actor framing across the completed set.',
-        reflection: 'When the Director of Photography flipped on the practical lights and rolled camera, the soundstage completely vanished—we were standing in a living cyberpunk city.'
       },
       {
         id: 'ps8-reflection',
         phase: 'Reflection',
-        title: 'Worldbuilding as Physical Architecture',
+        title: 'Its not what you see',
         description: 'Production design taught me that visual communication extends far beyond 2D graphics into three-dimensional volume, texture, and light.',
-        reflection: 'True cinematic immersion comes from tangible authenticity. Real materials react to camera lenses in ways computer software cannot replicate.'
+        reflection: 'True set design is not when you have bought everything you wanted on the set, we need to source materials, build the material we need, and repurpose the small peices of material that we are able to access, because you cannot always buy what you want.'
       }
     ]
   },

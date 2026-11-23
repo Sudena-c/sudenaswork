@@ -24,13 +24,13 @@ export const SparkleEffects: React.FC<SparklesProps> = ({ enabled = true }) => {
       return;
     }
 
-    // Soft baby pastel blues and gentle soft cyan stardust with very low opacity
+    // Delicate baby pastel pinks and soft blossom stardust with very low opacity
     const softPastelColors = [
-      '#7dd3fc', // baby pastel blue (sky-300)
-      '#a5f3fc', // soft pastel cyan (cyan-200)
-      '#bae6fd', // light sky (sky-200)
-      '#e0f2fe', // pale ice blue (sky-100)
-      '#93c5fd', // baby periwinkle blue (blue-300)
+      '#f9a8d4', // baby pastel pink (pink-300)
+      '#fbcfe8', // soft light pink (pink-200)
+      '#f472b6', // delicate rose pink (pink-400)
+      '#fdf2f8', // airy blossom pink (pink-50)
+      '#fda4af', // gentle blush pink (rose-300)
     ];
 
     const count = 20;

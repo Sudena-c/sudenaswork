@@ -11,8 +11,8 @@ export type Category =
   | 'Production Design';
 
 export interface ResearchData {
-  primary?: string;
-  secondary?: string;
+  primary?: string | string[];
+  secondary?: string | string[];
   insights?: string[];
 }
 
@@ -69,6 +69,7 @@ export interface Project {
   coverImage: string;
   heroVideo?: string;
   youtubeUrl?: string;
+  btsYoutubeUrl?: string;
   shortDescription: string;
   fullDescription: string;
   problemHeadline: string;

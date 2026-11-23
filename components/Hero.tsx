@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
             
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-serif font-bold tracking-tight leading-[0.95] text-zinc-900 dark:text-zinc-100">
               Sudena <br />
-              <span className="italic font-normal font-serif text-[#7dd3fc] dark:text-[#7dd3fc] bg-gradient-to-r from-sky-300 via-sky-400 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_2px_14px_rgba(125,211,252,0.4)]">
+              <span className="italic font-normal font-serif text-[#f472b6] dark:text-[#f9a8d4] bg-gradient-to-r from-pink-300 via-pink-400 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_2px_14px_rgba(244,114,182,0.4)]">
                 Chandnani
               </span>
             </h1>
@@ -201,30 +201,6 @@ const Hero: React.FC = () => {
           </motion.div>
         </div>
 
-      </div>
-
-      {/* Bottom Scroll Bar / Seamless Section Indicator */}
-      <div className="relative z-10 pt-8 flex items-center justify-between border-t border-zinc-200/80 dark:border-zinc-800/80 text-xs">
-        <a 
-          href="#work" 
-          className="group flex items-center space-x-3 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-        >
-          <span className="font-mono text-[10px] uppercase tracking-widest">Next Section:</span>
-          <span className="font-serif italic text-sm font-medium group-hover:translate-x-1 transition-transform">02 — Works (5)</span>
-          <svg className="w-4 h-4 animate-bounce group-hover:translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </a>
-
-        <div className="hidden md:flex items-center space-x-6 text-[11px] font-mono text-zinc-400 uppercase tracking-widest">
-          <span>01 · Home</span>
-          <span className="text-zinc-300 dark:text-zinc-700">—</span>
-          <span>02 · Work</span>
-          <span className="text-zinc-300 dark:text-zinc-700">—</span>
-          <span>03 · About</span>
-          <span className="text-zinc-300 dark:text-zinc-700">—</span>
-          <span>04 · Contact</span>
-        </div>
       </div>
     </section>
   );

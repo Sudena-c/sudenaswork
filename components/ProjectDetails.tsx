@@ -15,11 +15,13 @@ function getYouTubeEmbedUrl(url: string): string | null {
   const regExp = /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/;
   const match = url.match(regExp);
   if (match && match[1]) {
-    return `https://www.youtube-nocookie.com/embed/${match[1]}?rel=0&modestbranding=1`;
+    const siMatch = url.match(/[?&]si=([^&]+)/);
+    const siParam = siMatch ? `?si=${encodeURIComponent(siMatch[1])}&rel=0` : '?rel=0';
+    return `https://www.youtube.com/embed/${match[1]}${siParam}`;
   }
   // If user just provided an 11-char ID
   if (/^[\w-]{11}$/.test(url.trim())) {
-    return `https://www.youtube-nocookie.com/embed/${url.trim()}?rel=0&modestbranding=1`;
+    return `https://www.youtube.com/embed/${url.trim()}?rel=0`;
   }
   return null;
 }
@@ -40,21 +42,43 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
   // Internship 2nd poster collection view mode (pairs vs horizontal)
   const [posterCollectionMode, setPosterCollectionMode] = useState<'pairs' | 'horizontal'>('pairs');
 
-  // YouTube video state (persisted per project in localStorage)
+  const hasYouTubeSection =
+    project.category === 'Immersive Design Studio' ||
+    project.category === 'Production Design' ||
+    Boolean(project.youtubeUrl);
+
+  // Primary YouTube video state (persisted per project in localStorage)
   const [youTubeUrl, setYouTubeUrl] = useState<string>(() => {
     const saved = localStorage.getItem(`yt_url_${project.id}`);
-    return saved || project.youtubeUrl || '';
+    const validSaved =
+      saved && saved !== 'https://www.youtube.com/watch?v=L_LUpnjgPso' ? saved : '';
+    return validSaved || project.youtubeUrl || '';
   });
   const [isEditingYouTube, setIsEditingYouTube] = useState(false);
   const [inputYouTubeUrl, setInputYouTubeUrl] = useState(youTubeUrl);
 
+  // BTS (End-of-scroll) YouTube video state
+  const [btsYouTubeUrl, setBtsYouTubeUrl] = useState<string>(() => {
+    const saved = localStorage.getItem(`yt_bts_url_${project.id}`);
+    return saved || project.btsYoutubeUrl || '';
+  });
+  const [isEditingBtsYouTube, setIsEditingBtsYouTube] = useState(false);
+  const [inputBtsYouTubeUrl, setInputBtsYouTubeUrl] = useState(btsYouTubeUrl);
+
   // Update when project changes
   useEffect(() => {
     const saved = localStorage.getItem(`yt_url_${project.id}`);
-    const initial = saved || project.youtubeUrl || '';
+    const validSaved =
+      saved && saved !== 'https://www.youtube.com/watch?v=L_LUpnjgPso' ? saved : '';
+    const initial = validSaved || project.youtubeUrl || '';
     setYouTubeUrl(initial);
     setInputYouTubeUrl(initial);
-  }, [project.id, project.youtubeUrl]);
+
+    const savedBts = localStorage.getItem(`yt_bts_url_${project.id}`);
+    const initialBts = savedBts || project.btsYoutubeUrl || '';
+    setBtsYouTubeUrl(initialBts);
+    setInputBtsYouTubeUrl(initialBts);
+  }, [project.id, project.youtubeUrl, project.btsYoutubeUrl]);
 
   const handleSaveYouTubeUrl = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -62,6 +86,14 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
     setYouTubeUrl(cleanUrl);
     localStorage.setItem(`yt_url_${project.id}`, cleanUrl);
     setIsEditingYouTube(false);
+  };
+
+  const handleSaveBtsYouTubeUrl = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    const cleanUrl = inputBtsYouTubeUrl.trim();
+    setBtsYouTubeUrl(cleanUrl);
+    localStorage.setItem(`yt_bts_url_${project.id}`, cleanUrl);
+    setIsEditingBtsYouTube(false);
   };
 
   // Keyboard escape to close
@@ -124,6 +156,8 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
   const allDeliverableGroups = project.process.flatMap(p => p.deliverableGroups || []);
 
   const embedUrl = getYouTubeEmbedUrl(youTubeUrl);
+  const btsEmbedUrl = getYouTubeEmbedUrl(btsYouTubeUrl);
+  const hasBtsYouTubeSection = Boolean(project.btsYoutubeUrl || btsYouTubeUrl);
 
   return (
     <div 
@@ -199,6 +233,25 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                 {step.phase ?? `Phase ${idx + 1}`}
               </button>
             ))}
+
+            {hasYouTubeSection && (
+              <button
+                type="button"
+                onClick={(e) => scrollToId('youtube-section', e)}
+                className="px-2.5 py-1 rounded text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors font-semibold"
+              >
+                ▶ Video
+              </button>
+            )}
+            {hasBtsYouTubeSection && (
+              <button
+                type="button"
+                onClick={(e) => scrollToId('bts-youtube-section', e)}
+                className="px-2.5 py-1 rounded text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors font-semibold"
+              >
+                ▶ BTS
+              </button>
+            )}
           </div>
 
           {/* Mobile / Compact Section Menu Button */}
@@ -232,6 +285,24 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                     {step.phase ?? `Phase ${idx + 1}`}: {step.title}
                   </button>
                 ))}
+                {hasYouTubeSection && (
+                  <button
+                    type="button"
+                    onClick={(e) => { setShowSectionMenu(false); scrollToId('youtube-section', e); }}
+                    className="w-full text-left px-2.5 py-1.5 rounded hover:bg-red-50 dark:hover:bg-red-950/40 text-red-600 dark:text-red-400 block truncate font-semibold"
+                  >
+                    ▶ YouTube Video Showcase
+                  </button>
+                )}
+                {hasBtsYouTubeSection && (
+                  <button
+                    type="button"
+                    onClick={(e) => { setShowSectionMenu(false); scrollToId('bts-youtube-section', e); }}
+                    className="w-full text-left px-2.5 py-1.5 rounded hover:bg-red-50 dark:hover:bg-red-950/40 text-red-600 dark:text-red-400 block truncate font-semibold"
+                  >
+                    ▶ Behind the Scenes (BTS)
+                  </button>
+                )}
                 {allDeliverableGroups.map((group) => (
                   <button
                     key={group.id}
@@ -351,8 +422,8 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
           </p>
         </div>
 
-        {/* Dedicated YouTube Video Integration for Immersive Design Studio & Production Design */}
-        {(project.category === 'Immersive Design Studio' || project.category === 'Production Design' || project.youtubeUrl) && (
+        {/* Dedicated YouTube Video Integration (Top placement for Primary Film) */}
+        {hasYouTubeSection && (
           <section id="youtube-section" className="space-y-6 border-t border-stone-200 dark:border-stone-800 pt-16">
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-200 dark:border-stone-800 pb-4">
               <div>
@@ -413,17 +484,18 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                     title={`${project.title} Video Showcase`}
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                   />
                 </div>
-                <div className="flex items-center justify-between text-[11px] font-mono text-stone-500 pt-1">
-                  <span>Interactive YouTube Embed · Full 1080p High-Definition</span>
+                <div className="flex flex-wrap items-center justify-between gap-3 text-[11px] font-mono text-stone-500 pt-1">
+                  <span>Interactive YouTube Embed · Play directly on portfolio</span>
                   {youTubeUrl && (
                     <a
                       href={youTubeUrl.startsWith('http') ? youTubeUrl : `https://www.youtube.com/watch?v=${youTubeUrl}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:underline flex items-center space-x-1"
+                      className="px-3 py-1.5 rounded-full border border-stone-300 dark:border-stone-700 hover:border-red-500 text-zinc-800 dark:text-zinc-200 hover:text-red-600 dark:hover:text-red-400 transition-colors flex items-center space-x-1.5"
                     >
                       <span>Open on YouTube</span>
                       <span>↗</span>
@@ -533,23 +605,39 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
                   
                   <div className="grid sm:grid-cols-2 gap-6 text-sm">
                     {step.research.primary && (
-                      <div className="space-y-2">
-                        <span className="font-mono text-xs text-amber-600 dark:text-amber-400 uppercase font-semibold">
+                      <div className="space-y-2.5">
+                        <span className="font-mono text-xs text-amber-600 dark:text-amber-400 uppercase font-semibold block">
                           Primary Inquiries
                         </span>
-                        <p className="text-stone-600 dark:text-stone-400 font-light leading-relaxed">
-                          {step.research.primary}
-                        </p>
+                        {Array.isArray(step.research.primary) ? (
+                          <ul className="list-disc pl-5 space-y-2 text-stone-600 dark:text-stone-400 font-light leading-relaxed marker:text-amber-600 dark:marker:text-amber-400">
+                            {step.research.primary.map((point, idx) => (
+                              <li key={idx}>{point}</li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="text-stone-600 dark:text-stone-400 font-light leading-relaxed">
+                            {step.research.primary}
+                          </p>
+                        )}
                       </div>
                     )}
                     {step.research.secondary && (
-                      <div className="space-y-2">
-                        <span className="font-mono text-xs text-stone-500 uppercase font-semibold">
+                      <div className="space-y-2.5">
+                        <span className="font-mono text-xs text-stone-500 uppercase font-semibold block">
                           Secondary Context
                         </span>
-                        <p className="text-stone-600 dark:text-stone-400 font-light leading-relaxed">
-                          {step.research.secondary}
-                        </p>
+                        {Array.isArray(step.research.secondary) ? (
+                          <ul className="list-disc pl-5 space-y-2 text-stone-600 dark:text-stone-400 font-light leading-relaxed marker:text-stone-400 dark:marker:text-stone-500">
+                            {step.research.secondary.map((point, idx) => (
+                              <li key={idx}>{point}</li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="text-stone-600 dark:text-stone-400 font-light leading-relaxed">
+                            {step.research.secondary}
+                          </p>
+                        )}
                       </div>
                     )}
                   </div>
@@ -1146,6 +1234,120 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onClose, onIma
             </section>
           ))}
         </div>
+
+        {/* End-of-Scroll BTS YouTube Video Showcase */}
+        {hasBtsYouTubeSection && (
+          <section id="bts-youtube-section" className="space-y-6 border-t border-stone-200 dark:border-stone-800 pt-16">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-200 dark:border-stone-800 pb-4">
+              <div>
+                <div className="flex items-center space-x-2 text-xs font-mono uppercase tracking-widest text-red-600 dark:text-red-400">
+                  <span>▶</span>
+                  <span>BEHIND THE SCENES (BTS) · YOUTUBE VIDEO</span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 dark:text-zinc-100 mt-1">
+                  Behind the Scenes — Set Crafting & Process
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2">
+                {btsYouTubeUrl && (
+                  <a
+                    href={btsYouTubeUrl.startsWith('http') ? btsYouTubeUrl : `https://www.youtube.com/watch?v=${btsYouTubeUrl}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 py-1.5 rounded text-xs font-mono uppercase tracking-wider bg-red-600 hover:bg-red-700 text-white transition-colors flex items-center space-x-1.5 shadow-sm"
+                  >
+                    <span>Open on YouTube</span>
+                    <span>↗</span>
+                  </a>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setIsEditingBtsYouTube(!isEditingBtsYouTube)}
+                  className="px-3.5 py-1.5 rounded text-xs font-mono uppercase tracking-wider border border-stone-300 dark:border-stone-700 hover:border-zinc-900 dark:hover:border-zinc-100 text-stone-700 dark:text-stone-300 bg-stone-50 dark:bg-stone-900 transition-colors flex items-center space-x-2"
+                >
+                  <span>{isEditingBtsYouTube ? '✕ Cancel' : '✦ Edit BTS Video Link'}</span>
+                </button>
+              </div>
+            </div>
+
+            {isEditingBtsYouTube && (
+              <form onSubmit={handleSaveBtsYouTubeUrl} className="p-6 bg-stone-100/90 dark:bg-stone-900 rounded border border-stone-300 dark:border-stone-700 space-y-4">
+                <div>
+                  <label className="block text-xs font-mono uppercase tracking-wider text-stone-600 dark:text-stone-400 mb-2">
+                    Paste BTS YouTube Video Link or Video ID:
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={inputBtsYouTubeUrl}
+                      onChange={(e) => setInputBtsYouTubeUrl(e.target.value)}
+                      placeholder="e.g. https://youtu.be/dxwtHVDQAEo"
+                      className="flex-1 px-4 py-2.5 rounded text-sm bg-white dark:bg-stone-800 border border-stone-300 dark:border-stone-600 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-amber-500 font-mono"
+                    />
+                    <button
+                      type="submit"
+                      className="px-5 py-2.5 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 rounded font-mono text-xs uppercase tracking-wider font-semibold hover:opacity-90 transition-opacity"
+                    >
+                      Save & Preview
+                    </button>
+                  </div>
+                  <p className="text-[11px] font-mono text-stone-500 mt-2">
+                    Supports any standard YouTube URL (watch, share youtu.be, shorts, or embed).
+                  </p>
+                </div>
+              </form>
+            )}
+
+            {btsEmbedUrl ? (
+              <div className="space-y-3">
+                <div className="aspect-[16/9] w-full rounded-sm overflow-hidden bg-black shadow-2xl border border-stone-200 dark:border-stone-800">
+                  <iframe
+                    src={btsEmbedUrl}
+                    title={`${project.title} Behind the Scenes Video`}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="flex flex-wrap items-center justify-between gap-3 text-[11px] font-mono text-stone-500 pt-1">
+                  <span>Behind the Scenes · Play directly on portfolio</span>
+                  {btsYouTubeUrl && (
+                    <a
+                      href={btsYouTubeUrl.startsWith('http') ? btsYouTubeUrl : `https://www.youtube.com/watch?v=${btsYouTubeUrl}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-red-600 dark:hover:text-red-400 hover:underline flex items-center space-x-1 font-medium"
+                    >
+                      <span>Open BTS on YouTube</span>
+                      <span>↗</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <div className="p-12 text-center border border-dashed border-stone-300 dark:border-stone-700 rounded-sm bg-stone-50/50 dark:bg-stone-900/30 space-y-4">
+                <div className="w-12 h-12 mx-auto rounded-full bg-red-100 dark:bg-red-950 flex items-center justify-center text-red-600 dark:text-red-400 text-xl font-bold">
+                  ▶
+                </div>
+                <div className="space-y-1">
+                  <h4 className="font-serif font-bold text-lg text-zinc-900 dark:text-zinc-100">Add BTS YouTube Video</h4>
+                  <p className="text-xs font-mono text-stone-500 max-w-md mx-auto">
+                    Click the button above to paste your BTS YouTube video link.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsEditingBtsYouTube(true)}
+                  className="px-4 py-2 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 text-xs font-mono uppercase tracking-wider rounded"
+                >
+                  Paste BTS Link
+                </button>
+              </div>
+            )}
+          </section>
+        )}
 
         {/* FINAL SECTION: Next Postcard Teaser in the 7 Stories Stack */}
         <div className="border-t border-stone-200 dark:border-stone-800 pt-16 pb-24">

@@ -68,7 +68,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen font-sans selection:bg-sky-100 dark:selection:bg-sky-900 transition-colors duration-500 bg-light dark:bg-dark text-zinc-900 dark:text-zinc-100">
+    <div className="min-h-screen font-sans selection:bg-pink-100 dark:selection:bg-pink-950/60 transition-colors duration-500 bg-light dark:bg-dark text-zinc-900 dark:text-zinc-100">
       <CustomCursor />
       
       <Navbar 
